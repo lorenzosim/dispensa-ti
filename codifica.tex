@@ -171,7 +171,7 @@ Sia \(C: \X \longrightarrow \D^*\) un codice, C si dice \textit{univocamente dec
 \end{definizione}
 
 Se un codice è UD, allora il destinatario riuscirà sempre a segmentare i bit in arrivo.
-Riprendendo sempre l'esempio precedente, appare chiaro che il codice in figura \ref{fig:codice3}  non è UD Infatti nella sua estensione 2° (tabella \ref{tab:codice4}) compare la sequenza '010', che però è presenta anche nel codice originale (figura \ref{fig:codice3}).
+Riprendendo sempre l'esempio precedente, appare chiaro che il codice in figura \ref{fig:codice3}  non è UD Infatti nella sua estensione 2° (tabella \ref{tab:codice4}) compare la sequenza '010', che però è presente anche nel codice originale (figura \ref{fig:codice3}).
 
 
 I codici UD sono sicuramente non ambigui, ma alcuni di essi possono essere inefficienti, come quello rappresentato in figura \ref{fig:0024}: in questo caso il fatto che una parola sia prefisso dell'altra provoca l'introduzione di un ritardo di decodifica. Ciò è dovuto al fatto che è necessario un certo numero di simboli per riuscire a distinguere le due differenti parole. Per ovviare a questo problema introduciamo un'ulteriore classe di codici.
@@ -731,7 +731,7 @@ con l'entropia.
 
 \subsection{Codice di Huffman}
 Vediamo ora un altro codice, che questa volta è ottimale. Si tratta del codice di Huffman.
-A differenza del codice di Shannon, in questo caso viene fornito un algorimo, che consente di costruire il codice.
+A differenza del codice di Shannon, in questo caso viene fornito un algoritmo, che consente di costruire il codice.
 L'idea di fondo è che ai simboli meno probabili debbano essere assegnate le parole di codice più lunghe (e di egual lunghezza).
 Per semplicità utilizziamo un esempio per descrivere il funzionamento dell'algoritmo.
 Consideriamo il procedimento in tabella \ref{tab:huffman1}:
@@ -799,8 +799,7 @@ E' interessante notare che a volte non è necessario terminare tutto il procedime
 eseguire. Naturalmente è difficile avere a disposizione un codice ottimale ``direttamente''. Tuttavia se la distribuzioni di probabilità è D-adica, come abbiamo visto, possiamo utilizzare il codice di Shannon.
 Consideriamo l'esempio in tabella \ref{tab:huffman3}. In questo caso $S_1$ è D-adica.
 E' facile dunque calcolare le lunghezze delle parole di codice, che sono banalmente 1,2,3,3. Infatti 
-log(2)=1,log(4)=2,log(8)=3. Basta quindi costruire un codice UD che rispetti queste lunghezze e proseguire da questo punto 
-l'algoritmo di Huffman.
+log(2)=1,log(4)=2,log(8)=3. Basta quindi costruire un codice UD che rispetti queste lunghezze e proseguire da questo punto in poi con l'algoritmo di Huffman.
 
 \begin{table}[htbp]
   \begin{center}
@@ -1026,7 +1025,7 @@ Abbiamo utilizzato il codice di Huffman solamente con alfabeti binari, tuttavia 
 funziona anche nel caso più generale di alfabeti D-ari. Anche la dimostrazione di ottimalità può essere estesa 
 per considerare questo caso (non sarà fatto).
 
-Naturalmente l'algoritmo necessità di qualche modifica, nel caso di alfabeti con D simboli. In maniera abbastanza intuitiva, invece di prendere gli ultimi 2 simboli, si prenderanno gli ultimi D.
+Naturalmente l'algoritmo necessita di qualche modifica, nel caso di alfabeti con D simboli. In maniera abbastanza intuitiva, invece di prendere gli ultimi 2 simboli, si prenderanno gli ultimi D.
 Tuttavia c'è un problema evidente: il numero di simboli di partenza, potrebbe non ridursi esattamente a D nell'ultima fase ``forward''.
 Per risolvere questo problema, possiamo aggiungere dei simboli fittizzi (con probabilità 0) nella fase iniziale.
 Naturalmente bisogna determinare quanti simboli è necessario aggiungere.
@@ -1104,8 +1103,8 @@ In sostanza quindi, sembrerebbe che il limite di efficienza sia stato raggiunto 
 l'informazione. E' stato anche visto che se la distribuzione X non è D-adica, nemmeno un codice ottimale (e.g. Huffman) riesce a raggiungere (relativamente alla lunghezza) il valore dell'entropia (che è un limite inferiore).
 
 Analizzando più attentamente la questione, ci si accorge che fortunatamente si può fare di meglio. Fino ad ora infatti abbiamo 
-considerati i simboli emessi dalla sorgente singolarmente. E' interessante invece vedere cosa si riesce ad ottenere se si considerano 
-insieme di simboli. Si vuole in sostanza fare una cosiddetta ``Codifica a pacchetto''.
+considerato i simboli emessi dalla sorgente singolarmente. E' interessante invece vedere cosa si riesce ad ottenere se si considerano 
+insiemi di simboli. Si vuole in sostanza fare una cosiddetta ``Codifica a pacchetto''.
 
 Per inquadrare meglio questa idea, facciamo un esempio. Supponiamo che la sorgente generi due simboli A e B, con probabilità rispettivamente 2/3 ed 1/3. Il miglior codice possibile è banalmente quello che utilizza un unico bit per simbolo (tabella 
 \ref{tab:codpac1}).
