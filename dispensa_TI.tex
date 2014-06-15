@@ -1,0 +1,115 @@
+%
+% Dimostrazione funzione continua
+% Concavità e magari anche continuità dell'informazione mutua
+%  Controllare di aver usato tutti i lemmi introdotti
+%  Esempio, huffman non uso la regola di morse parrebbe...
+%
+
+% classe del documento
+\documentclass[12pt]{report}
+
+% dimensione del documento
+\usepackage{a4}
+
+% encoding per i caratteri latini
+%\usepackage{ae,aecompl}
+
+%figure affiancate
+\usepackage{subfig}
+
+% package per la lingua italiana
+\usepackage[latin1]{inputenc}
+\usepackage[italian]{babel}
+
+% package per i caratteri speciali matematici
+\usepackage{amsfonts}
+
+%tabelle
+\usepackage{booktabs}
+
+%package per l'elisione di termini nelle formule
+\usepackage{cancel}
+
+% package per ambienti matematici
+\usepackage[fleqn]{amsmath}
+\usepackage{amsthm,amssymb}
+\usepackage{array}
+\usepackage{comment}
+
+%package per le immagini
+\usepackage{graphicx}
+
+% package per i link
+\usepackage[colorlinks=true]{hyperref}
+
+% definizioni
+\theoremstyle{definition} 
+\newtheorem{definizione}{Definizione}
+
+%teoremi
+\theoremstyle{plain} 
+\newtheorem{teorema}{Teorema}
+
+\theoremstyle{plain} 
+\newtheorem*{corollario}{Corollario}
+
+\theoremstyle{plain} 
+\newtheorem{proposizione}{Proposizione}
+
+\theoremstyle{plain} 
+\newtheorem{lemma}{Lemma}
+
+\theoremstyle{plain} 
+\newtheorem{osservazione}{Osservazione}
+
+% impostazioni margini
+\oddsidemargin=.15in
+\evensidemargin=.15in
+\topmargin=-0.4in
+\textheight=8.6in
+
+% titolo e autore e data
+\title{Dispensa di Teoria dell'Informazione}
+\author{Lorenzo Simionato\footnote{E-Mail: lorenzo@simionato.org}
+        e Daniele Turato\footnote{E-Mail: dream85@gmail.com}}
+\date{} 
+
+% definizione nuovi simboli
+\def\esercizio{\noindent \textbf{Esercizio:\\}}
+\def\soluzione{\noindent \textbf{Soluzione:\\}}
+\def\esempio{\noindent \textbf{Esempio:\\}}
+\def\endsoluzione{\vspace{2ex} \\}
+\def\spazio{\vspace{1ex} \hspace*{\fill} \\}
+
+\newcommand{\numberset}{\mathbb}
+\newcommand{\N}{\numberset{N}}
+\newcommand{\Z}{\numberset{Z}}
+\newcommand{\Q}{\numberset{Q}}
+\newcommand{\R}{\numberset{R}}
+\newcommand{\C}{\numberset{C}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\E}{\mathcal{E}}
+\makeatletter
+  \DeclareRobustCommand*\textsubscript[1]{%
+    \@textsubscript{\selectfont#1}}
+  \newcommand{\@textsubscript}[1]{%
+    {\m@th\ensuremath{_{\mbox{\fontsize\sf@size\z@#1}}}}}
+\makeatother 
+
+% inizio del documento
+\begin{document}
+\maketitle
+\pagenumbering{roman} \setcounter{page}{1}
+\include{versione}
+\include{prefazione}
+\pagenumbering{arabic} \setcounter{page}{1}
+\tableofcontents
+\include{introduzione}
+\include{entropia}
+\include{codifica}
+\include{canale}
+\include{esercizi}
+\include{bibliografia}
+
+\end{document}
