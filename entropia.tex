@@ -6,39 +6,39 @@
 Si dice \textit{entropia} il contenuto informativo medio di una sorgente S.
 \end{definizione}
 
-Dato un generico evento E come possiamo materialmente definire il contenuto informativo I(E) di questo evento? Shannon parte dalla considerazione che l'osservatore ha un patrimonio di conoscenze acquisite e di conseguenza ha una certa idea della probabilit‡ che tale evento si verifichi. L'idea di base Ë che il contenuto informativo ha a che fare con l'incertezza: pi˘ l'osservatore Ë sorpreso nel 
-vedere un simbolo, pi˘ il livello di contenuto informativo sar‡ alto (e viceversa).
-Quindi pi˘ la probabilit‡ di un evento Ë bassa, pi˘ sar‡ alto il suo I(E) se tale evento si verifica, fino ad arrivare all'estremo di un evento con probabilit‡ prossima a 0, che avr‡ un contenuto informativo tendente a infinito.
+Dato un generico evento E come possiamo materialmente definire il contenuto informativo I(E) di questo evento? Shannon parte dalla considerazione che l'osservatore ha un patrimonio di conoscenze acquisite e di conseguenza ha una certa idea della probabilit√† che tale evento si verifichi. L'idea di base √® che il contenuto informativo ha a che fare con l'incertezza: pi√π l'osservatore √® sorpreso nel 
+vedere un simbolo, pi√π il livello di contenuto informativo sar√† alto (e viceversa).
+Quindi pi√π la probabilit√† di un evento √® bassa, pi√π sar√† alto il suo I(E) se tale evento si verifica, fino ad arrivare all'estremo di un evento con probabilit√† prossima a 0, che avr√† un contenuto informativo tendente a infinito.
 
-Possiamo quindi dire che il contenuto informativo di un evento sar‡ funzione della sua probabilit‡:
+Possiamo quindi dire che il contenuto informativo di un evento sar√† funzione della sua probabilit√†:
 \[I(E) = f(P(E))\]
-Proviamo ora a enumerare quali propriet‡ debba avere la funzione f affinchË il ragionamento fatto finora abbia senso:
+Proviamo ora a enumerare quali propriet√† debba avere la funzione f affinch√® il ragionamento fatto finora abbia senso:
 \begin{enumerate}
-\item f dovrebbe essere definita nell'intervallo \((0,1]\) (aperto a sinistra). Infatti l'argomento di f Ë una probabilit‡ (che per 
-definizione Ë compresa tra 0 e 1). Inoltre escludiamo lo 0, in quanto in tal caso l'evento non si verifica mai e non Ë quindi di interesse. Si deve quindi avere:
+\item f dovrebbe essere definita nell'intervallo \((0,1]\) (aperto a sinistra). Infatti l'argomento di f √® una probabilit√† (che per 
+definizione √® compresa tra 0 e 1). Inoltre escludiamo lo 0, in quanto in tal caso l'evento non si verifica mai e non √® quindi di interesse. Si deve quindi avere:
 \[f: (0,1] \longrightarrow \R^+\]
 \item f(1) = 0, in quanto l'evento certo non porta nessuna informazione
 \item $\lim_{P(E) \rightarrow 0} f(P(E)) = + \infty$
-      In quanto quando la probabilit‡ tende a 0, abbiamo il massimo contenuto informativo (c'Ë la massima ``sorpresa'').
-\item f sar‡ una funzione continua, in quanto non ci aspettiamo che ci siano dei ``salti'' di probabilit‡
-\item f sar‡ una funzione monotona decrescente (strettamente)
-\item consideriamo 2 eventi indipendenti \(E_1\) ed \(E_2\) (esempio: ``oggi c'Ë il sole'' ed ``Ë uscita testa dal lancio di una moneta'') , il contenuto informativo dell'intersezione dei due eventi \(I(E_1 \cap E_2)\) (l'evento congiunto) Ë dato dalla somma dei rispettivi contenuti informativi:
+      In quanto quando la probabilit√† tende a 0, abbiamo il massimo contenuto informativo (c'√® la massima ``sorpresa'').
+\item f sar√† una funzione continua, in quanto non ci aspettiamo che ci siano dei ``salti'' di probabilit√†
+\item f sar√† una funzione monotona decrescente (strettamente)
+\item consideriamo 2 eventi indipendenti \(E_1\) ed \(E_2\) (esempio: ``oggi c'√® il sole'' ed ``√® uscita testa dal lancio di una moneta'') , il contenuto informativo dell'intersezione dei due eventi \(I(E_1 \cap E_2)\) (l'evento congiunto) √® dato dalla somma dei rispettivi contenuti informativi:
 \[I(E_1 \cap E_2) = I(E_1) + I(E_2)\]
-Esprimendo il contenuto informativo utilizzando la funzione f, e tenendo conto che la probabilit‡ dell'evento congiunto Ë pari al prodotto della probabilit‡ dei singoli eventi otteniamo:
+Esprimendo il contenuto informativo utilizzando la funzione f, e tenendo conto che la probabilit√† dell'evento congiunto √® pari al prodotto della probabilit√† dei singoli eventi otteniamo:
 \[
 \begin{split}
 I(E_1 \cap E_2) &= f(P(E_1 \cap E_2)) \\
 &= f(P(E_1) \cdot P(E_2)) 
 \end{split}
 \]
-quindi dovr‡ essere:
+quindi dovr√† essere:
 \[I(E_1) + I(E_2) = f(P(E_1) \cdot P(E_2))  \]
-ossia (sintesi finale della propriet‡):
+ossia (sintesi finale della propriet√†):
 \[ f(P(E_1) \cdot P(E_2)) = f(P(E_1)) + f(P(E_2)) \]
 \end{enumerate}
 
-Una funzione che permette di rispettare la propriet‡ 6 Ë il logaritmo (\ref{fig:0010}), in quanto il logaritmo del prodotto di due termini Ë pari alla somma dei logaritmi dei singoli termini, ma tale funzione non rispetta la propriet‡ 3. Possiamo perÚ prendere la funzione \(- \log x\) (figura \ref{fig:0011}): questa rispetta tutte le propriet‡, per cui Shannon ha definito il \textbf{contenuto informativo di un evento} come \(- \log P(E)\), oppure come \(\log \frac{1}{P(E)}\) (semplice propriet‡ dei logaritmi).
-Shannon dimostra anche che questa funzione Ë l'unica in grado di rispettare tutte le propriet‡.
+Una funzione che permette di rispettare la propriet√† 6 √® il logaritmo (\ref{fig:0010}), in quanto il logaritmo del prodotto di due termini √® pari alla somma dei logaritmi dei singoli termini, ma tale funzione non rispetta la propriet√† 3. Possiamo per√≤ prendere la funzione \(- \log x\) (figura \ref{fig:0011}): questa rispetta tutte le propriet√†, per cui Shannon ha definito il \textbf{contenuto informativo di un evento} come \(- \log P(E)\), oppure come \(\log \frac{1}{P(E)}\) (semplice propriet√† dei logaritmi).
+Shannon dimostra anche che questa funzione √® l'unica in grado di rispettare tutte le propriet√†.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -56,7 +56,7 @@ Shannon dimostra anche che questa funzione Ë l'unica in grado di rispettare tutt
 \end{center}
 \end{figure}
 
-Abbiamo cosÏ definito il contenuto informativo di un singolo evento, dobbiamo invece cercare di esprimere il \textbf{contenuto informativo medio} della sorgente. Supponiamo quindi di avere una sorgente che genera una sequenza di simboli \(s_1, s_2, s_3 ... s_n\). Ciascun evento (ovvero simbolo generato) ha contenuto informativo pari a \(I(s_1), I(s_2) ... I(s_n) = -\log p(s_1), -\log p(s_2) ... -\log p(s_n)\). Il contenuto informativo medio della sorgente sar‡ quindi la media dei contenuti informativi dei singoli eventi:
+Abbiamo cos√¨ definito il contenuto informativo di un singolo evento, dobbiamo invece cercare di esprimere il \textbf{contenuto informativo medio} della sorgente. Supponiamo quindi di avere una sorgente che genera una sequenza di simboli \(s_1, s_2, s_3 ... s_n\). Ciascun evento (ovvero simbolo generato) ha contenuto informativo pari a \(I(s_1), I(s_2) ... I(s_n) = -\log p(s_1), -\log p(s_2) ... -\log p(s_n)\). Il contenuto informativo medio della sorgente sar√† quindi la media dei contenuti informativi dei singoli eventi:
 \[
 \begin{split}
 H(S) &= \sum_{s \in S} p(s) I(s)\\
@@ -67,12 +67,12 @@ H(S) &= \sum_{s \in S} p(s) I(s)\\
 
 In maniera del tutto equivalente, possiamo descrivere la sorgente con una variabile aleatoria (v.a.).
 In particolare possiamo considerare la v.a. X, tale che \(\X = \{x_1, x_2 ... x_n\}\).
-La probabilit‡ che si verifichi l'evento x Ë:
+La probabilit√† che si verifichi l'evento x √®:
 \[P\{X = x\} = p(x) \ x \in \X\]
-allora il contenuto informativo per tale evento Ë:
+allora il contenuto informativo per tale evento √®:
 \[I\{X = x\} = - \log p(x)\]
-In maniera analoga a prima, il contenuto informativo medio sar‡ dato dal valore atteso della variabile X.
-Questa quantit‡ Ë proprio l'entropia H(X) (si noti che questo concetto non ha nulla a che fare con quello di entropia della fisica).
+In maniera analoga a prima, il contenuto informativo medio sar√† dato dal valore atteso della variabile X.
+Questa quantit√† √® proprio l'entropia H(X) (si noti che questo concetto non ha nulla a che fare con quello di entropia della fisica).
 
 \noindent
 Formalmente:
@@ -80,21 +80,21 @@ Formalmente:
 \[H(X) \triangleq - \sum_{x \in \X} p(x) \log p(x) = \sum_{x \in \X} p(x) \log \frac{1}{p(x)}\]
 \end{definizione}
 
-A questo punto dobbiamo definire l'unit‡ di misura che utilizzeremo. Infatti, al variare della base del logaritmo, cambia 
-il valore numerico dell'entropia. In tabella \ref{tab:0001} sono riportate le principali basi utilizzate, con la relativa unit‡ di misura.
+A questo punto dobbiamo definire l'unit√† di misura che utilizzeremo. Infatti, al variare della base del logaritmo, cambia 
+il valore numerico dell'entropia. In tabella \ref{tab:0001} sono riportate le principali basi utilizzate, con la relativa unit√† di misura.
 
 \begin{table}[htbp]
 	\begin{center}
 	\begin{tabular}{ccc}
 		\toprule
-		Base & Unit‡ di misura \\ 
+		Base & Unit√† di misura \\ 
 		\midrule 
 		2    & bit             \\ 
 		e    & nat             \\ 
 		10   & Hartley         \\ 
 		\bottomrule               
 	\end{tabular}
-	\caption{unit‡ di misura utilizzate e basi corrispondenti}
+	\caption{unit√† di misura utilizzate e basi corrispondenti}
 	\label{tab:0001}
 	\end{center}
 \end{table}
@@ -104,26 +104,26 @@ Possiamo convertire da una misura all'altra utilizzando la formule dei logaritmi
 \[\log_b x = \frac{\log_a x}{\log_a b}\]
 
 \noindent
-Se si vuole indicare una entropia in una specifica base, si puÚ utilizzare la seguente definizione:
+Se si vuole indicare una entropia in una specifica base, si pu√≤ utilizzare la seguente definizione:
 \begin{definizione}[entropia con base a]
 Definiamo l' \textit{entropia con base a} come:
 \[H_a(X) = - \sum_{x \in \X} p(x) \log_a p(x)\]
 \end{definizione}
 
-E' a questo punto necessaria una precisazione riguardante la definizione di entropia che Ë stata data.
-Se supponiamo infatti di avere uno o pi˘ simboli dell'alfabeto che non verranno mai generati, si 
+E' a questo punto necessaria una precisazione riguardante la definizione di entropia che √® stata data.
+Se supponiamo infatti di avere uno o pi√π simboli dell'alfabeto che non verranno mai generati, si 
 hanno degli x per i quali \(p(x) = 0\).
-Succede dunque che nel calcolo dell'entropia ci si trova di fronte al calcolo di \(\log 0\), che non Ë definito.
+Succede dunque che nel calcolo dell'entropia ci si trova di fronte al calcolo di \(\log 0\), che non √® definito.
 
 \noindent
-Possiamo perÚ calcolare il limite della quantit‡ in questione:
+Possiamo per√≤ calcolare il limite della quantit√† in questione:
 \[\lim_{p(x) \rightarrow 0} p(x) \log(p(x))\]
 \[=\lim_{x \rightarrow 0} \frac{\log p(x)}{\frac{1}{p(x)}}\]
-applicando la regola di de l'HÙpital:
+applicando la regola di de l'H√¥pital:
 \[\lim_{p(x) \rightarrow 0} \frac{\frac{1}{p(x)}}{-\frac{1}{p(x)^2}} = \lim_{p(x) \rightarrow 0} p(x) = 0\]
 
 Per ovviare quindi al precedente problema poniamo \(0 \log 0 = 0\).
-Questo ci consente di non considerare le probabilit‡ nulle, in quanto non hanno alcuna influenza sul valore 
+Questo ci consente di non considerare le probabilit√† nulle, in quanto non hanno alcuna influenza sul valore 
 dell'entropia.
 
 
@@ -134,24 +134,24 @@ dell'entropia.
 
 \section{Studio della funzione entropia}
 Risulta utile studiare la funzione entropia (lo faremo in un caso particolare), in maniera tale da avere una idea precisa del suo comportamento.
-Innanzitutto perÚ facciamo due osservazioni:
+Innanzitutto per√≤ facciamo due osservazioni:
 \begin{enumerate}
-\item l'entropia Ë sempre maggiore o uguale a 0:
+\item l'entropia √® sempre maggiore o uguale a 0:
 \[H(x) \geq 0\]
-questo perchÈ:
+questo perch√©:
 \[H(x) = - \sum_{x \in \X} p(x) \log p(x)\]
-ma sappiamo che \(p(x) \geq 0\) e che \(\log p(x) \leq 0\), quindi nel complesso \(p(x) \log p(x)\) sar‡ sempre negativo, essendoci il segno meno all'esterno della sommatoria, risulta che l'entropia Ë sempre maggiore o uguale a 0.
+ma sappiamo che \(p(x) \geq 0\) e che \(\log p(x) \leq 0\), quindi nel complesso \(p(x) \log p(x)\) sar√† sempre negativo, essendoci il segno meno all'esterno della sommatoria, risulta che l'entropia √® sempre maggiore o uguale a 0.
 
 \item possiamo cambiare la base dell'entropia (dalla base a alla base b) tramite la seguente formula:
 \[H_b(X) = \log_b a \cdot H_a(X) = \frac{H_a(X)}{\log_a b}\]
-La dimostrazione Ë banale, utilizzando la propriet‡ del cambio di base dei logaritmi.
+La dimostrazione √® banale, utilizzando la propriet√† del cambio di base dei logaritmi.
 \end{enumerate}
 
 Prendiamo ora l'esempio di una variabile aleatoria X associata al lancio di una moneta bilanciata, che assume quindi solo i valori 0 (testa) e 1(croce):
 \[\X = \{0,1\}\]
 \[P\{X = 0\} = 1/2\]
 \[P\{X = 1\} = 1/2\]
-Si tratta del caso peggiore in quanto non possiamo fare previsioni sul prossimo simbolo emesso, poichÈ entrambi hanno la stessa probabilit‡. Vediamo quanto vale l'entropia in questo caso:
+Si tratta del caso peggiore in quanto non possiamo fare previsioni sul prossimo simbolo emesso, poich√© entrambi hanno la stessa probabilit√†. Vediamo quanto vale l'entropia in questo caso:
 \[
 \begin{split} 
 H(X) &= - P(X = 0) \cdot \log P(X = 0) - P(X = 1) \cdot \log P(X = 1)\\ 
@@ -161,7 +161,7 @@ H(X) &= - P(X = 0) \cdot \log P(X = 0) - P(X = 1) \cdot \log P(X = 1)\\
 &= \frac{1}{2} \log{2} + \frac{1}{2} \log{2} = 1 bit
 \end{split} 
 \]
-Abbiamo quindi anallizzato solo il caso particolare in cui la moneta Ë bilanciata, ovvero il caso in cui le probabilit‡ di generazione dei vari simboli siano tutte uguali. Proviamo ora a generalizzare la nostra analisi prendendo in esame la famiglia di sorgenti binarie, introducento un parametro p. Tale parametro esprimere la probabilit‡ di generazione dei 2 simboli (al variare di p ottengo sorgenti diverse):
+Abbiamo quindi anallizzato solo il caso particolare in cui la moneta √® bilanciata, ovvero il caso in cui le probabilit√† di generazione dei vari simboli siano tutte uguali. Proviamo ora a generalizzare la nostra analisi prendendo in esame la famiglia di sorgenti binarie, introducento un parametro p. Tale parametro esprimere la probabilit√† di generazione dei 2 simboli (al variare di p ottengo sorgenti diverse):
 \[X \ v.a. \qquad \X = \{0,1\}\]
 \begin{align*}
 p(0) &= P(X = 0) = p \quad 0 \leq p \leq 1 \\
@@ -176,12 +176,12 @@ Studiamo ora il comportamento di questa funzione (figura \ref{fig:entropia}).
 \noindent
 Osserviamo che:
 \begin{enumerate}
-\item qualsiasi entropia Ë sempre maggiore o uguale a 0
+\item qualsiasi entropia √® sempre maggiore o uguale a 0
 \item negli estremi dell'intervallo la funzione assume valori (ricordando che abbiamo posto \(0 \log 0 = 0\)):
 \[H(0) = - 0 \log{0} -(1-0) \log (1-0) = 0\] 
 \[H(1) = - 1 \log{1} -(1-1) \log (1-1) = 0\]
 dall'esempio precedente sappiamo inoltre che \(H(1/2) = 1\);
-\item si puÚ notare una certa simmetria, tale che \(H(p) = H(1-p)\) infatti:
+\item si pu√≤ notare una certa simmetria, tale che \(H(p) = H(1-p)\) infatti:
 \[
 \begin{split}
 H(1-p) &= - (1- p) \log{(1-p)} -(1- 1 + p) \log (1- 1 + p) \\
@@ -198,11 +198,11 @@ D \ H(p) &= \frac{d H(p)}{d p} \\
 &= \log (1-p) - \log p \\ 
 \end{split} 
 \]
-per trovare i punti di massimo Ë sufficiente controllare quando si annulla la derivata:
+per trovare i punti di massimo √® sufficiente controllare quando si annulla la derivata:
 \[\frac{d H(p)}{d p} = 0 \Longrightarrow \log (1-p) \cdot \log p = 0 \iff 1-p = p \iff p = 1/2\]
-Quindi c'Ë un unico punto in cui si annulla, ossia il massimo valore assunto dall'entropia Ë:
+Quindi c'√® un unico punto in cui si annulla, ossia il massimo valore assunto dall'entropia √®:
 \[H(1/2) = 1\]
-\item H(p) Ë concava\footnote{
+\item H(p) √® concava\footnote{
 \begin{definizione}[funzione convessa]
 Data la funzione:
 \[f: [a,b] \longrightarrow \R \]
@@ -212,17 +212,17 @@ f si dice \textit{funzione convessa} se
 
 \begin{definizione}[funzione concava]
 Data la funzione:
-\[f: [a,b] \longrightarrow \R \]f si dice \textit{funzione concava} se -f Ë convessa.
+\[f: [a,b] \longrightarrow \R \]f si dice \textit{funzione concava} se -f √® convessa.
 \end{definizione}
-} per il teorema descritto nella nota a piË di pagina\footnote{
+} per il teorema descritto nella nota a pi√® di pagina\footnote{
 \begin{teorema}
-se \(f \in \E^1\) (ossia se f Ë derivabile almeno 1 volta) allora:
+se \(f \in \E^1\) (ossia se f √® derivabile almeno 1 volta) allora:
 \[\mbox{f convessa} \iff \forall x, x_0 \in [a,b] : f(x) \geq f(x_0) + f'(x_0) (x-x_0)\]
 \label{concava1}
 \end{teorema}
 
 \begin{teorema}
-se \(f \in \E^2\) (ossia se f Ë derivabile almeno 2 volte) allora:
+se \(f \in \E^2\) (ossia se f √® derivabile almeno 2 volte) allora:
 \[\mbox{f convessa} \iff \forall x \in [a,b]: f''(x) \geq 0\]
 \label{concava}
 \end{teorema}
@@ -235,7 +235,7 @@ H''(p) &= \frac{d^2 H(p)}{dp^2} = \\
 \end{split} 
 \]
 in quanto per \(p \in [0,1]\) sia \(- \frac{1}{1-p}\) sia \(- \frac{1}{p}\) sono negativi;
-\item la funzione Ë simmetrica rispetto all'asse verticale \(p = \frac{1}{2}\); per dimostrarlo deve essere che \(\forall \ q \leq 1/2\):
+\item la funzione √® simmetrica rispetto all'asse verticale \(p = \frac{1}{2}\); per dimostrarlo deve essere che \(\forall \ q \leq 1/2\):
 \[H(1/2 - q) = H(1/2 + q)\]
 ma sappiamo che:
 \[H(p) = H(1-p)\]
@@ -243,7 +243,7 @@ quindi:
 \[H(1/2 + q) = H(1-(1/2 - q)) = H(1/2 - q)\]
 pertanto la funzione entropia ha una forma a campana simmetrica (figura \ref{fig:entropia}).
 \end{enumerate}
-Si ricordi che questo studio Ë stato effettuato nel caso di 2 variabili (i grafici sono infatti bidimensionali). E' possibile (sebbene 
+Si ricordi che questo studio √® stato effettuato nel caso di 2 variabili (i grafici sono infatti bidimensionali). E' possibile (sebbene 
 sia abbastanza complicato), estendere quanto visto al caso generale con n variabili.
 
 \begin{figure}[htbp]
@@ -265,7 +265,7 @@ sia abbastanza complicato), estendere quanto visto al caso generale con n variab
 
 \section{Proposizioni sull'entropia}
 Vengono ora presentate alcune proposizioni che hanno come oggetto l'entropia.
-Tuttavia, per dimostrare formalmente la loro validit‡, sar‡ necessario introdurre prima 
+Tuttavia, per dimostrare formalmente la loro validit√†, sar√† necessario introdurre prima 
 alcuni concetti e risultati.
 \subsection{Simplesso standard}
 
@@ -277,7 +277,7 @@ alcuni concetti e risultati.
   \label{fig:animals}
 \end{figure}
 
-Il simplesso standard di $R^n$ o spazio delle probabilit‡ n-dimensionale, Ë definito come segue:
+Il simplesso standard di $R^n$ o spazio delle probabilit√† n-dimensionale, √® definito come segue:
 \begin{definizione}[Simplesso standard]
 
  \[ \triangle_n = \{ \bar{x} \in R^n \mid \sum_{i=1}^{n} x_i=1 \ ; \ \forall i=1..n: x_i \ge 0 \} \]
@@ -286,8 +286,8 @@ Il simplesso standard di $R^n$ o spazio delle probabilit‡ n-dimensionale, Ë defi
 Per chiarire meglio il concetto, facciamo due esempi:
 \begin{itemize}
  \item Nel caso in cui n=2, abbiamo il simplesso standard unidimensionale (figura \ref{fig:simpl2}).
-       Deve essere che $x_1 \ge 0, x_2 \ge 0$ e che $x_1+x_2=1$. Nella figura $x_1$ Ë rappresentato 
-       sull'asse x, mentre $x_2$ sull'asse y (l'inverso Ë equivalente).
+       Deve essere che $x_1 \ge 0, x_2 \ge 0$ e che $x_1+x_2=1$. Nella figura $x_1$ √® rappresentato 
+       sull'asse x, mentre $x_2$ sull'asse y (l'inverso √® equivalente).
        Si ottiene dunque un segmento.
  \item Nel caso in cui n=3, abbiamo il simplesso standard bidimensionale (figura \ref{fig:simpl3}).
        In questo caso si ottiene un triangolo.
@@ -298,8 +298,8 @@ Per chiarire meglio il concetto, facciamo due esempi:
 
 
 \subsection{Disuguaglianza di Gibbs}
-Prima di introdurre la disuguaglianza di Gibbs, presentiamo un lemma che sar‡ utile 
-per dimostrare la validit‡ della disuguaglianza.
+Prima di introdurre la disuguaglianza di Gibbs, presentiamo un lemma che sar√† utile 
+per dimostrare la validit√† della disuguaglianza.
 
 \begin{lemma}
 
@@ -307,8 +307,8 @@ per dimostrare la validit‡ della disuguaglianza.
  \begin{proof}
   Sia $y=ln(x)$, allora $y'=\frac{1}{x}$ e $y''=-\frac{1}{x^2}$.
 
-  PoichÈ $y''$ Ë sempre negativa, la funzione y Ë strettamente concava (Teorema \ref{concava}).
-  Ma se una funzione Ë concava, per il teorema \ref{concava1} deve essere:
+  Poich√© $y''$ √® sempre negativa, la funzione y √® strettamente concava (Teorema \ref{concava}).
+  Ma se una funzione √® concava, per il teorema \ref{concava1} deve essere:
   \[ f(x) \le f(x_0) + f'(x_0)(x-x_0) \]
   
   Quindi per la funzione y:
@@ -321,10 +321,10 @@ per dimostrare la validit‡ della disuguaglianza.
 \end{lemma}
 
 \begin{osservazione}
- Il lemma precedente puÚ essere esteso anche al caso di un logaritmo con base qualunque.
+ Il lemma precedente pu√≤ essere esteso anche al caso di un logaritmo con base qualunque.
  In particolare risulta:
  \[log(x) \le log(e)(x-1) \]
- La dimostrazione Ë banale e si basa sulla formula per il cambio di base tra logaritmi.
+ La dimostrazione √® banale e si basa sulla formula per il cambio di base tra logaritmi.
 \end{osservazione}
 
 
@@ -336,21 +336,21 @@ per dimostrare la validit‡ della disuguaglianza.
  \begin{proof}
     
    Supponiamo che $\forall i=1..n$: $p_i>0 \ e \ q_i>0$.
-  Se cosÏ non fosse possiamo avere i seguenti casi:
+  Se cos√¨ non fosse possiamo avere i seguenti casi:
 
   \begin{itemize}
-   \item $p_i=0 \ e \ q_i=0$: si ha che l'elemento delle sommatorie Ë 0log(0), che per la convenzione 
+   \item $p_i=0 \ e \ q_i=0$: si ha che l'elemento delle sommatorie √® 0log(0), che per la convenzione 
    stabilita in precedenza, vale 0. In questo caso quindi possiamo ignorare gli elementi
    in quanto non modificano il valore delle sommatorie.
    \item $p_i=0 \ e \ q_i \ge 0$: in questo caso si ha 0log(0) nella parte sinistra (risulta 0
-   come nel caso di prima). Nella parte destra invece $0log(q_i)$ Ë banalmente 0.
-   Il caso Ë quindi analogo al precedente.
-   \item $p_i \ge 0 \ e \ q_i=0$: in questo caso la disuguaglianza Ë vera. 
+   come nel caso di prima). Nella parte destra invece $0log(q_i)$ √® banalmente 0.
+   Il caso √® quindi analogo al precedente.
+   \item $p_i \ge 0 \ e \ q_i=0$: in questo caso la disuguaglianza √® vera. 
    Infatti si avrebbe $p_i log(0)$. Ma passando al limite log(0) tende a $- \infty$. 
-   La parte destra della disuguaglianza Ë dunque $+ \infty$.
+   La parte destra della disuguaglianza √® dunque $+ \infty$.
   \end{itemize}
 
-   PoichÈ $p_i>0 \ e \ q_i>0$:
+   Poich√© $p_i>0 \ e \ q_i>0$:
    \[ \frac{q_i}{p_i}>0 \].
    Per il lemma \ref{lemma_entr} si ha:
    \[ ln \left( \frac{q_i}{p_i} \right) \le \frac{q_i}{p_i} - 1 \]
@@ -367,7 +367,7 @@ per dimostrare la validit‡ della disuguaglianza.
   \[ \Rightarrow -\sum_{i=1}^{n} p_i ln \left( p_i \right) \le
     -\sum_{i=1}^{n} p_i ln \left( q_i \right) \]
 
-  Il lemma Ë stato dimostrato per il logaritmo naturale, tuttavia tramite la solita propriet‡ per il cambio di base
+  Il lemma √® stato dimostrato per il logaritmo naturale, tuttavia tramite la solita propriet√† per il cambio di base
   risulta chiaro che la diseguaglianza vale con qualunque base.
  \end{proof}
  \label{gibbs}
@@ -414,7 +414,7 @@ le proposizioni:
 
   \[ \Rightarrow H(\bar{p}) \le log(n) \]
   Resta da dimostrare che \[H(\frac{1}{n},\frac{1}{n},...,\frac{1}{n})=log(n) \]
-  Che puÚ essere provato calcolando direttamente l'entropia:
+  Che pu√≤ essere provato calcolando direttamente l'entropia:
 
   \[H(\frac{1}{n},\frac{1}{n},...,\frac{1}{n})=\sum_{i=1}^n \frac{1}{n} log(n)=log(n) \sum_{i=1}^n \frac{1}{n}=log(n) \]
 
@@ -426,7 +426,7 @@ le proposizioni:
  \[0 \le H(\bar{p}) \le log(n) \]
 
   \begin{proof}
-   L'entropia Ë maggiore o uguale a 0 per definizione ed Ë 
+   L'entropia √® maggiore o uguale a 0 per definizione ed √® 
    minore od uguale a log(n) per la proposizione \ref{propen}.
   \end{proof}
 \end{proposizione}
@@ -451,12 +451,12 @@ Poniamo inoltre:
 \[Pr\{X=x,Y=y\}=p(x,y) \ e \ Pr\{X=x/Y=y\}=p(x/y) \]
 
 \begin{definizione}
- L'entropia congiunta H(X,Y) di due variabili casuali X e Y Ë:
+ L'entropia congiunta H(X,Y) di due variabili casuali X e Y √®:
  \[ H(X,Y)=-\sum_{x \in X} \sum_{y \in Y} p(x,y)log( p(x,y) ) \]
 \end{definizione}
 
 Possiamo anche definire il concetto di entropia condizionata.
-A tal scopo Ë utile ricordare la definizione di probabilit‡ condizionata:
+A tal scopo √® utile ricordare la definizione di probabilit√† condizionata:
   \[ p(a/b)=\frac{p(a,b)}{p(b)} \]
 
 Vogliamo in sostanza chiederci quale sia l'entropia della variabile X, supponendo di conoscere la variabile Y.
@@ -466,11 +466,11 @@ In questo caso si ha:
  H(X/Y=y)= -\sum_{x \in X} p(x/y)log(p(x/y))
 \]
 
-A partire da questo risultato, l'entropia condizionata puÚ essere ottenuto semplicemente 
+A partire da questo risultato, l'entropia condizionata pu√≤ essere ottenuto semplicemente 
 come valore atteso al variare di tutti gli eventi $y_i \in Y$.
 
 \begin{definizione}
- L'entropia condizionata H(X/Y) di due variabili casuali X e Y Ë:
+ L'entropia condizionata H(X/Y) di due variabili casuali X e Y √®:
  \[
   \begin{split}
     H(X/Y) &=  \sum_{y \in Y}p(y)H(X/Y=y)  \\
@@ -478,11 +478,11 @@ come valore atteso al variare di tutti gli eventi $y_i \in Y$.
          &= -\sum_{x \in X} \sum_{y \in Y} p(x,y)log( p(x/y) )
   \end{split}
   \]
- (l'ultimo passaggio deriva dirrettamente dalla definizione di probabilit‡ condizionata)
+ (l'ultimo passaggio deriva dirrettamente dalla definizione di probabilit√† condizionata)
 \end{definizione}
 
 E' lecito domandarsi se esista un legame tra entropia, entropia congiunta ed entropia condizionata.
-La risposta Ë si, come risulta dal seguente teorema.
+La risposta √® si, come risulta dal seguente teorema.
 
 \begin{teorema}[Regola della catena]
  \[ H(X,Y)=H(X)+H(Y/X)=H(Y)+H(X/Y) \]
@@ -540,12 +540,12 @@ A questo punto, in maniera analoga al teorema:
 \bigskip 
 
 \noindent
-Per provare l'utilit‡ della regola della catena, applichiamola ad un esempio concreto.
+Per provare l'utilit√† della regola della catena, applichiamola ad un esempio concreto.
 
 \smallskip
 \noindent
 \textbf{Esempio.}
-Consideriamo due v.a. X,Y le cui probabilit‡ congiunte sono riportate in tabella \ref{tab:catena}
+Consideriamo due v.a. X,Y le cui probabilit√† congiunte sono riportate in tabella \ref{tab:catena}
 
 \begin{table}[htbp]
   \begin{center}
@@ -560,7 +560,7 @@ Consideriamo due v.a. X,Y le cui probabilit‡ congiunte sono riportate in tabella
         p(x) & 1/2 & 1/4 & 1/8 & 1/8 & 1 \\  
     \end{tabular}
      
-     \caption{Probabilit‡ delle v.a. X e Y}
+     \caption{Probabilit√† delle v.a. X e Y}
     \label{tab:catena}
   \end{center}
 \end{table}
@@ -619,7 +619,7 @@ e soprattutto H(X,Y). Nel caso di quest'ultima il calcolo sarebbe stato sicurame
 \bigskip
 \bigskip
 
-E' utile estendere la regola della catena a pi˘ variabili.
+E' utile estendere la regola della catena a pi√π variabili.
 
 \begin{teorema}[Regola della catena generalizzata]
  \[ H(X_1,X_2,...,X_n)=\sum_{i=1}^n H(X_i/X_{i-1},X_{i-2},...,X_1) \]
@@ -631,7 +631,7 @@ E' utile estendere la regola della catena a pi˘ variabili.
  \[
   H(X_1,X_2)=H(X_1)+H(X_2/X_1)
  \]
- Ma questa Ë esattamente la regola della catena (Teorema \ref{catena}).
+ Ma questa √® esattamente la regola della catena (Teorema \ref{catena}).
  \item[Passo induttivo]
   Supponiamo che l'uguaglianza valga per n e dimostriamo che vale anche per n+1.
   Poniamo poi $Z=X_1,X_2,..X_n$. Risulta:
@@ -661,12 +661,12 @@ E' utile estendere la regola della catena a pi˘ variabili.
 
 
 \section{Entropia relativa e informazione mutua}
-Fino ad ora abbiamo preso in considerazione l'entropia relativa ad una sola quantit‡ (anche se tale quantit‡ poteva comprendere pi˘ variabili condizionate e/o congiunte). Ora siamo invece interessati a dei risultati che leghino tra loro pi˘ variabili.
-Prima perÚ Ë necessario introdurre alcuni concetti, utili per le dimostrazioni.
+Fino ad ora abbiamo preso in considerazione l'entropia relativa ad una sola quantit√† (anche se tale quantit√† poteva comprendere pi√π variabili condizionate e/o congiunte). Ora siamo invece interessati a dei risultati che leghino tra loro pi√π variabili.
+Prima per√≤ √® necessario introdurre alcuni concetti, utili per le dimostrazioni.
 
 \begin{definizione}[Insieme convesso]
- Un insieme X si dice convesso se comunque presi due punti $x,y \in X$ il segmento che li congiunge Ë contenuto interamente in X.
- Formalmente, $X \in R^n$ Ë convesso se:
+ Un insieme X si dice convesso se comunque presi due punti $x,y \in X$ il segmento che li congiunge √® contenuto interamente in X.
+ Formalmente, $X \in R^n$ √® convesso se:
  \[
   \forall x,y \in X, \lambda \in [0,1] \ : \ \lambda x + (1-\lambda) y \in X
  \]
@@ -687,11 +687,11 @@ In figura \ref{convessi} sono riportati un insieme convesso ed uno non convesso.
 \end{figure}
 
 \begin{definizione}[Convex Hull]
- Dato un insieme di punti, si dice \textbf{convex hull} (chiusura convessa) il pi˘ piccolo insieme convesso che li contiene tutti.
+ Dato un insieme di punti, si dice \textbf{convex hull} (chiusura convessa) il pi√π piccolo insieme convesso che li contiene tutti.
 \end{definizione}
 
-Il convex hull si puÚ ottenere congiungendo con dei segmenti, i punti pi˘ ``esterni'' dell'insieme. Il convex hull di due punti sar‡ 
-quindi il segmento che li congiunge. In figura \ref{fig:convexhull} Ë riportato il convex hull di 3 punti $p_1,p_2,p_3$. In generale, con k punti:
+Il convex hull si pu√≤ ottenere congiungendo con dei segmenti, i punti pi√π ``esterni'' dell'insieme. Il convex hull di due punti sar√† 
+quindi il segmento che li congiunge. In figura \ref{fig:convexhull} √® riportato il convex hull di 3 punti $p_1,p_2,p_3$. In generale, con k punti:
 \begin{equation}
  CH(p_1,p_2,...,p_k)=\{ p \in R^n \mid p=\sum_{i=1}^k \lambda_i p_i \ \forall \bar{\lambda}=(\lambda_1,\lambda_2,...,\lambda_k) 
 \in \Delta_k\}
@@ -706,8 +706,8 @@ quindi il segmento che li congiunge. In figura \ref{fig:convexhull} Ë riportato 
 \end{center}
 \end{figure}
 
-Dalla definizione di funzione convessa e di convex hull, si puÚ ricavare che data una funzione f convessa e comunque presi k punti $p_1,p_2,..p_k$ su y=f(x), risulta che $CH(p_1,p_2,...p_k)$ sta ``sopra`` y=f(x). L'esempio in figura \ref{fig:convexhull} mostra esattamente questo fatto con 3 punti (f Ë la curva).
-Questo risultato Ë noto come disuguaglianza di Jensen. Tuttavia per arrivare alla forma ''finale`` della disuguaglianza, Ë necessario effettuare qualche passaggio a partire dall'idea che Ë stata appena esposta.
+Dalla definizione di funzione convessa e di convex hull, si pu√≤ ricavare che data una funzione f convessa e comunque presi k punti $p_1,p_2,..p_k$ su y=f(x), risulta che $CH(p_1,p_2,...p_k)$ sta ``sopra`` y=f(x). L'esempio in figura \ref{fig:convexhull} mostra esattamente questo fatto con 3 punti (f √® la curva).
+Questo risultato √® noto come disuguaglianza di Jensen. Tuttavia per arrivare alla forma ''finale`` della disuguaglianza, √® necessario effettuare qualche passaggio a partire dall'idea che √® stata appena esposta.
 
 Potremo allora descrivere tutti gli infiniti punti del convex hull. Ovvero, data $f: [a,b] \to R$ convessa e comunque presi k punti 
 $p_1,p_2,..p_k$ su y=f(x), risulta che:
@@ -732,7 +732,7 @@ Possiamo ora arrivare alla versione finale della disuguaglianza.
  f \left( \sum_{i=1}^k \lambda_i x_i \right) \le \sum_{i=1}^k \lambda_i f(x_i)
  \]
 \begin{proof}
- Per prima cosa Ë necessario dimostrare che il teorema sia ''ben posto``, ovvero che f sia calcolata sempre 
+ Per prima cosa √® necessario dimostrare che il teorema sia ''ben posto``, ovvero che f sia calcolata sempre 
  all'interno del dominio [a,b].
  Bisogna in sostanza dimostrare che:
  \[
@@ -744,7 +744,7 @@ Possiamo ora arrivare alla versione finale della disuguaglianza.
  \]
 
  \noindent
- Il primo caso Ë banale, infatti $x_1..x_k \in$ [a,b] per ipotesi.
+ Il primo caso √® banale, infatti $x_1..x_k \in$ [a,b] per ipotesi.
  Per quanto riguarda il secondo caso invece osserviamo che $\lambda_i \ge0$ per ipotesi.
  Abbiamo quindi che:
  \[\begin{split}
@@ -755,7 +755,7 @@ Possiamo ora arrivare alla versione finale della disuguaglianza.
   \Rightarrow & a \le \sum_{i=1}^k \lambda_i x_i \le b \\
    \end{split}
  \]
-Il teorema Ë dunque ben posto. Possiamo allora iniziare la dimostrazione, per induzione su k (numero di punti).
+Il teorema √® dunque ben posto. Possiamo allora iniziare la dimostrazione, per induzione su k (numero di punti).
 
 \begin{description}
  \item[Caso base, k=2]
@@ -765,11 +765,11 @@ Il teorema Ë dunque ben posto. Possiamo allora iniziare la dimostrazione, per in
   \[
    f( \lambda_1 x_1 + \lambda_2 x_2) \le \lambda_1 f(x_1) + \lambda_2 f(x_2)
   \]
-  Ma ciÚ Ë equivalente a:
+  Ma ci√≤ √® equivalente a:
   \[
    f( \lambda_1 x_1 + (1-\lambda_1) x_2) \le \lambda_1 f(x_1) + (1-\lambda_1) f(x_2)
   \]
-  Che Ë banalmente vero, data la convessit‡ di f.
+  Che √® banalmente vero, data la convessit√† di f.
 
  \item[Passo induttivo]
 \mbox{}
@@ -779,7 +779,7 @@ Pongo:
 \[
  \mu_i=\frac{\lambda_i}{1-\lambda_{k+1}} \ i=1..k
 \]
-Osservo che $\mu_i>0 \forall i=1..k$ (rapporto di quantit‡ positive) e che vale:
+Osservo che $\mu_i>0 \forall i=1..k$ (rapporto di quantit√† positive) e che vale:
 \[\begin{split}
  & \sum_{i=1}^k \mu_i=\sum_{i=1}^k \frac{\lambda_i}{1-\lambda_{k+1}} \\
  &= \frac{1}{1-\lambda_{k+1}} \sum_{i=1}^k \lambda_i
@@ -795,7 +795,7 @@ Considero ora la parte sinistra della disuguaglianza da dimostrare:
  \end{split}
 \]
 
-Ma poichÈ f Ë convessa (primo passaggio) e vale l'ipotesi induttiva (secondo passaggio):
+Ma poich√© f √® convessa (primo passaggio) e vale l'ipotesi induttiva (secondo passaggio):
 \[\begin{split}
  & f \left( (1-\lambda_{k+1}) \sum_{i=1}^k \mu_i x_i +\lambda_{k+1}x_{k+1} \right) \\
  & \le (1-\lambda_{k+1})  f \left( \sum_{i=1}^k \mu_i x_i\right) +\lambda_{k+1} f(x_{k+1})  \\
@@ -817,16 +817,16 @@ che dimostra il passo induttivo, concludendo la dimostrazione.
 \end{teorema}
 
 \begin{corollario}
- Se inoltre f Ë strettamente convessa, vale che:
+ Se inoltre f √® strettamente convessa, vale che:
  \[
  f \left( \sum_{i=1}^k \lambda_i x_i \right) = \sum_{i=1}^k \lambda_i f(x_i) \iff \forall i \in \sigma(\bar{\lambda}) \ : \ x_i=const
  \]
- Dove $\sigma(\bar{\lambda})$ Ë detto supporto di $\bar{\lambda}$. Ovvero Ë l'insieme degli indici i per cui $\lambda_i \ne 0$
+ Dove $\sigma(\bar{\lambda})$ √® detto supporto di $\bar{\lambda}$. Ovvero √® l'insieme degli indici i per cui $\lambda_i \ne 0$
  \begin{proof}
  \mbox{}
 
   \begin{description}
-   \item[\(\Longrightarrow\)] (Omesso, la dimostrazione Ë complicata)
+   \item[\(\Longrightarrow\)] (Omesso, la dimostrazione √® complicata)
    \item[\(\Longleftarrow\)] 
    Si ha che:
    \[\begin{split}
@@ -850,11 +850,11 @@ che dimostra il passo induttivo, concludendo la dimostrazione.
 Introduciamo ora il concetto di metrica (o distanza), al fine di descrivere una particolare distanza.
 
 \begin{definizione}[Metrica]
- Dato un insieme X, una metrica (o distanza) Ë una funzione
+ Dato un insieme X, una metrica (o distanza) √® una funzione
 \[
  d: X \times X \to R
 \]
-Per cui valgono le seguenti propriet‡, $\forall x,y,z \in X$:
+Per cui valgono le seguenti propriet√†, $\forall x,y,z \in X$:
 \[\begin{split}
  & 1) d(x,y) \ge 0 \\
  & 2) d(x,y)=0 \iff x=y \\
@@ -867,7 +867,7 @@ Per cui valgono le seguenti propriet‡, $\forall x,y,z \in X$:
 \begin{definizione}[Distanza di Kullback-Leibler]
 \mbox{}
 
- Dati $\bar{p} \ e \ \bar{q} \in \Delta_n$, la lora distanza di Kullback-Leibler Ë:
+ Dati $\bar{p} \ e \ \bar{q} \in \Delta_n$, la lora distanza di Kullback-Leibler √®:
 \[
  D_{KL}(\bar{p} \| \bar{q})=\sum_{i=1}^n p_i log\frac{p_i}{q_i}
 \]
@@ -877,12 +877,12 @@ Per cui valgono le seguenti propriet‡, $\forall x,y,z \in X$:
 \end{definizione}
 
 \begin{osservazione}
- La distanza di Kullback-Leibler non Ë una metrica. Non valgono infatti le propriet‡ 3 e 4.
+ La distanza di Kullback-Leibler non √® una metrica. Non valgono infatti le propriet√† 3 e 4.
 \end{osservazione}
 
 \begin{teorema}
- La distanza di Kullback-Leibler soddisfa le propriet‡ 1 e 2 di metrica.
- Ovvero, date $\bar{p}$ e $\bar{q} \in \Delta_n$ (distribuzioni di probabilit‡):
+ La distanza di Kullback-Leibler soddisfa le propriet√† 1 e 2 di metrica.
+ Ovvero, date $\bar{p}$ e $\bar{q} \in \Delta_n$ (distribuzioni di probabilit√†):
 
  \begin{itemize}
   \item[(i)]  $D_{KL}(\bar{p} \| \bar{q}) \ge 0$
@@ -901,7 +901,7 @@ Per cui valgono le seguenti propriet‡, $\forall x,y,z \in X$:
     \end{split}
   \]
   Ora posso applicare la disuguaglianza di Jensen (teorema \ref{jensen}). Tuttavia 
-  il verso della disuguaglianza sar‡ inverso, in quanto la funzione logaritmo Ë concava e non convessa.
+  il verso della disuguaglianza sar√† inverso, in quanto la funzione logaritmo √® concava e non convessa.
  \[\begin{split}
   &\sum_{i \in \sigma(\bar{p})} p_i log \frac{q_i}{p_i} \\
    \le & log \sum_{i \in \sigma(\bar{p})} p_i \frac{q_i}{p_i} \\
@@ -920,7 +920,7 @@ Per cui valgono le seguenti propriet‡, $\forall x,y,z \in X$:
    D_{KL}(\bar{p} \| \bar{q}) \ge 0
   \]
  \item[(ii)]
-  Possiamo utilizzare quanto dimostrato nel punto (i). In particolare, la distanza sar‡ zero se e solo se 
+  Possiamo utilizzare quanto dimostrato nel punto (i). In particolare, la distanza sar√† zero se e solo se 
   le due disuguaglianze che compaiono sono uguaglianze.
   Per quanto riguarda la seconda disuguaglianza:
   \[\begin{split}
@@ -929,12 +929,12 @@ Per cui valgono le seguenti propriet‡, $\forall x,y,z \in X$:
    \iff & \forall i \notin \sigma(\bar{p}) : p_i=q_i
    \end{split}
   \]
-   CiÚ Ë vero in quanto, affinchÈ i due termini coincidano, al di fuori del supporto di p non devono esserci indici i per cui 
-   $q_i \ne 0$ (altrimenti la sommatoria ''completa`` sarebbe pi˘ grande ristretto a quella limitata al supporto di p).
+   Ci√≤ √® vero in quanto, affinch√© i due termini coincidano, al di fuori del supporto di p non devono esserci indici i per cui 
+   $q_i \ne 0$ (altrimenti la sommatoria ''completa`` sarebbe pi√π grande ristretto a quella limitata al supporto di p).
    Ma se i non appartiene al supporto di p, allora $p_i=0$. Pertanto deve essere $p_i=q_i=0$, per $i \notin \sigma(\bar{p})$.
 
-   Per quanto riguarda invece la prima disuguaglianza, si avr‡ uguaglianza solamente nel caso limite dato dal corollario al teorema 
-   di Jensen (si noti che la funzione logaritmo Ë strettamente concava).
+   Per quanto riguarda invece la prima disuguaglianza, si avr√† uguaglianza solamente nel caso limite dato dal corollario al teorema 
+   di Jensen (si noti che la funzione logaritmo √® strettamente concava).
    Per il corollario bisogna avere che:
    \[
     \forall i \in \sigma(\bar{\lambda}) \ : \ x_i=const
@@ -970,7 +970,7 @@ Per cui valgono le seguenti propriet‡, $\forall x,y,z \in X$:
 \label{leibler}
 \end{teorema}
 
-La distanza di Kullback-Leibler Ë anche nota come \textit{entropia relativa} e misura in un certo senso la distanza tra due distribuzioni di probabilit‡. Vediamo ora il concetto, molto importante, di informazione mutua (che Ë una particolare distanza di Kullback-Leibler).
+La distanza di Kullback-Leibler √® anche nota come \textit{entropia relativa} e misura in un certo senso la distanza tra due distribuzioni di probabilit√†. Vediamo ora il concetto, molto importante, di informazione mutua (che √® una particolare distanza di Kullback-Leibler).
 
 \begin{definizione}[Informazione mutua]
  Date X,Y v.a e posto al solito $p(x)=Pr\{X=x\}$, $p(y)=Pr\{Y=y\}$, $p(x,y)=Pr\{X=x, Y=y\}$ si definisce 
@@ -981,10 +981,10 @@ La distanza di Kullback-Leibler Ë anche nota come \textit{entropia relativa} e m
 \end{definizione}
 
 \begin{osservazione}
- L'informazione mutua Ë una specifica distanza di Kullback-Leibler: $D_{KL}(p(x,y) \|  p(x)p(y))$.
+ L'informazione mutua √® una specifica distanza di Kullback-Leibler: $D_{KL}(p(x,y) \|  p(x)p(y))$.
  \begin{proof}
-  Bisogna innanzitutto verificare che p(x)p(y) sia una distribuzione di probabilit‡.
-  In maniera banale (prodotto di due probabilit‡):
+  Bisogna innanzitutto verificare che p(x)p(y) sia una distribuzione di probabilit√†.
+  In maniera banale (prodotto di due probabilit√†):
   \[
    0 \le p(x)p(y) \le 1 \ \ \forall x \in X,y \in Y
   \]
@@ -996,15 +996,15 @@ La distanza di Kullback-Leibler Ë anche nota come \textit{entropia relativa} e m
    =&1 
     \end{split}
   \]
-  p(x)p(y) Ë dunque una distribuzione di probabilit‡.
+  p(x)p(y) √® dunque una distribuzione di probabilit√†.
   Ponendo $p_i=p(x,y)$ e $q_i=p(x)p(y)$, si ottiene la distanza KL.
  \end{proof}
 
 \end{osservazione}
 
 In sostanza quindi, l'informazione mutua misura in un certo senso il grado di dipendenza tra due v.a.
-Se infatti le due variabili sono indipendenti, allora p(x,y)=p(x)p(y) e quindi l'informazione mutua vale zero. Viceversa, pi˘ le 
-variabili sono dipendenti tra loro, pi˘ la distanza aumenta. Vediamo ora come l'informazione mutua sia strettamente legata 
+Se infatti le due variabili sono indipendenti, allora p(x,y)=p(x)p(y) e quindi l'informazione mutua vale zero. Viceversa, pi√π le 
+variabili sono dipendenti tra loro, pi√π la distanza aumenta. Vediamo ora come l'informazione mutua sia strettamente legata 
 al concetto di entropia.
 
 \begin{teorema}
@@ -1028,10 +1028,10 @@ In maniera del tutto analoga si dimostra la seconda uguaglianza.
 \label{infmutua}
 \end{teorema}
 
-In sostanza quindi l'informazione mutua puÚ anche essere vista come differenza di entropie. Utilizzando, ad esempio, la prima 
+In sostanza quindi l'informazione mutua pu√≤ anche essere vista come differenza di entropie. Utilizzando, ad esempio, la prima 
 uguaglianza l'informazione mutua tra X e Y mi dice l'incertezza che mi rimane sulla variabile X, dopo aver ''conosciuto`` la variabile 
-Y. Come si vedr‡ pi˘ avanti, questo fatto costituisce la base per l'analisi dei canali di trasmissione (nello specifico Ë fondamentale 
-per calcolare la capacit‡ di un canale).
+Y. Come si vedr√† pi√π avanti, questo fatto costituisce la base per l'analisi dei canali di trasmissione (nello specifico √® fondamentale 
+per calcolare la capacit√† di un canale).
 
 \begin{osservazione}
  I(X;Y)=H(X)+H(Y)-H(X,Y)
@@ -1049,7 +1049,7 @@ per calcolare la capacit‡ di un canale).
  \end{proof}
 \end{osservazione}
 
-Si puÚ utilizzare un diagramma di Venn, per rappresentare (in maniera intuitiva) la relazione tra entropia ed informazione mutua (Figura \ref{fig:mutua}).
+Si pu√≤ utilizzare un diagramma di Venn, per rappresentare (in maniera intuitiva) la relazione tra entropia ed informazione mutua (Figura \ref{fig:mutua}).
 
 \begin{figure}[htbp]
 \begin{center}
@@ -1073,7 +1073,7 @@ Possiamo, sempre sulla base del teorema \ref{infmutua}, effettuare una serie di 
    I(X;Y) \ge 0  
  \]
  \begin{proof}
-  Banale, poichÈ l'informazione mutua Ë una distanza KL che Ë maggiore o uguale a 0 per il teorema \ref{leibler}.
+  Banale, poich√© l'informazione mutua √® una distanza KL che √® maggiore o uguale a 0 per il teorema \ref{leibler}.
  \end{proof}
 \label{distinf}
 \end{osservazione}
@@ -1083,8 +1083,8 @@ Possiamo, sempre sulla base del teorema \ref{infmutua}, effettuare una serie di 
    I(X;Y)=0 \iff X \ e \ Y \ sono \ statisticamente \ indipendenti  
  \]
  \begin{proof}
-  Per il teorema \ref{leibler} una distanza KL Ë 0 se e solo se le due distribuzioni di probabilit‡ coincidono.
-  In questo caso quindi, se e solo se p(x,y)=p(x)p(y) (che Ë proprio la definizione di indipendenza).
+  Per il teorema \ref{leibler} una distanza KL √® 0 se e solo se le due distribuzioni di probabilit√† coincidono.
+  In questo caso quindi, se e solo se p(x,y)=p(x)p(y) (che √® proprio la definizione di indipendenza).
  \end{proof}
  \label{mutuaindip}
 \end{osservazione}
@@ -1101,14 +1101,14 @@ Possiamo, sempre sulla base del teorema \ref{infmutua}, effettuare una serie di 
      \iff & I(X;Y) \ge 0
      \end{split}
    \]
-  Ma per l'osservazione \ref{distinf}, l'informazione mutua Ë sempre maggiore o uguale a zero.
+  Ma per l'osservazione \ref{distinf}, l'informazione mutua √® sempre maggiore o uguale a zero.
   \end{proof}
 
  \label{condizionamento}
 \end{osservazione}
 
 \begin{osservazione}
- La funzione entropia Ë concava. Ovvero dati:
+ La funzione entropia √® concava. Ovvero dati:
  \[
  \bar{p} \in \Delta_n \\
  H(\bar{p})=-\sum_{i=1}^n p_i log(p_i)
@@ -1120,11 +1120,11 @@ Possiamo, sempre sulla base del teorema \ref{infmutua}, effettuare una serie di 
  \]
 
 \begin{proof}
- Consideriamo $\X=\{1..n\}$ e costruiamo due variabili casuali $X_1,X_2$ con valori in $\X$, cosÏ distribuite:
+ Consideriamo $\X=\{1..n\}$ e costruiamo due variabili casuali $X_1,X_2$ con valori in $\X$, cos√¨ distribuite:
  \[
   X_1 \sim \bar{p_1} \\ X_2 \sim \bar{p_2}
  \]
- Consideriamo poi una variabile $\Theta$ nell'insime $\{1,2\}$, cosÏ distribuita:
+ Consideriamo poi una variabile $\Theta$ nell'insime $\{1,2\}$, cos√¨ distribuita:
  \[
   Pr\{\Theta=1\}=\lambda \\ Pr\{\Theta=2\}=1-\lambda
  \]
@@ -1132,7 +1132,7 @@ Possiamo, sempre sulla base del teorema \ref{infmutua}, effettuare una serie di 
  \[
   Z=X_{\Theta}
  \]
- In altre parole Z Ë una variabile composta, che vale $X_1$ con probabilit‡ $\lambda$ e $X_2$ con probabilit‡ $1-\lambda$.
+ In altre parole Z √® una variabile composta, che vale $X_1$ con probabilit√† $\lambda$ e $X_2$ con probabilit√† $1-\lambda$.
  Ora analizziamo la distribuzione Z, calcolando $Pr\{Z=x\} , \ x \in X$:
  \[\begin{split}
   Pr\{Z=x\}=&Pr\{[\Theta=1 \land X_1=x] \lor [\Theta=2 \land X_2=x]  \} \\
@@ -1141,7 +1141,7 @@ Possiamo, sempre sulla base del teorema \ref{infmutua}, effettuare una serie di 
   =& \lambda \bar{p}_{1x} + (1-\lambda) \bar{p}_{2x}
   \end{split}
  \]
-  Dove con $\bar{p}_{1x}$ abbiamo indicato la componente x∞ di $\bar{p}_1$ (similmente per $\bar{p}_2$).
+  Dove con $\bar{p}_{1x}$ abbiamo indicato la componente x¬∞ di $\bar{p}_1$ (similmente per $\bar{p}_2$).
   Risulta quindi che:
   \[
    Z \sim q=\lambda \bar{p}_1 + (1-\lambda) \bar{p}_2
@@ -1192,7 +1192,7 @@ Al solito, calcoliamo prima il valore per uno specifico $z \in Z$:
 \]
 
 \noindent
-Calcoliamo poi (sempre come gi‡ fatto per l'entropia) il valore atteso rispetto a Z:
+Calcoliamo poi (sempre come gi√† fatto per l'entropia) il valore atteso rispetto a Z:
 \[
  \begin{split}
  I(X,Y/Z)&=\sum_{z \in Z} p(z) I(X,Y/Z=z) \\
@@ -1204,7 +1204,7 @@ Calcoliamo poi (sempre come gi‡ fatto per l'entropia) il valore atteso rispetto 
 \bigskip
 \noindent
 Naturalmente non siamo in presenza di una forma ''compatta``. Tuttavia a partire da questo risultato, 
-si puÚ arrivare alla seguente osservazione.
+si pu√≤ arrivare alla seguente osservazione.
 
 \begin{osservazione}
  \[
@@ -1227,8 +1227,8 @@ si puÚ arrivare alla seguente osservazione.
 
 \section{Asymptotic Equipartition Property}
 \label{aep}
-La AEP (Asymptotic Equipartition Property) Ë la variante della legge dei grandi numeri, nel campo della teoria dell'informazione.
-La legge (debole) dei grandi numeri, importante risultato nel campo della statistica, puÚ essere riassunta nel modo seguente.
+La AEP (Asymptotic Equipartition Property) √® la variante della legge dei grandi numeri, nel campo della teoria dell'informazione.
+La legge (debole) dei grandi numeri, importante risultato nel campo della statistica, pu√≤ essere riassunta nel modo seguente.
 
 Siano $Z_1..Z_n$ delle variabili aleatorie i.i.d (indipendenti e identicamente distribuite) ciascuna con media $\mu$ e varianza $\sigma^2$.
 Sia inoltre $\bar{Z}_n$ la media campionaria di queste n variabili, ovvero:
@@ -1242,7 +1242,7 @@ Allora vale che:
  \lim_{n\to\infty}Pr(|\bar{Z}_n-\mu|\le \epsilon)=1
 \]
 
-Possiamo in sostanza dire che (per n grande) la media campionaria tende in probabilit‡ al valore atteso.
+Possiamo in sostanza dire che (per n grande) la media campionaria tende in probabilit√† al valore atteso.
 
 Siano ora $X_1..X_n$ delle variabili aleatorie i.i.d. Indichiamo con $X^n$ l'insieme di tutte le sequenze possibili e con $\bar{x}=(x_1,x_2,...x_n) \in X^n $ una generica sequenza.
 
@@ -1256,13 +1256,13 @@ Allora:
 \[
  A^2=\Bigl \lbrace \{1,1\},\{1,2\},\{1,3\},\{2,1\},\{2,2\},\{2,3\},\{3,1\},\{3,2\},\{3,3\} \Bigl \rbrace
 \]
-Una generica sequenza $\bar{a}$ Ë (ad esempio) $\{2,3\}$.
+Una generica sequenza $\bar{a}$ √® (ad esempio) $\{2,3\}$.
 
 \bigskip
 Possiamo dividere l'insieme $X^n$ in due parti: l'insieme delle sequenze tipiche e l'insieme delle sequenza atipiche.
 
 \begin{definizione}
- L'insieme delle sequenze ($\epsilon$,n)-tipiche Ë:
+ L'insieme delle sequenze ($\epsilon$,n)-tipiche √®:
 \[
  A_{\epsilon}^n=\{ \bar{x} \in X^n \mid 2^{-n(H(x)+\epsilon)} \le p(\bar{x}) \le 2^{-n(H(x)-\epsilon)} \}
 \]
@@ -1270,7 +1270,7 @@ Possiamo dividere l'insieme $X^n$ in due parti: l'insieme delle sequenze tipiche
 \end{definizione}
 
 \noindent
-Stiamo in sostanza affermando che le sequenze tipiche hanno tutte circa la stessa probabilit‡: 
+Stiamo in sostanza affermando che le sequenze tipiche hanno tutte circa la stessa probabilit√†: 
 $p(\bar{x}) \backsimeq 2^{-nH(x)} \ \forall \bar{x} \in A_{\epsilon}^n$
 
 \begin{teorema}[AEP]
@@ -1303,7 +1303,7 @@ $p(\bar{x}) \backsimeq 2^{-nH(x)} \ \forall \bar{x} \in A_{\epsilon}^n$
              &=-\frac{1}{n} log(p(\bar{x}))
   \end{split}
   \]
-  L'ultimo passaggio Ë dovuto all'indipendenza delle variabili.
+  L'ultimo passaggio √® dovuto all'indipendenza delle variabili.
   Consideriamo ora il valore atteso delle variabili Z:
   \[
   \begin{split}
@@ -1330,7 +1330,7 @@ $p(\bar{x}) \backsimeq 2^{-nH(x)} \ \forall \bar{x} \in A_{\epsilon}^n$
 
 Per chiarire meglio i concetti esposti, possiamo rappresentare graficamente l'insieme $X^n$ delle sequenze, che 
 contiene quelle tipiche e quelle atipiche (figura \ref{fig:sequenze}).
-Si nota come si tratti di due insiemi disgiunti. Il teorema AEP ci dice che, per n sufficientemente grande, la probabilit‡ 
+Si nota come si tratti di due insiemi disgiunti. Il teorema AEP ci dice che, per n sufficientemente grande, la probabilit√† 
 di avere una sequenze tipica tende a 1. Inoltre, tutte le sequenze tipiche sono circa equiprobabili.
 
 \begin{figure}[htbp]
@@ -1347,14 +1347,14 @@ di avere una sequenze tipica tende a 1. Inoltre, tutte le sequenze tipiche sono 
 
 \noindent
 Consideriamo il lancio di una moneta. Supponiamo di effettuare n lanci (con n grande) e costruire quindi sequenze lunghe n.
-Se la moneta Ë totalmente sbilanciata ed esce sempre testa (probabilit‡ di avere testa 1, di croce 0), allora ci sar‡ solo una sequenza
+Se la moneta √® totalmente sbilanciata ed esce sempre testa (probabilit√† di avere testa 1, di croce 0), allora ci sar√† solo una sequenza
 tipica: quella formata da tutte teste. Le altre sequenze infatti non potranno mai verificarsi.
-Se la moneta Ë invece perfettamente bilanciata (probabilit‡ di avere testa uguale a probabilit‡ di avere croce) tutte le sequenze 
+Se la moneta √® invece perfettamente bilanciata (probabilit√† di avere testa uguale a probabilit√† di avere croce) tutte le sequenze 
 saranno tipiche. E' facile infatti notare che sono tutte equiprobabili.
 
 \bigskip
 E' interessante a questo punto sapere quanti elementi contiene l'insieme delle sequenze tipiche. Intuitivamente (per n suff. grande) la
-sua cardinalit‡ dovrebbe essere $2^{nH(x)}$. Infatti $1/2^{-nH(x)}=2^{nH(x)}$ poichÈ la probabilit‡ totale Ë 1 e tutte le sequenze 
+sua cardinalit√† dovrebbe essere $2^{nH(x)}$. Infatti $1/2^{-nH(x)}=2^{nH(x)}$ poich√© la probabilit√† totale √® 1 e tutte le sequenze 
 tipiche sono equiprobabili.
 
 \bigskip
@@ -1362,21 +1362,21 @@ tipiche sono equiprobabili.
 \textbf{Esempio}
 
 \noindent
-Riprendiamo l'esempio della moneta considerato prima e proviamo a calcolare la cardinalit‡ dell'insieme sequenze tipiche.
+Riprendiamo l'esempio della moneta considerato prima e proviamo a calcolare la cardinalit√† dell'insieme sequenze tipiche.
 Per quanto detto il numero delle sequenze tipiche dovrebbe essere $2^{nH(x)}$.
-Nel caso in cui la moneta Ë bilanciata, l'entropia risulta:
+Nel caso in cui la moneta √® bilanciata, l'entropia risulta:
 \[
  H(X)=H \left( \frac{1}{2},\frac{1}{2} \right)=1
 \]
-Quindi la cardinalit‡ sarebbe $2^n$, ovvero tutte le sequenze sono tipiche (la cardinalit‡ di $X^n$ Ë banalmente $2^n$).
-Se consideriamo invece la moneta in cui la probabilit‡ di avere testa Ë 1, allora l'entropia risulta:
+Quindi la cardinalit√† sarebbe $2^n$, ovvero tutte le sequenze sono tipiche (la cardinalit√† di $X^n$ √® banalmente $2^n$).
+Se consideriamo invece la moneta in cui la probabilit√† di avere testa √® 1, allora l'entropia risulta:
 \[
  H(X)=H \left(1\right)=0
 \]
-Quindi la cardinalit‡ dovrebbe essere $2^{n0}=1$, ovvero esiste un'unica sequenza tipica.
+Quindi la cardinalit√† dovrebbe essere $2^{n0}=1$, ovvero esiste un'unica sequenza tipica.
 
 \bigskip
-Quanto detto finora Ë solo un ragionamento intuitivo, formalizziamo in maniera pi˘ accurata questo punto tramite alcune 
+Quanto detto finora √® solo un ragionamento intuitivo, formalizziamo in maniera pi√π accurata questo punto tramite alcune 
 proposizioni.
 
 \begin{osservazione}
@@ -1449,14 +1449,14 @@ proposizioni.
 \end{proposizione}
 
 Ques'ultima proposizione dimostra che la nostra intuizione era corretta e formalizza in maniera precisa all'interno 
-di quali estremi si trova la cardinalit‡ dell'insieme delle sequenze tipiche.
+di quali estremi si trova la cardinalit√† dell'insieme delle sequenze tipiche.
 
 \subsection{Generalizzazione dell'AEP}
 
 L'AEP fornisce dei risultati importanti, tuttavia ha delle ipotesi abbastanza restrittive. In particolare, abbiamo supposto che le v.a. 
-$X_1..X_n$, fossero i.i.d. Nel caso di una sorgente generica, ciÚ equivale a dire che essa Ë senza memoria. Non sempre perÚ Ë lecito fare questa assunzione. Per fare un esempio, se la sorgente emette delle lettere che costituiscono parole in lingua italiana, dopo la lettera e.g. h, seguir‡ con tutta probabilit‡ una vocale. In questo contesto quindi non si potrebbe accettare l'ipotesi di indipendenza e non si potrebbe dunque applicare l'AEP.
+$X_1..X_n$, fossero i.i.d. Nel caso di una sorgente generica, ci√≤ equivale a dire che essa √® senza memoria. Non sempre per√≤ √® lecito fare questa assunzione. Per fare un esempio, se la sorgente emette delle lettere che costituiscono parole in lingua italiana, dopo la lettera e.g. h, seguir√† con tutta probabilit√† una vocale. In questo contesto quindi non si potrebbe accettare l'ipotesi di indipendenza e non si potrebbe dunque applicare l'AEP.
 
-Mettiamoci dunque in un caso pi˘ generale, considerando un processo stocastico. Possiamo pensare ad un processo stocastico, come ad una famiglia di variabili casuali $X_1..X_n$. Indicheremo tale processo nel seguente modo:
+Mettiamoci dunque in un caso pi√π generale, considerando un processo stocastico. Possiamo pensare ad un processo stocastico, come ad una famiglia di variabili casuali $X_1..X_n$. Indicheremo tale processo nel seguente modo:
 \[
  \{X_t\}_{t=1..\infty}
 \]
@@ -1465,32 +1465,32 @@ In questo contesto possiamo pensare al processo come ad una sorgente, che genera
 tra le variabili, possiamo avere diversi tipi di processi. Consideriamo i seguenti casi:
 \begin{itemize}
  \item $X_1..X_n$ i.i.d. E' il caso che abbiamo considerato fino ad ora, in cui le variabili sono indipendenti
- \item Catena di Markov: E' un processo stocastico, per cui vale la seguente propriet‡:
+ \item Catena di Markov: E' un processo stocastico, per cui vale la seguente propriet√†:
   \[\begin{split}
    &Pr\{ X_n=x_n \mid X_1=x_1 \mid X_2=x_2 \mid ... \mid X_{n-1}=x_{n-1}\} \\
    =&Pr\{ X_n=x_n \mid X_{n-1}=x_{n-1} \}
   \end{split}
   \]
   In sostanza quindi l'emissione di un simbolo (pensando in termini di sorgente), equivale unicamente all'emissione del simbolo 
-  precedente. Si puÚ dire in sostanza che la catena Ë di ordine 1 (Ë rilevante infatti solo l'ultimo simbolo emesso).
- \item Processo stazionario: E' un processo stocastico, per cui vale la seguente propriet‡:
+  precedente. Si pu√≤ dire in sostanza che la catena √® di ordine 1 (√® rilevante infatti solo l'ultimo simbolo emesso).
+ \item Processo stazionario: E' un processo stocastico, per cui vale la seguente propriet√†:
  \[\begin{split}
   \forall l \in Z: \\ & Pr\{X_1=x_1, X_2=x_2, ... , X_n=x_n\}  \\
   = &Pr\{X_{1+l}=X_1, X_{2+l}=x_2, ... , X_{n+l}=x_n \}
     \end{split}
  \]
-  In questo caso quindi si ha una condizione ``relativa'' del tempo. Ovvero la probabilit‡ di una certa sequenza non dipende dallo
+  In questo caso quindi si ha una condizione ``relativa'' del tempo. Ovvero la probabilit√† di una certa sequenza non dipende dallo
   specifico istante temporale.
  \item Processo ergodico: Dato un processo stocastico, definiamo:
  \[
   N_{\bar{x}}^n(X_1X_2...X_n) 
  \]
   Come il numero di volte in cui compare la stringa $\bar{x}$ in $X_1X_2...X_n$.
-  Allora un processo Ë ergodico se:
+  Allora un processo √® ergodico se:
  \[
   \forall \bar{x} \in X^n: \frac{1}{n} N_{\bar{x}}^n(X_1X_2...X_n) \xrightarrow{n \to \infty} p(\bar{x}) \ in \ probabilita'
  \]
-  Dove ``in probabilit‡'' equivale a dire:
+  Dove ``in probabilit√†'' equivale a dire:
   \[
    \forall \epsilon > 0: \lim_{n \to \infty} Pr\{ \mid \frac{1}{n} N_{\bar{x}}^n(X_1X_2...X_n) - p(\bar{x})  \mid \le \epsilon\}=1
   \]
@@ -1509,16 +1509,16 @@ di un'unica variabile (com'era invece nella definizione di entropia).
   Quando il limite esiste.
 \end{definizione}
 
-Il tasso entropico Ë dunque una sorta di ``incertezza media'', tra le variabili del processo.
-Possiamo perÚ pensare al tasso entropico anche in maniera differente, ovvero considerando la ``dipendenza'' tra le variabili.
-Definiamo cosÏ un'altra quantit‡:
+Il tasso entropico √® dunque una sorta di ``incertezza media'', tra le variabili del processo.
+Possiamo per√≤ pensare al tasso entropico anche in maniera differente, ovvero considerando la ``dipendenza'' tra le variabili.
+Definiamo cos√¨ un'altra quantit√†:
 
 \[
  H'(\bar{X})=\lim_{n \to \infty} H(X_n \mid X_1,X_2,..X_{n-1})
 \]
 
-Vediamo ora come queste due quantit‡ siano strettamente legate tra loro. Prima perÚ Ë utile convincersi che la definizione di tasso 
-entropico Ë una ``buona definizione''. In particolare, la definizione di tasso entropico deve essere consistente con quella di entropia.
+Vediamo ora come queste due quantit√† siano strettamente legate tra loro. Prima per√≤ √® utile convincersi che la definizione di tasso 
+entropico √® una ``buona definizione''. In particolare, la definizione di tasso entropico deve essere consistente con quella di entropia.
 Ponendosi dunque nel caso di variabili i.i.d, tasso entropico ed entropia dovranno coincidere.
 
 \begin{osservazione}
@@ -1549,8 +1549,8 @@ Ponendosi dunque nel caso di variabili i.i.d, tasso entropico ed entropia dovran
 \end{osservazione}
 
 Le due definizioni di tasso entropico, sono dunque consistenti con quella di entropia. Siamo ora interessati a vedere come queste 
-due quantit‡ siano legate tra loro, nel caso di un processo stocastico pi˘ generale.
-Prima perÚ introduciamo un lemma che ci sar‡ utile in seguito.
+due quantit√† siano legate tra loro, nel caso di un processo stocastico pi√π generale.
+Prima per√≤ introduciamo un lemma che ci sar√† utile in seguito.
 
 \begin{lemma}[Lemma di Cesaro]
 Sia $\{a_n\} \ n \in N$ una successione tale che:
@@ -1575,7 +1575,7 @@ Sia $\{X_t\}_t$ un processo stocastico stazionario, allora:
 \[
  H(\bar{X})=H'(\bar{X})
 \]
-(le due quantit‡ esistono e coincidono)
+(le due quantit√† esistono e coincidono)
  \begin{proof}
  \mbox{}
 
@@ -1586,7 +1586,7 @@ Sia $\{X_t\}_t$ un processo stocastico stazionario, allora:
  \]
  Si ha che $\forall n \in N$:
  \begin{itemize}
- \item $a_n \ge 0$. Infatti l'entropia Ë sempre positiva, per definizione.
+ \item $a_n \ge 0$. Infatti l'entropia √® sempre positiva, per definizione.
  \item $a_{n+1} \le a_n$. Infatti:
  \[\begin{split}
    &H(X_{n+1} \mid X_1,X_2,...,X_n)  \\
@@ -1594,7 +1594,7 @@ Sia $\{X_t\}_t$ un processo stocastico stazionario, allora:
    = &H(X_{n} \mid X_1,X_2,...,X_{n-1})
    \end{split}
  \]
- La prima disuguaglianza deriva dal fatto che il condizionamento riduce l'entropia (osservazione \ref{condizionamento}). L'uguaglianza invece deriva dal fatto che il processo Ë stazionario (Ë il caso in cui l=1).
+ La prima disuguaglianza deriva dal fatto che il condizionamento riduce l'entropia (osservazione \ref{condizionamento}). L'uguaglianza invece deriva dal fatto che il processo √® stazionario (√® il caso in cui l=1).
  \end{itemize}
 
  \noindent
@@ -1623,7 +1623,7 @@ Sia $\{X_t\}_t$ un processo stocastico stazionario, allora:
  
 \end{teorema}
 
-A questo punto Ë possibile generalizzare il concetto di AEP, considerando situazioni pi˘ realistiche in cui le variabili 
+A questo punto √® possibile generalizzare il concetto di AEP, considerando situazioni pi√π realistiche in cui le variabili 
 non sono indipendenti.
 
 \begin{teorema}[Shannon-McMillan-Breiman]
@@ -1633,7 +1633,7 @@ non sono indipendenti.
  \[
   \lim_{n \to \infty} Pr\{A_{\epsilon}^n\}=1
  \]
- Dove $A_{\epsilon}^n$ Ë l'insieme delle sequenze tipiche definite precedentemente [\ref{tipiche}]. Tuttavia, al posto dell'entropia, 
+ Dove $A_{\epsilon}^n$ √® l'insieme delle sequenze tipiche definite precedentemente [\ref{tipiche}]. Tuttavia, al posto dell'entropia, 
  bisogna utilizzare il tasso entropico. Ovvero:
  \[
   A_{\epsilon}^n=\{ \bar{x} \in X^n \mid 2^{-n(H(\bar{x})+\epsilon)} \le p(\bar{x}) \le 2^{-n(H(\bar{x})-\epsilon)} \}

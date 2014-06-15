@@ -1,11 +1,11 @@
 \chapter{Codifica di sorgente}
 
 Tratteremo ora il caso di un canale completamente affidabile (come quello in figura \ref{fig:0006}). Non essendoci alcun disturbo, ogni 
-simbolo inviato corrisponder‡ a quello ricevuto. Siamo interessati a ``compattare'' l'informazione il pi˘ possibile, eliminando
-la ridondanza. Come gi‡ enunciato nell'introduzione, l'eliminazione della ridondanza consente di comprimere l'informazione. In questo modo potremo aumentare la velocit‡ di trasmissione (ci sono infatti meno simboli da mandare).
+simbolo inviato corrisponder√† a quello ricevuto. Siamo interessati a ``compattare'' l'informazione il pi√π possibile, eliminando
+la ridondanza. Come gi√† enunciato nell'introduzione, l'eliminazione della ridondanza consente di comprimere l'informazione. In questo modo potremo aumentare la velocit√† di trasmissione (ci sono infatti meno simboli da mandare).
 
 \begin{definizione}[codice di sorgente] 
-Sia X una variabile aleatoria, con \(\X = \{x_1 ... x_k\}\), caratterizzata da una certa distribuzione di probabilit‡ nota:
+Sia X una variabile aleatoria, con \(\X = \{x_1 ... x_k\}\), caratterizzata da una certa distribuzione di probabilit√† nota:
 \[X \sim p(x) \ \forall x \in X\]
 e sia $\D$ un alfabeto D-ario finito, $\D=\{0,1,..,D-1\}$. Allora si dice codice di sorgente una funzione che assegna a ciascun simbolo della variabile casuale X una stringa di simboli appartenenti all'alfabeto D:
 \[C: \X \longrightarrow \D^*\]
@@ -16,7 +16,7 @@ con \(\D^k\) insieme delle stringhe di lunghezza k:
 \[\D^k = \begin{matrix}  \underbrace{\D \times \D ... \times \D} \\ k
 \end{matrix}\]
 
-In tabella \ref{tab:codici1} sono riportati alcuni esempi di codici. In questo caso Ë stato utilizzato un alfabero 
+In tabella \ref{tab:codici1} sono riportati alcuni esempi di codici. In questo caso √® stato utilizzato un alfabero 
 binario, ovvero $\D=\{0,1\}$. Mentre $X=\{a,b,c,d\}$. Gli elementi del codominio della funzione del codice, sono detti ``parole di codice'' (codewords). Nell'esempio di $C^I$, le parole di codice sono 0,00,10,1101.
 
 
@@ -37,19 +37,19 @@ binario, ovvero $\D=\{0,1\}$. Mentre $X=\{a,b,c,d\}$. Gli elementi del codominio
 \end{table}
 
 E' naturale chiedersi quando un codice sia preferibile rispetto ad un altro.
-Possiamo esprimere la bont‡ di un codice in base a due parametri: la sua lunghezza media (che deve essere pi˘ piccola possibile) e l'efficacia con cui il destinatario puÚ ricostruire il messaggio ricevuto; un codice deve quindi avere due caratteristiche:
+Possiamo esprimere la bont√† di un codice in base a due parametri: la sua lunghezza media (che deve essere pi√π piccola possibile) e l'efficacia con cui il destinatario pu√≤ ricostruire il messaggio ricevuto; un codice deve quindi avere due caratteristiche:
 \begin{enumerate}
-\item non ambiguit‡
+\item non ambiguit√†
 \item efficienza
 \end{enumerate}
 
 Per chiarire meglio questa idee, consideriamo i codici in tabella \ref{tab:codici2}: 
 \begin{itemize}
- \item Il codice 3 Ë molto efficiente (utilizza per ogni lettera un solo simbolo). Tuttavia Ë molto ambiguo, quanto infatti
- il destinatario riceve 0 non Ë in grado di determinare se sia stata inviata una a o una b.
- \item Il codice 4 Ë poco efficiente (sequenze molto lunghe), tuttavia non Ë ambiguo. Il destinatario sar‡ infatti in grado di 
+ \item Il codice 3 √® molto efficiente (utilizza per ogni lettera un solo simbolo). Tuttavia √® molto ambiguo, quanto infatti
+ il destinatario riceve 0 non √® in grado di determinare se sia stata inviata una a o una b.
+ \item Il codice 4 √® poco efficiente (sequenze molto lunghe), tuttavia non √® ambiguo. Il destinatario sar√† infatti in grado di 
 determinare il simbolo inviato dalla sorgente.
- \item Il codice 5 rispetta invece entrambi i criteri. Non si utilizzano molti simboli e non si ha ambiguit‡.
+ \item Il codice 5 rispetta invece entrambi i criteri. Non si utilizzano molti simboli e non si ha ambiguit√†.
 \end{itemize}
 
 \begin{table}[htbp]
@@ -68,7 +68,7 @@ determinare il simbolo inviato dalla sorgente.
   \end{center}
 \end{table}
 
-Quantifichiamo ora con pi˘ precisione il concetto di efficienza di un codice.
+Quantifichiamo ora con pi√π precisione il concetto di efficienza di un codice.
 In particolare misureremo questa efficienza, calcolando la lunghezza media delle parole del codice.
 
 \begin{definizione}[lunghezza di un codice sorgente] 
@@ -76,7 +76,7 @@ In particolare misureremo questa efficienza, calcolando la lunghezza media delle
 
 Dato un codice di sorgente C:
 \[C: \X \longrightarrow \D*\]
-La sua lunghezza (media) Ë:
+La sua lunghezza (media) √®:
 \[L(C) = \sum_{x \in \X}l(x) p(x)\]
 Dove con l(x) abbiamo indicato la lunghezza della parola di codice x.
 \label{lunghezza}
@@ -104,15 +104,15 @@ H(X)&= \sum_{x \in \X}l(x) \log \frac{1}{p(x)} = \\
 \end{split}
 \]
 
-Come si puÚ vedere, succede che l'entropia coincide con la lunghezza del codice. Si tratta di un caso particolare (dovuto
+Come si pu√≤ vedere, succede che l'entropia coincide con la lunghezza del codice. Si tratta di un caso particolare (dovuto
 alla scelta del codice). Come vedremo successivamente, l'entropia rappresenta un limite inferiore alla lunghezza di un codice.
 
 \section{Tipi di codice}
 Abbiamo definito come misurare quantitativamente l'efficienza di un codice (in base alla sua lunghezza media).
-Vediamo ora come formalizzare l'ambiguit‡.
+Vediamo ora come formalizzare l'ambiguit√†.
 
 \begin{definizione}[codice non singolare] 
-Un codice C si dice \textit{non singolare} se C (in quanto funzione) Ë \textbf{iniettiva}. 
+Un codice C si dice \textit{non singolare} se C (in quanto funzione) √® \textbf{iniettiva}. 
 Ossia se presi due simboli \(x_1 \ e \ x_2\):
 \[x_1 \neq x_2 \Rightarrow C(x_1) \neq C(x_2)\]
 ossia per simboli diversi, si hanno parole di codice diverse.
@@ -120,26 +120,26 @@ ossia per simboli diversi, si hanno parole di codice diverse.
 
 \noindent
 \textbf{Esempio}
-Il codice \(C^{III}\) in tabella \ref{tab:codici1} Ë singolare. I codici $C^{IV}$ e $C^{V}$, invece, sono non singolari.
+Il codice \(C^{III}\) in tabella \ref{tab:codici1} √® singolare. I codici $C^{IV}$ e $C^{V}$, invece, sono non singolari.
 
 \bigskip
 \noindent
-Come Ë facile notare, il fatto di avere un codice non singolare, non garantisce l'assenza di ambiguit‡. Si consideri ad esempio il codice in figura \ref{fig:codice3}. Il destinatario vede arrivare una sequenza continua di simboli e deve essere in grado di distinguere le varie stringhe. Nell'esempio tuttavia sorgono dei problemi. Se si riceve '010' non si Ë in grado di stabilire se Ë stato inviato b oppure c seguito do a. Un codice non ambiguo, deve essere quindi caratterizzato da una \textbf{segmentazione non ambigua}.
+Come √® facile notare, il fatto di avere un codice non singolare, non garantisce l'assenza di ambiguit√†. Si consideri ad esempio il codice in figura \ref{fig:codice3}. Il destinatario vede arrivare una sequenza continua di simboli e deve essere in grado di distinguere le varie stringhe. Nell'esempio tuttavia sorgono dei problemi. Se si riceve '010' non si √® in grado di stabilire se √® stato inviato b oppure c seguito do a. Un codice non ambiguo, deve essere quindi caratterizzato da una \textbf{segmentazione non ambigua}.
 
 \begin{figure}[htbp]
 \begin{center}
 	\includegraphics[width=0.4\textwidth]{img/codice3.pdf}
-\caption{esempio di codice non singolare ma ambiguo; si puÚ notare a destra come la segmentazione presenti delle ambiguit‡: la stringa 010 potrebbe infatti essere interpretata come b oppure come c seguito da a, oppure come a seguita da d.}
+\caption{esempio di codice non singolare ma ambiguo; si pu√≤ notare a destra come la segmentazione presenti delle ambiguit√†: la stringa 010 potrebbe infatti essere interpretata come b oppure come c seguito da a, oppure come a seguita da d.}
 \label{fig:codice3}
 \end{center}
 \end{figure}
 
-Abbiamo in sostanza bisogno di un criterio pi˘ forte per costruire codici non ambigui.
-Se C Ë un codice qualsiasi, la sua estensione k-esima Ë un codice costruito su stringhe di simboli di X lunghe k:
+Abbiamo in sostanza bisogno di un criterio pi√π forte per costruire codici non ambigui.
+Se C √® un codice qualsiasi, la sua estensione k-esima √® un codice costruito su stringhe di simboli di X lunghe k:
 \[C^k: \X^k \longrightarrow \D^*\]
 dove:
 \[C^k(x_1... x_k) = C(x_1) C(x_2) ... C(x_k)\]
-Consideriamo il codice in figura \ref{fig:codice3}. La sua estensione 2\textordfeminine \ sar‡ quella rappresentata in tabella \ref{tab:codice4}.
+Consideriamo il codice in figura \ref{fig:codice3}. La sua estensione 2\textordfeminine \ sar√† quella rappresentata in tabella \ref{tab:codice4}.
 
 \begin{table}[htbp]
   \begin{center}
@@ -154,7 +154,7 @@ Consideriamo il codice in figura \ref{fig:codice3}. La sua estensione 2\textordf
         $...$ & $...$ \\ 
     \end{tabular}
      
-     \caption{Estensione 2∞ del codice}
+     \caption{Estensione 2¬∞ del codice}
     \label{tab:codice4}
   \end{center}
 \end{table}
@@ -166,15 +166,15 @@ A partire dall'estensione k-esima possiamo quindi costruire l'estensione, ossia 
 \begin{definizione}[Codice U.D.]
 Sia \(C: \X \longrightarrow \D^*\) un codice, C si dice \textit{univocamente decodificabile} (UD) se:
 \[C^*: \X^* \longrightarrow \D^*\]
-(l'\textit{estensione del codice}), Ë non singolare.
+(l'\textit{estensione del codice}), √® non singolare.
 \label{codiceUD}
 \end{definizione}
 
-Se un codice Ë UD, allora il destinatario riuscir‡ sempre a segmentare i bit in arrivo.
-Riprendendo sempre l'esempio precedente, appare chiaro che il codice in figura \ref{fig:codice3}  non Ë UD Infatti nella sua estensione 2∞ (tabella \ref{tab:codice4}) compare la sequenza '010', che perÚ Ë presente anche nel codice originale (figura \ref{fig:codice3}).
+Se un codice √® UD, allora il destinatario riuscir√† sempre a segmentare i bit in arrivo.
+Riprendendo sempre l'esempio precedente, appare chiaro che il codice in figura \ref{fig:codice3}  non √® UD Infatti nella sua estensione 2¬∞ (tabella \ref{tab:codice4}) compare la sequenza '010', che per√≤ √® presente anche nel codice originale (figura \ref{fig:codice3}).
 
 
-I codici UD sono sicuramente non ambigui, ma alcuni di essi possono essere inefficienti, come quello rappresentato in figura \ref{fig:0024}: in questo caso il fatto che una parola sia prefisso dell'altra provoca l'introduzione di un ritardo di decodifica. CiÚ Ë dovuto al fatto che Ë necessario un certo numero di simboli per riuscire a distinguere le due differenti parole. Per ovviare a questo problema introduciamo un'ulteriore classe di codici.
+I codici UD sono sicuramente non ambigui, ma alcuni di essi possono essere inefficienti, come quello rappresentato in figura \ref{fig:0024}: in questo caso il fatto che una parola sia prefisso dell'altra provoca l'introduzione di un ritardo di decodifica. Ci√≤ √® dovuto al fatto che √® necessario un certo numero di simboli per riuscire a distinguere le due differenti parole. Per ovviare a questo problema introduciamo un'ulteriore classe di codici.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -194,26 +194,26 @@ I codici UD sono sicuramente non ambigui, ma alcuni di essi possono essere ineff
 
 
 \begin{definizione}[codice istantaneo]
-Un codice C si dice \textit{istantaneo o a prefisso} se nessuna parola di codice Ë prefisso di un'altra.
+Un codice C si dice \textit{istantaneo o a prefisso} se nessuna parola di codice √® prefisso di un'altra.
 \end{definizione}
-Possiamo osservare che un codice istantaneo Ë sicuramente anche UD (torneremo meglio dopo su questo punto). In sostanza i codici 
-istantanei sono un sottoinsieme di quelli UD. Possiamo anche dire che Ë necessario avere un codice UD (per non avere ambiguit‡), tuttavia Ë preferibile che il codice sia anche istantaneo (pi˘ efficienza).
-In figura \ref{fig:0004} Ë rappresentato uno schema riassuntivo dei codici visti.
+Possiamo osservare che un codice istantaneo √® sicuramente anche UD (torneremo meglio dopo su questo punto). In sostanza i codici 
+istantanei sono un sottoinsieme di quelli UD. Possiamo anche dire che √® necessario avere un codice UD (per non avere ambiguit√†), tuttavia √® preferibile che il codice sia anche istantaneo (pi√π efficienza).
+In figura \ref{fig:0004} √® rappresentato uno schema riassuntivo dei codici visti.
 
 
 
 
 
 \subsection{Teorema di Sardinas-Patterson}
-Non Ë sempre immediato determinare se un codice sia o meno univocamente decodificabile, in quanto bisognerebbe considerare la sua estensione (che come abbiamo visto Ë formata da stringhe di lunghezza infinita).
-E' necessario quindi un criterio che renda questa operazione pi˘ semplice. Il teorema di Sardinas-Patterson fornisce un metodo utile.
+Non √® sempre immediato determinare se un codice sia o meno univocamente decodificabile, in quanto bisognerebbe considerare la sua estensione (che come abbiamo visto √® formata da stringhe di lunghezza infinita).
+E' necessario quindi un criterio che renda questa operazione pi√π semplice. Il teorema di Sardinas-Patterson fornisce un metodo utile.
 
-L'idea base del teorema Ë la seguente. Supponiamo di avere una stringa binaria di un codice non UD (figura \ref{fig:0018}): ciascuna parola della segmentazione in alto ha il suffisso che Ë anche prefisso delle corrispondenti parole nella segmentazione in basso; il problema si verifica quando il suffisso di una parola della segmentazione in alto coincide con una parola intera della segmentazione alternativa, perchË questo puÚ dar luogo a una doppia interpretazione. Se invece le segmentazioni si intersecano sempre, senza mai che un suffisso e una parola coincidano, allora il codice Ë UD.
+L'idea base del teorema √® la seguente. Supponiamo di avere una stringa binaria di un codice non UD (figura \ref{fig:0018}): ciascuna parola della segmentazione in alto ha il suffisso che √® anche prefisso delle corrispondenti parole nella segmentazione in basso; il problema si verifica quando il suffisso di una parola della segmentazione in alto coincide con una parola intera della segmentazione alternativa, perch√® questo pu√≤ dar luogo a una doppia interpretazione. Se invece le segmentazioni si intersecano sempre, senza mai che un suffisso e una parola coincidano, allora il codice √® UD.
 
 \begin{figure}[htbp]
 \begin{center}
 	\includegraphics[width=0.4\textwidth]{img/ud.pdf}
-\caption{a ha il suffisso che Ë prefisso di b; c ha il suffisso che coincide con l'intera parola d}
+\caption{a ha il suffisso che √® prefisso di b; c ha il suffisso che coincide con l'intera parola d}
 \label{fig:0018}
 \end{center}
 \end{figure}
@@ -222,27 +222,27 @@ L'idea base del teorema Ë la seguente. Supponiamo di avere una stringa binaria d
 Dato un codice \(C: X -> \D^*\), e posti:
 \[S_0 = C(X_0) = \{C(x) \in \D^* | x \in X_0\}\]
 \[\forall \ n \geq 1 : S_n = \{w \in D^* | \exists \ a \in S_0, \exists \ b \in S_{n-1} \ t.c. \  a = bw \lor b = aw\}\]
-(ossia l'insieme dei suffissi), allora condizione necessaria e sufficiente affinchË C sia univocamente decodificabile Ë:
+(ossia l'insieme dei suffissi), allora condizione necessaria e sufficiente affinch√® C sia univocamente decodificabile √®:
 \[\forall \ n \geq 1 : S_0 \cap S_n = \varnothing\]
-ossia nessuno dei suffissi generati dovr‡ corrispondere con una parola di codice.
+ossia nessuno dei suffissi generati dovr√† corrispondere con una parola di codice.
 \end{teorema}
 
-PerchË un codice sia UD bisogna verificare la condizione per qualsiasi valore di n, quindi dovremmo iterare il procedimento fino a trovare il primo n per cui la condizione Ë violata. Ma questo potrebbe non accadere mai (e questo Ë ovvio nel caso in cui si stia analizzando un codice UD), e quindi l'algoritmo itererebbe all'infinito. Tuttavia l'insieme dei suffissi generabili Ë finito, quindi il processo prima o poi comincer‡ a generare insiemi gi‡ generati: in tal caso la procedura termina (e il codice Ë UD). PuÚ verificarsi anche il caso in cui a un certo punto si genera l'insieme vuoto: anche qui la procedura termina e il codice Ë UD (da ora in poi saranno tutti insiemi vuoti).
+Perch√® un codice sia UD bisogna verificare la condizione per qualsiasi valore di n, quindi dovremmo iterare il procedimento fino a trovare il primo n per cui la condizione √® violata. Ma questo potrebbe non accadere mai (e questo √® ovvio nel caso in cui si stia analizzando un codice UD), e quindi l'algoritmo itererebbe all'infinito. Tuttavia l'insieme dei suffissi generabili √® finito, quindi il processo prima o poi comincer√† a generare insiemi gi√† generati: in tal caso la procedura termina (e il codice √® UD). Pu√≤ verificarsi anche il caso in cui a un certo punto si genera l'insieme vuoto: anche qui la procedura termina e il codice √® UD (da ora in poi saranno tutti insiemi vuoti).
 
 \bigskip
 \noindent
 \textbf{Esempio}
 
 \noindent
-Verifichiamo se il codice ($S_0$ in figura \ref{fig:0019}) Ë UD: il procedimento Ë rappresentato sempre in figura \ref{fig:0019}:
+Verifichiamo se il codice ($S_0$ in figura \ref{fig:0019}) √® UD: il procedimento √® rappresentato sempre in figura \ref{fig:0019}:
 \begin{enumerate}
-\item \(S_0\) Ë il codice di partenza;
-\item per costruire \(S_1\) vado a vedere se qualche parola di \(S_0\) Ë prefisso di qualcun'altra nello stesso insieme; se ne trovo vado a prendere il suffisso e lo metto in \(S_1\): a Ë prefisso di ab e abb, quindi inseriamo in \(S_1\) i corrispondenti suffissi d e bb;
+\item \(S_0\) √® il codice di partenza;
+\item per costruire \(S_1\) vado a vedere se qualche parola di \(S_0\) √® prefisso di qualcun'altra nello stesso insieme; se ne trovo vado a prendere il suffisso e lo metto in \(S_1\): a √® prefisso di ab e abb, quindi inseriamo in \(S_1\) i corrispondenti suffissi d e bb;
 \item controllo se gli elementi di \(S_1\) ci sia una parola di codice, cosa non vera, per cui proseguo;
-\item per costruire \(S_2\) vado a vedere se qualche parola di \(S_1\) Ë prefisso di qualche parola di \(S_0\) o se qualche parola di \(S_0\) Ë prefisso di qualche parola di \(S_1\); se ne trovo vado a prendere il suffisso e lo metto in \(S_1\): d Ë prefisso di deb, mentre bb di bbcde, quindi inseriamo in \(S_2\) i corrispondenti suffissi eb e cde;
+\item per costruire \(S_2\) vado a vedere se qualche parola di \(S_1\) √® prefisso di qualche parola di \(S_0\) o se qualche parola di \(S_0\) √® prefisso di qualche parola di \(S_1\); se ne trovo vado a prendere il suffisso e lo metto in \(S_1\): d √® prefisso di deb, mentre bb di bbcde, quindi inseriamo in \(S_2\) i corrispondenti suffissi eb e cde;
 \item controllo se gli elementi di \(S_2\) ci sia una parola di codice, cosa non vera, per cui proseguo;
-\item e cosÏ via...
-\item arrivato ad  \(S_5\) scopro che ad Ë una parola di codice, quindi possiamo concludere che il codice non Ë UD.
+\item e cos√¨ via...
+\item arrivato ad  \(S_5\) scopro che ad √® una parola di codice, quindi possiamo concludere che il codice non √® UD.
 \end{enumerate}
 Altri due esempi di applicazione del teorema di Sardinas-Patterson sono rappresentati nelle figure \ref{fig:0020} e \ref{fig:0021}.
 
@@ -250,7 +250,7 @@ Altri due esempi di applicazione del teorema di Sardinas-Patterson sono rapprese
 \begin{center}
 	\includegraphics[width=\textwidth]{img/patt1.pdf}
 	\includegraphics[width=0.2\textwidth]{img/patt1b.pdf}
-\caption{procedimento basato sul teorema di Sardinas-Patterson; il codice non Ë UD. In basso un esempio di ambiguit‡}
+\caption{procedimento basato sul teorema di Sardinas-Patterson; il codice non √® UD. In basso un esempio di ambiguit√†}
 \label{fig:0019}
 \end{center}
 \end{figure}
@@ -258,7 +258,7 @@ Altri due esempi di applicazione del teorema di Sardinas-Patterson sono rapprese
 \begin{figure}[htp]
 \begin{center}
 	\includegraphics[width=\textwidth]{img/patt2.pdf}
-\caption{procedimento basato sul teorema di Sardinas-Patterson, il codice non Ë UD}
+\caption{procedimento basato sul teorema di Sardinas-Patterson, il codice non √® UD}
 \label{fig:0020}
 \end{center}
 \end{figure}
@@ -266,7 +266,7 @@ Altri due esempi di applicazione del teorema di Sardinas-Patterson sono rapprese
 \begin{figure}[htp]
 \begin{center}
 	\includegraphics[width=0.9\textwidth]{img/patt3.pdf}
-\caption{procedimento basato sul teorema di Sardinas-Patterson, il codice Ë UD}
+\caption{procedimento basato sul teorema di Sardinas-Patterson, il codice √® UD}
 \label{fig:0021}
 \end{center}
 \end{figure}
@@ -275,24 +275,24 @@ Altri due esempi di applicazione del teorema di Sardinas-Patterson sono rapprese
 
 \section{Costruzione di codici}
 Sono stati visti vari tipi di codici. Inoltre abbiamo evidenziato come le classi di maggior interesse siano quelle dei codici istantanei 
-ed univocamente decodificabili. Vediamo ora quali condizioni devono valere, affinchÈ sia possibile costruirli.
+ed univocamente decodificabili. Vediamo ora quali condizioni devono valere, affinch√© sia possibile costruirli.
 
 \subsection{Disuguaglianza di Kraft}
 La Disuguaglianza di Kraft, fornisce un vincolo importante per la costruzione di codici istantanei.
-Infatti, affinchÈ sia possibile costruire un codice istantaneo, la lunghezza delle parole di codice deve rispettare un vincolo.
-\`E importante notare che il teorema esprime la possibilit‡ di costruire un codice istantaneo. In altre parole, se il teorema vale allora con determinate lunghezze di parole di codice si puÚ un costruire un codice istantaneo. Tuttavia non tutti i codici con quelle determinate lunghezze sono istantanei!
+Infatti, affinch√© sia possibile costruire un codice istantaneo, la lunghezza delle parole di codice deve rispettare un vincolo.
+\`E importante notare che il teorema esprime la possibilit√† di costruire un codice istantaneo. In altre parole, se il teorema vale allora con determinate lunghezze di parole di codice si pu√≤ un costruire un codice istantaneo. Tuttavia non tutti i codici con quelle determinate lunghezze sono istantanei!
 
 \begin{teorema}[Disuguaglianza di Kraft]
 \label{kraft}
-Condizione necessaria e sufficiente \textbf{affinchË sia possibile} costruire un codice istantaneo D-ario (ossia un codice costruito su un alfabeto di D simboli) con lunghezza di parola \(l_1, l_2 ... l_n\) Ë:
+Condizione necessaria e sufficiente \textbf{affinch√® sia possibile} costruire un codice istantaneo D-ario (ossia un codice costruito su un alfabeto di D simboli) con lunghezza di parola \(l_1, l_2 ... l_n\) √®:
 \[\sum_{i = 1}^n D^{-l_i} \leq 1\]
 \begin{proof}
 A partire da un codice D-ario, possiamo costruire il corrispondente \textbf{albero D-ario di codifica} (figura \ref{fig:albero}).
-L'albero ha profondit‡ pari alla lunghezza della parola pi˘ grande e ciascun vertice (o ciascun cammino) rappresenter‡ una sequenza 
-di simboli (la cui lunghezza Ë al massimo la lunghezza della parola pi˘ lunga).
+L'albero ha profondit√† pari alla lunghezza della parola pi√π grande e ciascun vertice (o ciascun cammino) rappresenter√† una sequenza 
+di simboli (la cui lunghezza √® al massimo la lunghezza della parola pi√π lunga).
 Nell'albero si evidenziano i vertici, i cui cammini dalla radice corrispondono ad una parola di codice.
 In questo modo si costruisce una corrispondenza biunivoca tra il codice e l'albero.
-E' facile osservare che un codice Ë istantaneo se e solo se nel corrispondente albero di codifica non esistono due vertici evidenziati che appartengono uno al sottoalbero dell'altro. In altre parole, percorrendo il cammino dalla radice ad un vertice evidenziato, non devo incontrare altri vertici evidenziati.
+E' facile osservare che un codice √® istantaneo se e solo se nel corrispondente albero di codifica non esistono due vertici evidenziati che appartengono uno al sottoalbero dell'altro. In altre parole, percorrendo il cammino dalla radice ad un vertice evidenziato, non devo incontrare altri vertici evidenziati.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -307,10 +307,10 @@ Dobbiamo ora dimostrare le due implicazioni:
 \item[\(\Longrightarrow\)]: supponiamo che C sia un codice istantaneo D-ario e assumiamo che le lunghezze delle parole di codice siano ordinate in maniera crescente:
 \[l_1 \leq l_2 ... \leq l_n\]
 Dobbiamo  quindi dimostrare che vale la disuguaglianza del teorema.
-PoichÈ il codice Ë istantaneo, nessuna parola di codice Ë prefisso di qualcun'altra. Nella rappresentazione dell'albero, quindi, preso il sottoalbero che fa capo ad una parola di codice, nessun altro vertice corrispondente ad altre parole di codice Ë contenuto in tale sottoalbero. Di conseguenza i sottoalberi radicati nei vertici delle varie parole di codice non si intersecano.
+Poich√© il codice √® istantaneo, nessuna parola di codice √® prefisso di qualcun'altra. Nella rappresentazione dell'albero, quindi, preso il sottoalbero che fa capo ad una parola di codice, nessun altro vertice corrispondente ad altre parole di codice √® contenuto in tale sottoalbero. Di conseguenza i sottoalberi radicati nei vertici delle varie parole di codice non si intersecano.
 
 Siamo ora interessati al numero di foglie di ogni sottoalbero (che fa capo ad una parola di codice). E' facile osservare che un albero 
-D-ario ha \(D^{h}\) foglie, con h profondit‡ dell'albero. Ma in questo caso la profondit‡ Ë pari alla lunghezza della parola di codice pi˘ lunga, l'albero avr‡ dunque \(D^{l_n}\) foglie. PoichÈ i vari sottoalberi non si intersecano, deve essere:
+D-ario ha \(D^{h}\) foglie, con h profondit√† dell'albero. Ma in questo caso la profondit√† √® pari alla lunghezza della parola di codice pi√π lunga, l'albero avr√† dunque \(D^{l_n}\) foglie. Poich√© i vari sottoalberi non si intersecano, deve essere:
 \[
  \mid I_1 \mid + \mid I_2 \mid + ... + \mid I_n \mid \le D^{l_n}
 \]
@@ -318,14 +318,14 @@ D-ario ha \(D^{h}\) foglie, con h profondit‡ dell'albero. Ma in questo caso la p
 \begin{figure}[htbp]
 \begin{center}
 	\includegraphics[width=0.7\textwidth]{img/kraft2.pdf}
-\caption{Esempio di albero binario associato ad un codice, con varie quantit‡ evidenziate}
+\caption{Esempio di albero binario associato ad un codice, con varie quantit√† evidenziate}
 \label{fig:albero2}
 \end{center}
 \end{figure}
 
 Dove con $\mid I_i \mid$ abbiamo indicato il numero di foglie del sottoalbero corrispondente alla parola di codice i.
-Per ricavare tale numero, Ë possibile utilizzare ancora la formula \(D^{h}\). Questa volta perÚ l'altezza Ë quella del sottoalbero 
-che fa capo alla parola i. Per come Ë costruito l'albero, si ricava che tale altezza vale $l_n-l_i$ (figura \ref{fig:albero2}).
+Per ricavare tale numero, √® possibile utilizzare ancora la formula \(D^{h}\). Questa volta per√≤ l'altezza √® quella del sottoalbero 
+che fa capo alla parola i. Per come √® costruito l'albero, si ricava che tale altezza vale $l_n-l_i$ (figura \ref{fig:albero2}).
 
 Risulta quindi:
 \[ D^{l_n- l_1} + D^{l_n- l_2} + ... D^{l_n- l_n} \leq D^{l_n}\]
@@ -348,8 +348,8 @@ A tal scopo, costruiamo un codice con il seguente algoritmo:
 \item Aggiungi la sequenza associata ad \(l_i\) all'insieme delle parole di codice (ed evidenzia il suo sottoalbero)
 \item Se non hai raccolto n parole di codice, torna ad 1
 \end{enumerate}
-Il codice cosÏ ottenuto Ë istantaneo, poichË non ci sono intersezioni fra i sottoalberi corrispondenti alle parole di codice. 
-Un esempio dell'applicazione dell'algoritmo Ë riportato in figura \ref{fig:albero3}.
+Il codice cos√¨ ottenuto √® istantaneo, poich√® non ci sono intersezioni fra i sottoalberi corrispondenti alle parole di codice. 
+Un esempio dell'applicazione dell'algoritmo √® riportato in figura \ref{fig:albero3}.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -359,10 +359,10 @@ Un esempio dell'applicazione dell'algoritmo Ë riportato in figura \ref{fig:alber
 \end{center}
 \end{figure}
 
-Prima di poter concludere la dimostrazione, Ë fondamentale risolvere una questione importante. Dobbiamo infatti essere sicuri che ci siano sempre foglie disponibili da cui scegliere ad ogni iterazione dell'algoritmo.
-Ovvero l'insieme delle foglie non disponibili (perchÈ facente parti di un sottoalbero) deve essere strettamente 
+Prima di poter concludere la dimostrazione, √® fondamentale risolvere una questione importante. Dobbiamo infatti essere sicuri che ci siano sempre foglie disponibili da cui scegliere ad ogni iterazione dell'algoritmo.
+Ovvero l'insieme delle foglie non disponibili (perch√© facente parti di un sottoalbero) deve essere strettamente 
 minore delle foglie totali.
-Il numero totale di foglie, come visto prima, Ë $D^{ln}$. Il numero di foglie non disponibili al passo 0 Ë 0 (sono tutte disponibili), al passo 1 Ë $D^{ln-l1}$, al passo 2 Ë $D^{ln-l1}+D^{ln-l2}$, al passo j Ë $\sum_{i = 1}^j D^{ln-l_j}$.
+Il numero totale di foglie, come visto prima, √® $D^{ln}$. Il numero di foglie non disponibili al passo 0 √® 0 (sono tutte disponibili), al passo 1 √® $D^{ln-l1}$, al passo 2 √® $D^{ln-l1}+D^{ln-l2}$, al passo j √® $\sum_{i = 1}^j D^{ln-l_j}$.
 Deve quindi essere:
 \[
  \forall k=1..n-1 \ : \ \sum_{i = 1}^k D^{ln-l_i} < D^{ln} 
@@ -377,7 +377,7 @@ In maniera analoga all'implicazione precedente abbiamo che:
  \end{split}
 \]
 
-PoichÈ D Ë positivo:
+Poich√© D √® positivo:
 \[
 \forall i=1..n \ : \ D^{ln-l_i} > 0
 \]
@@ -403,7 +403,7 @@ Prima di presentare la disuguaglianza, forniamo un lemma utili per la dimostrazi
 
 
 \begin{teorema}[Disuguaglianza di McMillan]
-Condizione necessaria e sufficiente \textbf{affinchË sia possibile} costruire un codice univocamente decodificabile D-ario (ossia un codice costruito su un alfabeto di D simboli) con lunghezza di parola \(l_1, l_2 ... l_n\) Ë:
+Condizione necessaria e sufficiente \textbf{affinch√® sia possibile} costruire un codice univocamente decodificabile D-ario (ossia un codice costruito su un alfabeto di D simboli) con lunghezza di parola \(l_1, l_2 ... l_n\) √®:
 \[\sum_{i = 1}^n D^{-l_i} \leq 1\]
 \label{macmillan} 
 
@@ -411,7 +411,7 @@ Condizione necessaria e sufficiente \textbf{affinchË sia possibile} costruire un
 Dobbiamo ora dimostrare le due implicazioni:
 \begin{description}
 \item[\(\Longleftarrow\)]: 
-Banale. La disuguaglianza Ë identica a quella di Kraft. Pertanto possiamo costruire un codice istantaneo, che come abbiamo gi‡ visto Ë anche UD.
+Banale. La disuguaglianza √® identica a quella di Kraft. Pertanto possiamo costruire un codice istantaneo, che come abbiamo gi√† visto √® anche UD.
 \item[\(\Longrightarrow\)]:
 Supponiamo di aver costruito un codice $C: \ \X \to D^*$ univocamente decodificabile.
 Indicando con l(x) la lunghezza della parola di codice associata ad $x \in X$, dobbiamo dimostrare che:
@@ -419,7 +419,7 @@ Indicando con l(x) la lunghezza della parola di codice associata ad $x \in X$, d
 \[\sum_{x \in \X} D^{-l(x)} \leq 1\]
 
 Consideriamo l'estensione k-esima ($k>1$) di C, $C^k : \X^k \to D^*$.
-PoichË C Ë UD, la sua estensione k-esima sar‡ non singolare (per definizione di codice UD [\ref{codiceUD}]).
+Poich√® C √® UD, la sua estensione k-esima sar√† non singolare (per definizione di codice UD [\ref{codiceUD}]).
 Consideriamo poi la potenza k-esima della parte sinistra della disuguaglianza:
 \[\begin{split}
 &\left[ \sum_{x \in \X} D^{-l(x)} \right]^k \\
@@ -431,7 +431,7 @@ Consideriamo poi la potenza k-esima della parte sinistra della disuguaglianza:
 
 Dove $\bar{a}=(a_1,a_2,..a_k)$ e $l(\bar{a})=l(a_1)+l(a_2)+...+l(a_k)$
 
-Definiamo ora la sequenza pi˘ lunga in X:
+Definiamo ora la sequenza pi√π lunga in X:
 \[
  l_{max} = max \{l(x) | x \in \X \}
 \]
@@ -448,10 +448,10 @@ Possiamo allora riscrivere la sommatoria precedente, ordinandola in base alle lu
  \sum_{\bar{a} \in \X^k} D^{-l(\bar{a})}=\sum_{m=1}^{k l_{max}} {\alpha}_m^k D^{-m}
 \]
 
-PoichÈ $C^k$ Ë non singolare deve essere:
+Poich√© $C^k$ √® non singolare deve essere:
 \[\alpha_m^k \leq D^m\] 
-Infatti $D^m$ Ë il numero di sequenze lunghe m che possono costruire con D simboli. AffinchÈ $\alpha_m^k$ sia pi˘ grande, 
-dovrebbero per forza esserci due sequenze uguali (cosa impossibile, perchÈ appunto $C^k$ Ë non singolare).
+Infatti $D^m$ √® il numero di sequenze lunghe m che possono costruire con D simboli. Affinch√© $\alpha_m^k$ sia pi√π grande, 
+dovrebbero per forza esserci due sequenze uguali (cosa impossibile, perch√© appunto $C^k$ √® non singolare).
 Pertanto:
 \[\begin{split}
  & \sum_{m=1}^{k l_{max}} {\alpha}_m^k D^{-m} 
@@ -470,7 +470,7 @@ Facendo ora la radice k-esima:
 \[
 \forall k>1 \ : \ \sum_{x \in \X} D^{-l(x)} \le \sqrt[k]{k} \sqrt[k]{l_{max}}
 \]
-PoichÈ la disuguaglianza vale per ogni k, varr‡ anche per k che tende ad infinito.
+Poich√© la disuguaglianza vale per ogni k, varr√† anche per k che tende ad infinito.
 Possiamo allora utilizzare il lemma \ref{lemmaMillan} per ottenere:
 \[
  \sum_{x \in \X} D^{-l(x)} \le 1
@@ -485,11 +485,11 @@ che conclude la dimostrazione.
 
 \section{Codici}
 \subsection{Limite alla lunghezza di un codice}
-Abbiamo gi‡ introdotto il concetto di efficienza di un codice. In particolare, abbiamo evidenziato come un codice efficiente debba 
+Abbiamo gi√† introdotto il concetto di efficienza di un codice. In particolare, abbiamo evidenziato come un codice efficiente debba 
 avere una lunghezza (media) piccola. Tuttavia, questa osservazione ci consente solo di confrontare tra loro due codici, ma non riusciamo 
-a determinare se una data lunghezza Ë ``buona'' o meno.
-Il seguente teorema fornisce un limite inferiore alla lunghezza di codice. E' importante notare che anche un codice ottimale puÚ 
-(e come si vedr‡ Ë quello che accade) non riuscire sempre a raggiungere tale limite.
+a determinare se una data lunghezza √® ``buona'' o meno.
+Il seguente teorema fornisce un limite inferiore alla lunghezza di codice. E' importante notare che anche un codice ottimale pu√≤ 
+(e come si vedr√† √® quello che accade) non riuscire sempre a raggiungere tale limite.
 
 \begin{teorema} Sia C un codice D-ario univocamente decodificabile, per la variabile aleatoria 
 $X \sim p(X_i)=p_i$. Allora:
@@ -524,7 +524,7 @@ Da cui:
 \]
 
 \noindent
-Costruisco ora una distribuzione di probabili‡ Q:
+Costruisco ora una distribuzione di probabili√† Q:
 \[
  \forall i=1..n \ \ q_i=\frac{D^{-l_i}}{C} \\ con \ C=\sum_{k=1}^n D^{-l_k}
 \]
@@ -536,9 +536,9 @@ E da cui (semplice passaggio algebrico):
 \]
 
 \noindent
-Q Ë proprio una una distribuzione di probabilit‡, poichÈ:
+Q √® proprio una una distribuzione di probabilit√†, poich√©:
 \begin{enumerate}
- \item $\forall i=1..n \ q_i >0$ Infatti D (la base delle potenze) Ë sempre positivo.
+ \item $\forall i=1..n \ q_i >0$ Infatti D (la base delle potenze) √® sempre positivo.
  \item $\displaystyle\sum_{i=1}^n q_i=1$ Infatti:
   \[
    \sum_{i=1}^n q_i=\sum_{i=1}^n \frac{D^{-l_i}}{C}= \frac{1}{C} \sum_{i=1}^n D^{-l_i} =\frac{1}{C} \ C = 1
@@ -556,9 +556,9 @@ Posso dunque introdurre la distribuzione Q nella formula precedente:
  \end{split}
 \]
 
-Ora accade che la prima parte Ë una distanza di Kullback-Leibler (def. \ref{distkl}), quindi il termine Ë maggiore o uguale a 0 (Teorema \ref{leibler}).
-C Ë sicuramente minore di 1. Per ipotesi infatti il codice Ë UD, quindi vale la disuguaglianza di McMillan (Teorema \ref{macmillan}).
-Segue quindi che anche la seconda parte Ë maggiore o uguale a 0.
+Ora accade che la prima parte √® una distanza di Kullback-Leibler (def. \ref{distkl}), quindi il termine √® maggiore o uguale a 0 (Teorema \ref{leibler}).
+C √® sicuramente minore di 1. Per ipotesi infatti il codice √® UD, quindi vale la disuguaglianza di McMillan (Teorema \ref{macmillan}).
+Segue quindi che anche la seconda parte √® maggiore o uguale a 0.
 Quindi:
 \[
  L(C) - H_D(X) \ge 0 \Rightarrow L(C) \ge H_D(X)
@@ -569,7 +569,7 @@ Utilizzando quanto ricavato nel punto (i), per avere uguaglianza deve essere:
  \sum_{i=1}^n p_i log_D \left( \frac{p_i}{q_i} \right) + log_D \left( \frac{1}{C} \right)=0
 \]
 
-Ma poichÈ entrambi i termini sono maggiori o uguali a 0 ( risultato del punto (i) ), deve essere:
+Ma poich√© entrambi i termini sono maggiori o uguali a 0 ( risultato del punto (i) ), deve essere:
 \[
  \sum_{i=1}^n p_i log_D \left( \frac{p_i}{q_i} \right)=0 \\ log_D \left( \frac{1}{C} \right)=0
 \]
@@ -599,8 +599,8 @@ Riassumendo deve quindi valere che:
 \end{proof}
 \end{teorema}
 
-Il teorema appena visto, ci dice in sostanza che sar‡ possibile raggiungere il limite inferiore per la lunghezza di codice (che Ë l'entropia), solamente quando la distribuzione di probabilit‡ ha un particolare andamento.
-Vista l'importanza di queste considerazioni, a tali distribuzioni di probabilit‡ sar‡ dato un nome.
+Il teorema appena visto, ci dice in sostanza che sar√† possibile raggiungere il limite inferiore per la lunghezza di codice (che √® l'entropia), solamente quando la distribuzione di probabilit√† ha un particolare andamento.
+Vista l'importanza di queste considerazioni, a tali distribuzioni di probabilit√† sar√† dato un nome.
 
 \begin{definizione}
  $\bar{p} \in \Delta_n=\{\bar{x} \in R^n \mid x_i \ge 0 \sum_{i=1}^n x_i=1\}$ si dice \textbf{D-adica} se:
@@ -648,15 +648,15 @@ Data una v.a. $X \sim p(X_i)=p_i$, si dice codice di Shannon ($C_S$) un codice D
    \]
    
    \noindent
-   A questo punto, per la disuguaglianza di McMillan [\ref{macmillan}], Ë possibile costruire un codice UD.
+   A questo punto, per la disuguaglianza di McMillan [\ref{macmillan}], √® possibile costruire un codice UD.
  \end{proof}
 
 \end{proposizione}
 
-La proposizione precedente ci dice che possiamo costruire un codice di Shannon UD. CiÚ Ë di fondamentale 
-importanza, in quanto (come abbiamo ribadito pi˘ volte), un codice non UD Ë ambiguo (e quindi poco utile).
+La proposizione precedente ci dice che possiamo costruire un codice di Shannon UD. Ci√≤ √® di fondamentale 
+importanza, in quanto (come abbiamo ribadito pi√π volte), un codice non UD √® ambiguo (e quindi poco utile).
 A questo punto ci interessa sapere quanto il codice di Shannon sia efficiente.
-Una prima informazione Ë fornita dal seguente teorema.
+Una prima informazione √® fornita dal seguente teorema.
 
 \begin{teorema}
 \[
@@ -676,11 +676,11 @@ Una prima informazione Ë fornita dal seguente teorema.
 \label{codiceshannon}
 \end{teorema}
 
-Il teorema dice in sostanza che il codice Ë ``buono'', in quanto si avvicina molto al limite inferiore (l'entropia in base D).
-Tuttavia il codice non Ë ottimale, come Ë facile dimostrare tramite un controesempio.
+Il teorema dice in sostanza che il codice √® ``buono'', in quanto si avvicina molto al limite inferiore (l'entropia in base D).
+Tuttavia il codice non √® ottimale, come √® facile dimostrare tramite un controesempio.
 
 \begin{proposizione}
- Il codice di Shannon non Ë ottimale
+ Il codice di Shannon non √® ottimale
 \begin{proof}
  Consideriamo il seguente controesempio: Sia $\X=\{1,2,3\}$ e D=2 (codice binario). Sia inoltre 
  $p(x_1)=2/3$, $p(x_2)=2/9$, $p(x_3)=1/9$.
@@ -695,8 +695,8 @@ Tuttavia il codice non Ë ottimale, come Ë facile dimostrare tramite un controese
   \end{split}
 \]
  
- Costruiamo ora un codice C' migliore di $C_S$, provando quindi che $C_S$ non Ë ottimale.
- Poniamo C'(1)=0, C'(2)=10, C'(3)=11. Quindi $l_1=1$, $l_2=2$, $l_3=2$. Il codice Ë banalmente UD.
+ Costruiamo ora un codice C' migliore di $C_S$, provando quindi che $C_S$ non √® ottimale.
+ Poniamo C'(1)=0, C'(2)=10, C'(3)=11. Quindi $l_1=1$, $l_2=2$, $l_3=2$. Il codice √® banalmente UD.
  Calcoliamo la sua lunghezza:
 
 \[\begin{split}
@@ -709,12 +709,12 @@ Tuttavia il codice non Ë ottimale, come Ë facile dimostrare tramite un controese
   \end{split}
 \]
 
-Chiaramente $L(C') < L(C_S)$, quindi $C_S$ non Ë ottimale
+Chiaramente $L(C') < L(C_S)$, quindi $C_S$ non √® ottimale
 
 \end{proof}
 \end{proposizione}
 
-Per quanto riguarda il controesempio formulato nella dimostrazione della proposizione, Ë interessante calcolare anche l'entropia di X:
+Per quanto riguarda il controesempio formulato nella dimostrazione della proposizione, √® interessante calcolare anche l'entropia di X:
 
 \[\begin{split}
  H(X) &= H \left( \frac{2}{3},\frac{2}{9},\frac{1}{9} \right) \\
@@ -724,31 +724,31 @@ Per quanto riguarda il controesempio formulato nella dimostrazione della proposi
   \end{split}
 \]
 
-L'entropia Ë minore di C' (abbiamo infatti dimostrato che Ë un limite inferiore). Si noti tuttavia che C' nell'esempio precedente 
-Ë ottimale, tuttavia non si riesce a raggiunge il valore dell'entropia (X non Ë infatti 2-adica). Si noti infine che, quando 
-X Ë D-adica, il codice di Shannon Ë ottimale. Succede infatti che il logaritmo Ë un numero naturale e quindi la lunghezza coincide 
+L'entropia √® minore di C' (abbiamo infatti dimostrato che √® un limite inferiore). Si noti tuttavia che C' nell'esempio precedente 
+√® ottimale, tuttavia non si riesce a raggiunge il valore dell'entropia (X non √® infatti 2-adica). Si noti infine che, quando 
+X √® D-adica, il codice di Shannon √® ottimale. Succede infatti che il logaritmo √® un numero naturale e quindi la lunghezza coincide 
 con l'entropia.
 
 \subsection{Codice di Huffman}
-Vediamo ora un altro codice, che questa volta Ë ottimale. Si tratta del codice di Huffman.
+Vediamo ora un altro codice, che questa volta √® ottimale. Si tratta del codice di Huffman.
 A differenza del codice di Shannon, in questo caso viene fornito un algoritmo, che consente di costruire il codice.
-L'idea di fondo Ë che ai simboli meno probabili debbano essere assegnate le parole di codice pi˘ lunghe (e di egual lunghezza).
-Per semplicit‡ utilizziamo un esempio per descrivere il funzionamento dell'algoritmo.
+L'idea di fondo √® che ai simboli meno probabili debbano essere assegnate le parole di codice pi√π lunghe (e di egual lunghezza).
+Per semplicit√† utilizziamo un esempio per descrivere il funzionamento dell'algoritmo.
 Consideriamo il procedimento in tabella \ref{tab:huffman1}:
 \begin{itemize}
- \item L'insieme dei simboli Ë $s_1$,$s_2$,$s_3$,$s_4$,$s_5$ con probabilit‡ rispettivamente 
+ \item L'insieme dei simboli √® $s_1$,$s_2$,$s_3$,$s_4$,$s_5$ con probabilit√† rispettivamente 
        0.4, 0.3, 0.1, 0.1, 0.06, 0.04
- \item Si ordinano le probabilit‡ in maniera decrescente e si ottiene $S_0$
- \item Si ``accorpano'' i due simboli meno probabili (che sono gli ultimi due in virt˘ dell'ordinamento).
-       Si costruisce quindi $S_1$, sommando le probabilit‡ di questi due simboli. In figura, la probabilit‡ 
+ \item Si ordinano le probabilit√† in maniera decrescente e si ottiene $S_0$
+ \item Si ``accorpano'' i due simboli meno probabili (che sono gli ultimi due in virt√π dell'ordinamento).
+       Si costruisce quindi $S_1$, sommando le probabilit√† di questi due simboli. In figura, la probabilit√† 
        che si ottengono come somma sono quelle cerchiate.
- \item Si ripete il procedimento fino a che non rimangono solamente due probabilit‡ (in questo caso al passo $S_4$)
+ \item Si ripete il procedimento fino a che non rimangono solamente due probabilit√† (in questo caso al passo $S_4$)
  \item Si assegna 0 al primo simbolo ed 1 al secondo, costruendo $C_4$
- \item Per costruire $C_3$, si riporta il codice per le probabilit‡ non cerchiate (in questo caso 1 per la probabilit‡ 0.4).
-       Per la probabilit‡ cerchiata invece si riporta il codice ad entrambi i simboli che si erano accorpati.
+ \item Per costruire $C_3$, si riporta il codice per le probabilit√† non cerchiate (in questo caso 1 per la probabilit√† 0.4).
+       Per la probabilit√† cerchiata invece si riporta il codice ad entrambi i simboli che si erano accorpati.
        Si aggiunge poi 0 per il primo simbolo ed 1 per il secondo.
  \item Si ripete il procedimento fino ad ottenere $C_0$
- \item $C_0$ Ë il codice cercato
+ \item $C_0$ √® il codice cercato
 \end{itemize}
 
 \begin{table}[htbp]
@@ -769,11 +769,11 @@ Consideriamo il procedimento in tabella \ref{tab:huffman1}:
   \end{center}
 \end{table}
 
-Si noti che l'algoritmo consente di scegliere liberamente quale debba essere la somma delle due probabilit‡.
+Si noti che l'algoritmo consente di scegliere liberamente quale debba essere la somma delle due probabilit√†.
 E' quindi possibile, a seconda delle scelte fatte, ottenere codici diversi.
 Nell'esempio in tabella \ref{tab:huffman1}, avremo potuto infatti decidere che la somma di 0.2 e 0.1 in $S_3$, era il primo
 0.3 e non il secondo. Per chiarire questo punto, si osservi l'esempio in tabella \ref{tab:huffman2}. Sebbene la variabile X 
-(simboli con loro probabilit‡) sia la stessa, il codice ottenuto Ë completamente diverso.
+(simboli con loro probabilit√†) sia la stessa, il codice ottenuto √® completamente diverso.
 
 \begin{table}[htbp]
   \begin{center}
@@ -793,11 +793,11 @@ Nell'esempio in tabella \ref{tab:huffman1}, avremo potuto infatti decidere che l
   \end{center}
 \end{table}
 
-Persino la lunghezza delle varie parole di codice non Ë esattamente la stessa. Nel secondo caso infatti 4 parole di codice sono lunghe 4, mentre nel primo caso solamente una lo Ë. Tuttavia, entrambi i codici sono ottimali.
+Persino la lunghezza delle varie parole di codice non √® esattamente la stessa. Nel secondo caso infatti 4 parole di codice sono lunghe 4, mentre nel primo caso solamente una lo √®. Tuttavia, entrambi i codici sono ottimali.
 
-E' interessante notare che a volte non Ë necessario terminare tutto il procedimento. Se infatti accade che per alcune distribuzioni di probabilit‡ (ottenute durante il procedimento) si conosce un codice ottimale, lo si puÚ inserire. Si riduce cosÏ il numero di passi da 
-eseguire. Naturalmente Ë difficile avere a disposizione un codice ottimale ``direttamente''. Tuttavia se la distribuzioni di probabilit‡ Ë D-adica, come abbiamo visto, possiamo utilizzare il codice di Shannon.
-Consideriamo l'esempio in tabella \ref{tab:huffman3}. In questo caso $S_1$ Ë D-adica.
+E' interessante notare che a volte non √® necessario terminare tutto il procedimento. Se infatti accade che per alcune distribuzioni di probabilit√† (ottenute durante il procedimento) si conosce un codice ottimale, lo si pu√≤ inserire. Si riduce cos√¨ il numero di passi da 
+eseguire. Naturalmente √® difficile avere a disposizione un codice ottimale ``direttamente''. Tuttavia se la distribuzioni di probabilit√† √® D-adica, come abbiamo visto, possiamo utilizzare il codice di Shannon.
+Consideriamo l'esempio in tabella \ref{tab:huffman3}. In questo caso $S_1$ √® D-adica.
 E' facile dunque calcolare le lunghezze delle parole di codice, che sono banalmente 1,2,3,3. Infatti 
 log(2)=1,log(4)=2,log(8)=3. Basta quindi costruire un codice UD che rispetti queste lunghezze e proseguire da questo punto in poi con l'algoritmo di Huffman.
 
@@ -813,13 +813,13 @@ log(2)=1,log(4)=2,log(8)=3. Basta quindi costruire un codice UD che rispetti que
         $s_5$ & 0.025 & 1111 &  &   \\ 
     \end{tabular}
      
-     \caption{Esempio del funzionamento dell'algoritmo di Huffman, semplificato dal fatto che $S_1$ Ë D-adica}
+     \caption{Esempio del funzionamento dell'algoritmo di Huffman, semplificato dal fatto che $S_1$ √® D-adica}
     \label{tab:huffman3}
   \end{center}
 \end{table}
 
 
-Dimostriamo ora che il codice di Huffman Ë ottimale. Prima perÚ introduciamo alcuni lemmi che saranno utili durante la dimostrazione.
+Dimostriamo ora che il codice di Huffman √® ottimale. Prima per√≤ introduciamo alcuni lemmi che saranno utili durante la dimostrazione.
 \begin{proposizione}[Regola di Morse]
 \mbox{}
 
@@ -840,8 +840,8 @@ Dimostriamo ora che il codice di Huffman Ë ottimale. Prima perÚ introduciamo alc
 \]
 
  \noindent
- Costruiamo allora un codice C' la cui lunghezza Ë inferiore a quella di C, dimostrando quindi che C 
- non Ë ottimale. Sia:
+ Costruiamo allora un codice C' la cui lunghezza √® inferiore a quella di C, dimostrando quindi che C 
+ non √® ottimale. Sia:
 
  \[
   C': \X \to \D*
@@ -859,7 +859,7 @@ Dimostriamo ora che il codice di Huffman Ë ottimale. Prima perÚ introduciamo alc
  \]
 
 \noindent
-Ovvero C' Ë identico a C, salvo per il fatto che le due parole di codice per i simboli x e y sono state scambiate.
+Ovvero C' √® identico a C, salvo per il fatto che le due parole di codice per i simboli x e y sono state scambiate.
 Si ha che:
 
 \[ \begin{split}
@@ -875,34 +875,34 @@ Si ha che:
 \]
 
 \noindent
-Ma p(x) e p(y) sono positive in quanto probabilit‡ e per ipotesi $p(x) > p(y)$. Avevamo inoltre supposto che $l(x) > l(y)$. Pertanto:
+Ma p(x) e p(y) sono positive in quanto probabilit√† e per ipotesi $p(x) > p(y)$. Avevamo inoltre supposto che $l(x) > l(y)$. Pertanto:
 \[
  [p(x)-p(y)][l(x)-l(y)] > 0 \Rightarrow L(C)-L(C')>0 \Rightarrow L(C')<L(C)
 \]
 
 \noindent
-Quindi la lunghezza di C' Ë inferiore a C, pertanto C non puÚ essere ottimale. Assurdo.
+Quindi la lunghezza di C' √® inferiore a C, pertanto C non pu√≤ essere ottimale. Assurdo.
 
 \end{proof}
 
 \end{proposizione}
 
-La regola di Morse ci dice in sostanza che, per avere un codice ottimale, Ë necessario che a simboli pi˘ probabili siano assegnate 
-parole di codice pi˘ corte. Nel famoso codice Morse infatti alla lettera E (che in un testo in lingua inglese Ë la pi˘ frequente) Ë assegnato un solo simbolo. 
+La regola di Morse ci dice in sostanza che, per avere un codice ottimale, √® necessario che a simboli pi√π probabili siano assegnate 
+parole di codice pi√π corte. Nel famoso codice Morse infatti alla lettera E (che in un testo in lingua inglese √® la pi√π frequente) √® assegnato un solo simbolo. 
 
 \begin{proposizione}
- Sia C un codice istantaneo ed ottimale. Allora le 2 parole di codice pi˘ lunghe hanno la stessa lunghezza.
+ Sia C un codice istantaneo ed ottimale. Allora le 2 parole di codice pi√π lunghe hanno la stessa lunghezza.
 \begin{proof}
- Supponiamo per assurdo che ciÚ non sia vero. Sia allora b la parola pi˘ lunga ed a la seconda parola pi˘ lunga, quindi $l(a)<l(b)$.
- Posso allora costruire un codice C' identico a C, salvo per il fatto che b Ë troncata ai primi l(a) simboli.
- Il codice Ë banalmente istantaneo (infatti a non era un prefisso di b). Tuttavia la sua lunghezza Ë inferiore a quella di C, 
- poichÈ $l(a)<l(b)$. Pertanto C non Ë ottimale. Assurdo.
+ Supponiamo per assurdo che ci√≤ non sia vero. Sia allora b la parola pi√π lunga ed a la seconda parola pi√π lunga, quindi $l(a)<l(b)$.
+ Posso allora costruire un codice C' identico a C, salvo per il fatto che b √® troncata ai primi l(a) simboli.
+ Il codice √® banalmente istantaneo (infatti a non era un prefisso di b). Tuttavia la sua lunghezza √® inferiore a quella di C, 
+ poich√© $l(a)<l(b)$. Pertanto C non √® ottimale. Assurdo.
 \end{proof}
 
 \end{proposizione}
 
 \begin{osservazione}
- E' sempre possibile costruire un codice ottimale, in cui le 2 parole pi˘ lunghe differiscono solo per l'ultimo bit.
+ E' sempre possibile costruire un codice ottimale, in cui le 2 parole pi√π lunghe differiscono solo per l'ultimo bit.
 \label{diff1bit}
 \end{osservazione}
 
@@ -919,12 +919,12 @@ L'algoritmo di Huffman restituisce un codice:
 \begin{itemize}
 \item[(i)]
 Per induzione.
-Il caso base Ë il primo codice costruito dall'algoritmo ($C_n$). Per il funzionamento dell'algoritmo il codice Ë formato unicamente da due simboli, pertanto Ë banalmente istantaneo.
-Per il passo induttivo, dimostriamo che se $C_k$ Ë istantaneo, allora lo Ë anche $C_{k-1}$.
-CiÚ Ë banalmente vero, in quanto $C_{k-1}$ Ë uguale a $C_k$ (che Ë istantaneo per ipotesi), tranno per il fatto che una parola di codice Ë stata ``sdoppiata'' in due. Tuttavia queste due parole non sono prefisso di altre (per come sono costruite), pertanto anche $C_k$ Ë istantaneo.
+Il caso base √® il primo codice costruito dall'algoritmo ($C_n$). Per il funzionamento dell'algoritmo il codice √® formato unicamente da due simboli, pertanto √® banalmente istantaneo.
+Per il passo induttivo, dimostriamo che se $C_k$ √® istantaneo, allora lo √® anche $C_{k-1}$.
+Ci√≤ √® banalmente vero, in quanto $C_{k-1}$ √® uguale a $C_k$ (che √® istantaneo per ipotesi), tranno per il fatto che una parola di codice √® stata ``sdoppiata'' in due. Tuttavia queste due parole non sono prefisso di altre (per come sono costruite), pertanto anche $C_k$ √® istantaneo.
 \item[(ii)]
-Per induzione. Il caso base Ë il primo codice costruito dall'algoritmo ($C_n$). PoichÈ le 2 parole di codice sono formate unicamente da un simbolo, il codice Ë banalmente ottimale. Per il passo induttivo, dimostriamo che se $C_{k+1}$ Ë ottimale, allora lo Ë anche $C_{k}$.
-In tabella \ref{tab:huffdim} Ë rappresentato un passo dell'algoritmo di Huffman.
+Per induzione. Il caso base √® il primo codice costruito dall'algoritmo ($C_n$). Poich√© le 2 parole di codice sono formate unicamente da un simbolo, il codice √® banalmente ottimale. Per il passo induttivo, dimostriamo che se $C_{k+1}$ √® ottimale, allora lo √® anche $C_{k}$.
+In tabella \ref{tab:huffdim} √® rappresentato un passo dell'algoritmo di Huffman.
 
 \begin{table}[htbp]
   \begin{center}
@@ -985,18 +985,18 @@ Allora:
 
 
 \noindent
-Supponiamo ora per assurdo che $C_{k}$ non sia ottimale. CiÚ equivale a dire che esiste un codice 
-$\bar{C}_k$, la cui lunghezza Ë inferiore a quella di $C_k$:
+Supponiamo ora per assurdo che $C_{k}$ non sia ottimale. Ci√≤ equivale a dire che esiste un codice 
+$\bar{C}_k$, la cui lunghezza √® inferiore a quella di $C_k$:
 \[
  \exists \ \bar{C}_k : \bar{L}_k < L_k
 \]
 
-Per l'osservazione \ref{diff1bit}, Ë sempre possibile costruire un codice ottimale per cui le due parole pi˘ 
-lunghe differiscono solo nell'ultimo bit. Consideriamo pertanto che $\bar{C}_k$ sia un codice per cui vale questa propriet‡.
+Per l'osservazione \ref{diff1bit}, √® sempre possibile costruire un codice ottimale per cui le due parole pi√π 
+lunghe differiscono solo nell'ultimo bit. Consideriamo pertanto che $\bar{C}_k$ sia un codice per cui vale questa propriet√†.
 Se ora applichiamo l'algoritmo di Huffman ``al contrario'', a partire da $\bar{C}_k$, possiamo costruire un codice 
-$\bar{C}_{k+1}$. Tale codice sar‡ uguale a $\bar{C}_k$, ma con le due parole pi˘ lunghe fuse in un unico simbolo 
+$\bar{C}_{k+1}$. Tale codice sar√† uguale a $\bar{C}_k$, ma con le due parole pi√π lunghe fuse in un unico simbolo 
 (private dell'ultimo bit).
-Esattamente come nel caso precedente, si avr‡ che:
+Esattamente come nel caso precedente, si avr√† che:
 \[
  \bar{L}_{k+1}=\bar{L}_{k}-p_{\alpha}
 \]
@@ -1008,29 +1008,29 @@ Da cui:
  \end{split}
 \]
 
-Ma poichÈ $\bar{L}_k < L_k$, si ha che:
+Ma poich√© $\bar{L}_k < L_k$, si ha che:
 \[
  \bar{L}_k-L_k<0 \Rightarrow \bar{L}_{k+1}-L_{k+1}<0 \Rightarrow \bar{L}_{k+1}<L_{k+1}
 \]
 
-Ovvero risulterebbe che $C_{k+1}$ non Ë ottimale, in quanto $\bar{C}_{k+1}$ ha una lunghezza inferiore.
-Ma questo Ë assurdo, poichÈ per ipotesi $C_{k+1}$ era ottimale.
-Segue quindi che $C_{k}$ Ë ottimale, concludendo la dimostrazione.
+Ovvero risulterebbe che $C_{k+1}$ non √® ottimale, in quanto $\bar{C}_{k+1}$ ha una lunghezza inferiore.
+Ma questo √® assurdo, poich√© per ipotesi $C_{k+1}$ era ottimale.
+Segue quindi che $C_{k}$ √® ottimale, concludendo la dimostrazione.
 
 \end{itemize}
 \end{proof}
 \end{teorema}
 
 Abbiamo utilizzato il codice di Huffman solamente con alfabeti binari, tuttavia l'algoritmo 
-funziona anche nel caso pi˘ generale di alfabeti D-ari. Anche la dimostrazione di ottimalit‡ puÚ essere estesa 
-per considerare questo caso (non sar‡ fatto).
+funziona anche nel caso pi√π generale di alfabeti D-ari. Anche la dimostrazione di ottimalit√† pu√≤ essere estesa 
+per considerare questo caso (non sar√† fatto).
 
 Naturalmente l'algoritmo necessita di qualche modifica, nel caso di alfabeti con D simboli. In maniera abbastanza intuitiva, invece di prendere gli ultimi 2 simboli, si prenderanno gli ultimi D.
-Tuttavia c'Ë un problema evidente: il numero di simboli di partenza, potrebbe non ridursi esattamente a D nell'ultima fase ``forward''.
-Per risolvere questo problema, possiamo aggiungere dei simboli fittizzi (con probabilit‡ 0) nella fase iniziale.
-Naturalmente bisogna determinare quanti simboli Ë necessario aggiungere.
+Tuttavia c'√® un problema evidente: il numero di simboli di partenza, potrebbe non ridursi esattamente a D nell'ultima fase ``forward''.
+Per risolvere questo problema, possiamo aggiungere dei simboli fittizzi (con probabilit√† 0) nella fase iniziale.
+Naturalmente bisogna determinare quanti simboli √® necessario aggiungere.
 
-L'algoritmo, ad ogni passo della prima fase, accorpa gli ultimi D simboli. CiÚ vuol dire che nel passo i ci sono D-1 simboli in meno rispetto al passo i-1. Infatti ne vengono eliminati D, ma se ne aggiunge uno (che Ë appunto l'accorpamento dei D simboli).
+L'algoritmo, ad ogni passo della prima fase, accorpa gli ultimi D simboli. Ci√≤ vuol dire che nel passo i ci sono D-1 simboli in meno rispetto al passo i-1. Infatti ne vengono eliminati D, ma se ne aggiunge uno (che √® appunto l'accorpamento dei D simboli).
 Facendo uno schema riassuntivo:
 \[\begin{split}
  S_0 \ &: \ n \ simboli  \\
@@ -1041,7 +1041,7 @@ Facendo uno schema riassuntivo:
    \end{split}
 \]
 
-PoichÈ nell'ultima fase vogliamo avere D simboli, deve essere che:
+Poich√© nell'ultima fase vogliamo avere D simboli, deve essere che:
 \[
  \exists \ k \ge 1 : D=n-k(D-1)
 \]
@@ -1058,7 +1058,7 @@ Ovvero n deve essere congruo ad 1 (in modulo D-1):
 \]
 
 \noindent
-In sostanza devo aggiungere una serie di simboli, finchÈ tale condizione non Ë soddisfatta.
+In sostanza devo aggiungere una serie di simboli, finch√© tale condizione non √® soddisfatta.
 
 \bigskip
 \noindent
@@ -1068,8 +1068,8 @@ Dobbiamo quindi trovare $n \ge 11$ tale che:
 \[
  n \equiv 1 \  mod(3)
 \]
-Il risultato Ë chiaramente 13 (infatti 3*4+1=13), dobbiamo quindi aggiungere 2 simboli fittizzi.
-L'algoritmo di Huffman in un caso con questi parametri Ë riportato in tabella \ref{tab:huffmanD}.
+Il risultato √® chiaramente 13 (infatti 3*4+1=13), dobbiamo quindi aggiungere 2 simboli fittizzi.
+L'algoritmo di Huffman in un caso con questi parametri √® riportato in tabella \ref{tab:huffmanD}.
 
 \begin{table}[htbp]
   \begin{center}
@@ -1097,16 +1097,16 @@ L'algoritmo di Huffman in un caso con questi parametri Ë riportato in tabella \r
   \end{center}
 \end{table}
 
-\section{1∞ Teorema di Shannon}
+\section{1¬∞ Teorema di Shannon}
 Come abbiamo visto, il codice di Huffman fornisce un algoritmo per costruire un codice ottimale.
-In sostanza quindi, sembrerebbe che il limite di efficienza sia stato raggiunto e meglio di cosÏ non si possa fare per comprimere 
-l'informazione. E' stato anche visto che se la distribuzione X non Ë D-adica, nemmeno un codice ottimale (e.g. Huffman) riesce a raggiungere (relativamente alla lunghezza) il valore dell'entropia (che Ë un limite inferiore).
+In sostanza quindi, sembrerebbe che il limite di efficienza sia stato raggiunto e meglio di cos√¨ non si possa fare per comprimere 
+l'informazione. E' stato anche visto che se la distribuzione X non √® D-adica, nemmeno un codice ottimale (e.g. Huffman) riesce a raggiungere (relativamente alla lunghezza) il valore dell'entropia (che √® un limite inferiore).
 
-Analizzando pi˘ attentamente la questione, ci si accorge che fortunatamente si puÚ fare di meglio. Fino ad ora infatti abbiamo 
+Analizzando pi√π attentamente la questione, ci si accorge che fortunatamente si pu√≤ fare di meglio. Fino ad ora infatti abbiamo 
 considerato i simboli emessi dalla sorgente singolarmente. E' interessante invece vedere cosa si riesce ad ottenere se si considerano 
 insiemi di simboli. Si vuole in sostanza fare una cosiddetta ``Codifica a pacchetto''.
 
-Per inquadrare meglio questa idea, facciamo un esempio. Supponiamo che la sorgente generi due simboli A e B, con probabilit‡ rispettivamente 2/3 ed 1/3. Il miglior codice possibile Ë banalmente quello che utilizza un unico bit per simbolo (tabella 
+Per inquadrare meglio questa idea, facciamo un esempio. Supponiamo che la sorgente generi due simboli A e B, con probabilit√† rispettivamente 2/3 ed 1/3. Il miglior codice possibile √® banalmente quello che utilizza un unico bit per simbolo (tabella 
 \ref{tab:codpac1}).
 
 \begin{table}[htbp]
@@ -1123,7 +1123,7 @@ Per inquadrare meglio questa idea, facciamo un esempio. Supponiamo che la sorgen
 \end{table}
 
 Consideriamo ora l'estensione seconda della sorgente, che corrisponde all'emissione di due simboli.
-Un codice ottimale Ë riportato in tabella \ref{tab:codpac2}.
+Un codice ottimale √® riportato in tabella \ref{tab:codpac2}.
 
 \begin{table}[htbp]
   \begin{center}
@@ -1140,10 +1140,10 @@ Un codice ottimale Ë riportato in tabella \ref{tab:codpac2}.
   \end{center}
 \end{table}
 
-In maniera analoga possiamo costruire l'estensione terza della sorgente e cosÏ via.
-Calcoliamo ora la lunghezza dei codici ottimali $C^1$, $C^2$, $C^3$ (quest'ultimo non Ë stato indicato,ma visto che interessa solo la sua lunghezza puÚ essere costruito con l'algoritmo di Huffman) e l'entropia della variabile X.
+In maniera analoga possiamo costruire l'estensione terza della sorgente e cos√¨ via.
+Calcoliamo ora la lunghezza dei codici ottimali $C^1$, $C^2$, $C^3$ (quest'ultimo non √® stato indicato,ma visto che interessa solo la sua lunghezza pu√≤ essere costruito con l'algoritmo di Huffman) e l'entropia della variabile X.
 Si noti che per lunghezza del codice $C^k$, intendiamo la lunghezza relativamente alla sorgente iniziale. Ovvero, una volta 
-calcolata la lunghezza con la formula usuale, Ë necessario dividere per k. Infatti il codice invia k simboli, ma noi vogliamo considerare la lunghezza per inviare un solo simbolo.
+calcolata la lunghezza con la formula usuale, √® necessario dividere per k. Infatti il codice invia k simboli, ma noi vogliamo considerare la lunghezza per inviare un solo simbolo.
 Facendo i dovuti calcoli si ottiene:
 \[\begin{split}
  L(C^1)&=1 \\
@@ -1165,7 +1165,7 @@ Abbiamo dimostrato (teorema \ref{codiceshannon}) che per il codice di Shannon va
 \]
 
 \noindent
-Tuttavia, visto che stiamo considerando un codice ottimale, a maggior ragione varr‡ questa disuguaglianza.
+Tuttavia, visto che stiamo considerando un codice ottimale, a maggior ragione varr√† questa disuguaglianza.
 In dettaglio avremo che:
 \[
  H_D(X_1..X_n) \le L^* < H_D(X_1..X_n)+1
@@ -1180,8 +1180,8 @@ Da cui:
 \]
 
 In sostanza quindi, la nostra intuizione era corretta: al crescere del numero di simboli considerati, la lunghezza si avvicina sempre di 
-pi˘ all'entropia. L'ipotesi che ci ha consentito di ottenere questo risultato Ë stata quella di indipendenza della variabile X.
-E' infatti grazie ad essa che Ë possibile trasformare $H_D(X_1..X_n)$ in $n H_D(\X)$. Il risultato vale dunque solamente nel caso 
+pi√π all'entropia. L'ipotesi che ci ha consentito di ottenere questo risultato √® stata quella di indipendenza della variabile X.
+E' infatti grazie ad essa che √® possibile trasformare $H_D(X_1..X_n)$ in $n H_D(\X)$. Il risultato vale dunque solamente nel caso 
 di una sorgente senza memoria.
 
 Proviamo ora a generalizzare i risultati ottenuti, considerando S come processo stazionario S $[ \ \{X_i\}_i \ stazionario \ ]$.
@@ -1194,10 +1194,10 @@ In questo caso si ottiene:
   \end{split}
 \]
 
-Il risultato Ë analogo al precedente, tuttavia questa volta la lunghezza tende al tasso entropico $H_D(\bar{X})$ invece che all'entropia.
-Questo risultato Ë noto come 1∞ teorema di Shannon (o della codifica di sorgente).
+Il risultato √® analogo al precedente, tuttavia questa volta la lunghezza tende al tasso entropico $H_D(\bar{X})$ invece che all'entropia.
+Questo risultato √® noto come 1¬∞ teorema di Shannon (o della codifica di sorgente).
 
-\begin{teorema}[1∞ teorema di Shannon (o della codifica di sorgente)]
+\begin{teorema}[1¬∞ teorema di Shannon (o della codifica di sorgente)]
  Sia S una sorgente stazionaria e $S^n$ la sua estensione n-esima, con n qualsiasi. Sia $C^n$ un codice ottimale UD D-ario per $S^n$.
  Allora:
  \[
@@ -1207,9 +1207,9 @@ Questo risultato Ë noto come 1∞ teorema di Shannon (o della codifica di sorgente
 \end{teorema}
 
 \section{Un codice tramite il teorema AEP}
-L'AEP Ë un risultato di grande importanza anche per la costruzione di codici.
+L'AEP √® un risultato di grande importanza anche per la costruzione di codici.
 In particolare costruiremo un codice binario utilizzando quanto visto nel paragrafo dell'AEP (sez. \ref{aep}).
-Il codice sar‡ formato da due pacchetti (o parti in questo caso), le sequenze tipiche e le sequenze atipiche.
+Il codice sar√† formato da due pacchetti (o parti in questo caso), le sequenze tipiche e le sequenze atipiche.
 Per distinguere questi due pacchetti, utilizzermo un bit (e.g. 0 sequenza tipica, 1 atipica).
 Determiniamo ora il numero di bit necessari per ciascun pacchetto:
 \begin{itemize}
@@ -1217,12 +1217,12 @@ Determiniamo ora il numero di bit necessari per ciascun pacchetto:
        \[
         | A_{\epsilon}^n| \le 2^{n(H(X)+\epsilon)}
        \]
-       Se identifico quindi ciascuna sequenza con un numero avrÚ bisogno di al pi˘ $2^{n(H(X)+\epsilon)}$ ``numeri''.
-       Quindi, poichÈ siamo nel caso binario, serviranno:
+       Se identifico quindi ciascuna sequenza con un numero avr√≤ bisogno di al pi√π $2^{n(H(X)+\epsilon)}$ ``numeri''.
+       Quindi, poich√© siamo nel caso binario, serviranno:
        \[
         log_2 2^{n(H(X)+\epsilon)}=n(H(X)+\epsilon) bit
        \]
-       Tuttavia, visto che si potrebbe ottenere un numero reale, Ë necessario aggiungere un ulteriore bit.
+       Tuttavia, visto che si potrebbe ottenere un numero reale, √® necessario aggiungere un ulteriore bit.
        I bit necessari per codificare le sequenze sono dunque:
        \[
         n(H(X)+\epsilon)+1
@@ -1235,14 +1235,14 @@ Determiniamo ora il numero di bit necessari per ciascun pacchetto:
        \[
          log|X^n|=nlog(|X|) \ bit
        \]
-       Come nel caso precedente, Ë necessario un bit aggiuntivo. I bit necessari sono dunque:
+       Come nel caso precedente, √® necessario un bit aggiuntivo. I bit necessari sono dunque:
        \[
         n log(|X|)+1
        \]
 
 \end{itemize}
 
-Vediamo ora come la lunghezza del codice cosÏ costruito sia arbitrariamente vicina all'entropia.
+Vediamo ora come la lunghezza del codice cos√¨ costruito sia arbitrariamente vicina all'entropia.
 
 
 \begin{teorema}
@@ -1283,7 +1283,7 @@ Vale che:
  &=n(H(X)+\epsilon)Pr\{A_{\epsilon}^n\} + nlog(|X|)(1-Pr\{A_{\epsilon}^n\}) + 2\\
  \end{split}
 \]
-Ora per il fatto che come tutte le probabilit‡ $0 \le Pr\{A_{\epsilon}^n\} \le 1$ e che vale (b), si ha:
+Ora per il fatto che come tutte le probabilit√† $0 \le Pr\{A_{\epsilon}^n\} \le 1$ e che vale (b), si ha:
 \[\begin{split}
   &n(H(X)+\epsilon)Pr\{A_{\epsilon}^n\} + nlog(|X|)(1-Pr\{A_{\epsilon}^n\}) + 2\\
   \le &n(H(X)+\epsilon) + nlog(|X|)(1-Pr\{A_{\epsilon}^n\}) + 2\\
@@ -1291,7 +1291,7 @@ Ora per il fatto che come tutte le probabilit‡ $0 \le Pr\{A_{\epsilon}^n\} \le 1
    =&n[H(X)+\epsilon+\epsilon log(|X|) + \frac{2}{n}]
   \end{split}
 \]
-Ora si puÚ utilizzare (a):
+Ora si pu√≤ utilizzare (a):
 \[\begin{split}
    &n[H(X)+\epsilon+\epsilon log(|X|) +\frac{2}{n}]  \\
   \le & n[H(X)+\epsilon+\epsilon log(|X|) +\epsilon]  \\

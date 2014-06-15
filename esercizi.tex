@@ -4,7 +4,7 @@
 \textbf{Codifica di sorgente}
 
 \begin{enumerate}
- \item Determinare se il codice con le seguenti parole è univocamente decodificabile o meno: 
+ \item Determinare se il codice con le seguenti parole Ã¨ univocamente decodificabile o meno: 
        012, 0123, 4, 310, 1024, 2402, 2401, 4013.
        \bigskip
        \bigskip
@@ -12,7 +12,7 @@
        \textit{Soluzione:}
 
        \noindent
-       Si può utilizzare l'algoritmo di Sardinas-Patterson. Risulta:
+       Si puÃ² utilizzare l'algoritmo di Sardinas-Patterson. Risulta:
        \begin{table}[htbp]
        \begin{center}
        \begin{tabular}{l | l | l | l | l | l | l | l | l | l | l | l}
@@ -30,7 +30,7 @@
        \end{center}
        \end{table}
 
-       Il codice è dunque UD, poiché $S_{10}$ coincide con $S_7$.
+       Il codice Ã¨ dunque UD, poichÃ© $S_{10}$ coincide con $S_7$.
 
        \bigskip
  \item Si costruisca un codice di Shannon binario, per la seguente varabile aleatoria:
@@ -41,7 +41,7 @@
         \end{array} \right)
        \]
        Si stabilisca se la lunghezza media del codice ottenuto coincide con l'entropia di X (in base 2) senza calcolare 
-       né l'una né l'altra.
+       nÃ© l'una nÃ© l'altra.
        \bigskip
        \bigskip
 
@@ -59,7 +59,7 @@
            3    & 6    & 3    & 3    & 5    & 4    & 3    & 4 \\
         \end{array} \right)
        \]
-       Un codice con queste lunghezze è ad esempio:
+       Un codice con queste lunghezze Ã¨ ad esempio:
        \[ C = \left(
         \begin{array}{cl}
            x_1  & \to 000 \\
@@ -77,7 +77,7 @@
        \[
         \forall i=1..n  \ \ p_i=D^{-l_i}
        \]
-       Ma non è questo il caso (ad esempio $0.22\ne2^{-3}$). La lunghezza del codice non coincide quindi con 
+       Ma non Ã¨ questo il caso (ad esempio $0.22\ne2^{-3}$). La lunghezza del codice non coincide quindi con 
        l'entropia di X.
        \bigskip
 
@@ -93,7 +93,7 @@
        \textit{Soluzione:}
 
        \noindent
-       Si può utilizzare l'algoritmo di Sardinas-Patterson. Risulta:
+       Si puÃ² utilizzare l'algoritmo di Sardinas-Patterson. Risulta:
        \newpage
 
        \begin{table}[htbp]
@@ -109,7 +109,7 @@
        \end{center}
        \end{table}
 
-       Quindi $C_1$ non è UD, poiché $S_0 \cap S_2 = \{10\} \neq \varnothing $.
+       Quindi $C_1$ non Ã¨ UD, poichÃ© $S_0 \cap S_2 = \{10\} \neq \varnothing $.
 
        \begin{table}[htbp]
        \begin{center}
@@ -124,7 +124,7 @@
        \end{center}
        \end{table}
 
-       Quindi $C_2$ è UD, in quanto $S_3=S_4$.
+       Quindi $C_2$ Ã¨ UD, in quanto $S_3=S_4$.
 
        \begin{table}[htbp]
        \begin{center}
@@ -142,7 +142,7 @@
        \end{center}
        \end{table}
 
-       Quindi $C_3$ è UD perché $S_7=\varnothing$.
+       Quindi $C_3$ Ã¨ UD perchÃ© $S_7=\varnothing$.
 
         \bigskip
 \item Si costruisca un codice ottimale ternario per la seguente variabile aleatoria:
@@ -153,14 +153,14 @@
         \end{array} \right)
        \]
        Si stabilisca se la lunghezza media del codice ottenuto coincide con l'entropia di X (in base tre) 
-       senza calcolare né l'una né l'altra.
+       senza calcolare nÃ© l'una nÃ© l'altra.
        \bigskip
        \bigskip
 
        \textit{Soluzione:}
 
        \noindent
-       Si può utilizzare l'algoritmo di Huffman. Poiché è richiesto un codice ternario, deve essere n=1 mod 2.
+       Si puÃ² utilizzare l'algoritmo di Huffman. PoichÃ© Ã¨ richiesto un codice ternario, deve essere n=1 mod 2.
        E' necessario quindi aggiungere un simbolo aggiuntivo (infatti 9=4*2+1).
        Risulta:
        \begin{table}[htbp]
@@ -183,7 +183,7 @@
        \end{table} 
 
       \noindent
-      Un codice ottimale è dunque:
+      Un codice ottimale Ã¨ dunque:
        \[ C = \left(
         \begin{array}{cl}
            x_1  & \to 2 \\
@@ -197,7 +197,7 @@
         \end{array} \right)
        \]
 
-       La lunghezza del codice non coincide con l'entropia, perché X non è 3-adica. Infatti, ad esempio, 
+       La lunghezza del codice non coincide con l'entropia, perchÃ© X non Ã¨ 3-adica. Infatti, ad esempio, 
        $-log_3 0.22 \simeq 1.37 \neq 1 $
         \bigskip
 \item E' possibile costruire un codice binario univocamente decodificabile con lunghezze di parola 2,2,3,3,3,4,4,4? 
@@ -212,24 +212,24 @@
        \[
         2^{-2}+2^{-2}+2^{-3}+2^{-3}+2^{-3}+2^{-4}+2^{-4}+2^{-4}=1.0625>1
        \]
-       Quindi non è possibile costruire un codice UD con queste lunghezze.
+       Quindi non Ã¨ possibile costruire un codice UD con queste lunghezze.
 
        \bigskip
-\item Si stabilisca se la seguente affermazione è vera o falsa: ``Sia C un codice si sorgente binario con lunghezze 
+\item Si stabilisca se la seguente affermazione Ã¨ vera o falsa: ``Sia C un codice si sorgente binario con lunghezze 
 di parola $l_1,l_2,...,l_n$. Se :
 \[
  \sum_{i=1}^n 2^{-l_i} \le 1
 \]
-allora C è istantaneo''. Nel primo casi si fornisca una dimostrazione, nel secondo un controesempio.
+allora C Ã¨ istantaneo''. Nel primo casi si fornisca una dimostrazione, nel secondo un controesempio.
 \bigskip
        \bigskip
 
        \textit{Soluzione:}
 
        \noindent
-       L'affermazione è falsa. La disuguaglianza di Kraft (\ref{kraft}) alla quale si fa riferimento,
+       L'affermazione Ã¨ falsa. La disuguaglianza di Kraft (\ref{kraft}) alla quale si fa riferimento,
         parla infatti di condizione 
-       \textbf{affinchè sia possibile} costruire un codice istantaneo. Un controesempio può essere il seguente:
+       \textbf{affinchÃ¨ sia possibile} costruire un codice istantaneo. Un controesempio puÃ² essere il seguente:
        \[ C = \left(
         \begin{array}{cl}
            x_1  & \to 00 \\
@@ -240,7 +240,7 @@ allora C è istantaneo''. Nel primo casi si fornisca una dimostrazione, nel secon
        \[
         2^{-2}+2^{-1}=0.75<1
        \]
-       Tuttavia si nota immediatamente che il codice non è istantaneo.
+       Tuttavia si nota immediatamente che il codice non Ã¨ istantaneo.
 
        \bigskip
 
@@ -258,7 +258,7 @@ Calcolare l'entropia di X e confrontarla con la lunghezza media del codice costr
        \textit{Soluzione:}
 
        \noindent
-       Si può utilizzare l'algoritmo di Huffman.
+       Si puÃ² utilizzare l'algoritmo di Huffman.
        Risulta:
        \begin{table}[htbp]
        \begin{center}
@@ -276,7 +276,7 @@ $x_7$& 0.02&01011&               &    &              &    &              &  & & 
        \end{center}
        \end{table} 
 
-      Un codice ottimale è dunque:
+      Un codice ottimale Ã¨ dunque:
        \[ C = \left(
         \begin{array}{cl}
            x_1  & \to 1 \\
@@ -297,23 +297,23 @@ E la lunghezza del codice:
 \[
  L(C)=\sum_{i=1}^7 p_i l_i =2.02
 \]
-Quindi $H(X)<L(C)$, ed infatti X non è 2-adica.
+Quindi $H(X)<L(C)$, ed infatti X non Ã¨ 2-adica.
 \bigskip
 \end{enumerate}
 
 
-\textbf{Capacità di canale}
+\textbf{CapacitÃ  di canale}
 
 \begin{enumerate}
- \item Si costruisca un canale ponendo in cascata due BSC con probabilità di errore $p_1$ e $p_2$, rispettivamente.
-       Si determini la sua matrice di canale e se ne calcoli la capacità.
+ \item Si costruisca un canale ponendo in cascata due BSC con probabilitÃ  di errore $p_1$ e $p_2$, rispettivamente.
+       Si determini la sua matrice di canale e se ne calcoli la capacitÃ .
        \bigskip
        \bigskip
 
        \textit{Soluzione:}
 
        \noindent
-       La matrice del canale è data dal prodotto dei due BSC, quindi:
+       La matrice del canale Ã¨ data dal prodotto dei due BSC, quindi:
       \[
        P = \left[
          \begin{array}{cc}
@@ -330,23 +330,23 @@ Quindi $H(X)<L(C)$, ed infatti X non è 2-adica.
          \end{array} \right]
       \]
       Si ottiene dunque ancora un BSC, in cui $p=p_1+p_2+2p_1p_2$.
-      Poiché la capacità di un BSC è 1-H(p), si ottiene:
+      PoichÃ© la capacitÃ  di un BSC Ã¨ 1-H(p), si ottiene:
       \[
        C=1-H(p_1+p_2+2p_1p_2,1-[p_1+p_2+2p_1p_2])
       \]
       \bigskip
 
- \item Un canale discreto senza memoria è alimentato da una sorgente binaria $X \in \{0,1\}$ e produce in uscita 
-       Y=X+Z, dove Z è una variabile aleatora indipendente da X, a valori nell'insieme $\{0,a\}$ e con distribuzione 
-       di probabilità uniforme: $P\{Z=0\}=P\{Z=a\}=\frac{1}{2}$. Si calcoli la capacità di questo canale.
-       Si noti che l'alfabeto di uscita del canale e la sua capacità dipendono dal valore di a.
+ \item Un canale discreto senza memoria Ã¨ alimentato da una sorgente binaria $X \in \{0,1\}$ e produce in uscita 
+       Y=X+Z, dove Z Ã¨ una variabile aleatora indipendente da X, a valori nell'insieme $\{0,a\}$ e con distribuzione 
+       di probabilitÃ  uniforme: $P\{Z=0\}=P\{Z=a\}=\frac{1}{2}$. Si calcoli la capacitÃ  di questo canale.
+       Si noti che l'alfabeto di uscita del canale e la sua capacitÃ  dipendono dal valore di a.
        \bigskip
        \bigskip
 
        \textit{Soluzione:}
 
        \noindent
-       Il grafo di canale è rappresentato in figura \ref{fig:gres}.
+       Il grafo di canale Ã¨ rappresentato in figura \ref{fig:gres}.
 
        \begin{figure}[htbp]
        \begin{center}
@@ -378,7 +378,7 @@ Quindi $H(X)<L(C)$, ed infatti X non è 2-adica.
           &=H \left (\frac{\Pi}{2},\frac{\Pi}{2},\frac{1-\Pi}{2},\frac{1-\Pi}{2} \right)-1 \\
          \end{split}
        \]
-       Quindi la capacità è:
+       Quindi la capacitÃ  Ã¨:
        \[
         C=\max_{p(x)} I(X;Y)
          =\max_{p(x)}H \left (\frac{\Pi}{2},\frac{\Pi}{2},\frac{1-\Pi}{2},\frac{1-\Pi}{2} \right)-1
@@ -391,8 +391,8 @@ Quindi $H(X)<L(C)$, ed infatti X non è 2-adica.
         C=2-1=1 \ bit
        \]
        Restano da trattate i casi con a=0 e a=1. Se a=0, Y vale unicamente 0 o 1. Si ottiene un canale completamente 
-       deterministico, la cui capacità è $C=log|X|=1$. Nel caso invece in cui a=1, Y assume i valori 0,1,2.
-       In questo caso si ha un canale inutile, quindi la capacità è 0.
+       deterministico, la cui capacitÃ  Ã¨ $C=log|X|=1$. Nel caso invece in cui a=1, Y assume i valori 0,1,2.
+       In questo caso si ha un canale inutile, quindi la capacitÃ  Ã¨ 0.
        Riassumendo:
        \[
         C=
@@ -404,14 +404,14 @@ Quindi $H(X)<L(C)$, ed infatti X non è 2-adica.
 
 
        \bigskip
- \item Si calcoli la capacità del canale avente la seguente matrice di transizione:
+ \item Si calcoli la capacitÃ  del canale avente la seguente matrice di transizione:
       \[ P = \left(
         \begin{array}{ccccc}
            0.3  & 0.1  & 0.2 & 0.1 & 0.3 \\
            0.1  & 0.3  & 0.2 & 0.3 & 0.1\\
         \end{array} \right)
        \]
-       e determinare una distribuzione di probabilità di ingresso in corrispondenza della quale si ottiene la capacità.
+       e determinare una distribuzione di probabilitÃ  di ingresso in corrispondenza della quale si ottiene la capacitÃ .
        \bigskip
        \bigskip
 
@@ -426,21 +426,21 @@ Quindi $H(X)<L(C)$, ed infatti X non è 2-adica.
           &\simeq 0.151 \ bit
          \end{split}
        \]
-       La capacità si ottiene, sempre in virtù del fatto che il canale è debolmente simmetrico, quanto P(X) ha 
+       La capacitÃ  si ottiene, sempre in virtÃ¹ del fatto che il canale Ã¨ debolmente simmetrico, quanto P(X) ha 
        distribuzione uniforme: X=(1/2,1/2).
 
        \bigskip
- \item In un canale binario, la probabilità che durante la trasmissione un bit venga complementato 
-       (cioè, che da 0 diventi 1 e viceversa) è costante e pari a p=0.1.
-        Assumendo che la sorgente che alimenta il canale invii un simbolo ogni secondo, è possibile 
-        trasmettere informazione affidabile su questo canale ad una velocità superiore a 1 bit/sec. Perché?
+ \item In un canale binario, la probabilitÃ  che durante la trasmissione un bit venga complementato 
+       (cioÃ¨, che da 0 diventi 1 e viceversa) Ã¨ costante e pari a p=0.1.
+        Assumendo che la sorgente che alimenta il canale invii un simbolo ogni secondo, Ã¨ possibile 
+        trasmettere informazione affidabile su questo canale ad una velocitÃ  superiore a 1 bit/sec. PerchÃ©?
        \bigskip
        \bigskip
 
        \textit{Soluzione:}
 
        \noindent
-       Si tratta di un BSC, la cui capacità è:
+       Si tratta di un BSC, la cui capacitÃ  Ã¨:
        \[
         C=1-H(p)=1-H(0.1,0.9) \simeq 1-0.469 \simeq \ 0.531 bit
        \]
@@ -448,6 +448,6 @@ Quindi $H(X)<L(C)$, ed infatti X non è 2-adica.
        \[
         R \le C
        \]
-       Ma in questo caso R=1 e quindi $R>C$. Pertanto non è possibile trasmettere sul canale ad 1 bit/sec in maniera 
+       Ma in questo caso R=1 e quindi $R>C$. Pertanto non Ã¨ possibile trasmettere sul canale ad 1 bit/sec in maniera 
        affidabile.
 \end{enumerate}

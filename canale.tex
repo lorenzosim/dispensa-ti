@@ -1,32 +1,32 @@
 \chapter{Codifica di canale}
-Tratteremo ora il caso di una trasmissione, in cui sia presente il rumore. In altre parole non Ë certo che quello che viene inviato, 
+Tratteremo ora il caso di una trasmissione, in cui sia presente il rumore. In altre parole non √® certo che quello che viene inviato, 
 corrisponda a quello che viene ricevuto. Si tratta in sostanza dello schema in figura \ref{fig:0007}.
 In questo caso quindi (diversamente dalla codifica di sorgente) non siamo interessati a comprimere l'informazione. Vogliamo invece 
-aggiungere della ridondanza, al fine di aumentare l'affidabilit‡ della trasmissione.
-Cercheremo infine di trovare un compromesso tra affidabilit‡ ed efficienza.
+aggiungere della ridondanza, al fine di aumentare l'affidabilit√† della trasmissione.
+Cercheremo infine di trovare un compromesso tra affidabilit√† ed efficienza.
 
-\section{Capacit‡ di canale}
-Fino ad ora non abbiamo definito in maniera formale un canale di trasmissione. Tuttavia, come vedremo, si tratta di un concetto fondamentale. Per fare un esempio, l'affidabilit‡ e l'efficienza che si possono raggiungere dipendono strettamente dal canale.
-E' quindi utile definirlo con precisione, unitamente a concetti come la sua capacit‡.
+\section{Capacit√† di canale}
+Fino ad ora non abbiamo definito in maniera formale un canale di trasmissione. Tuttavia, come vedremo, si tratta di un concetto fondamentale. Per fare un esempio, l'affidabilit√† e l'efficienza che si possono raggiungere dipendono strettamente dal canale.
+E' quindi utile definirlo con precisione, unitamente a concetti come la sua capacit√†.
 
 \begin{definizione}[Canale]
- Un canale C Ë una terna C=(X,p(y/x),Y). Dove:
+ Un canale C √® una terna C=(X,p(y/x),Y). Dove:
  \begin{itemize}
-  \item X Ë l'alfabeto di ingresso
-  \item p(y/x) sono le probabilit‡ forward. Ovvero $p(y_i/x_j)$ Ë la probabilit‡ che il destinatario 
-        abbia ricevuto $y_i$, quanto Ë stato inviato $x_j$.
-  \item Y Ë l'alfabeto di uscita
+  \item X √® l'alfabeto di ingresso
+  \item p(y/x) sono le probabilit√† forward. Ovvero $p(y_i/x_j)$ √® la probabilit√† che il destinatario 
+        abbia ricevuto $y_i$, quanto √® stato inviato $x_j$.
+  \item Y √® l'alfabeto di uscita
  \end{itemize}
 \end{definizione}
 
 \noindent
-Per rappresentare un canale (e quindi le tre quantit‡ appena indicate), si utilizzano fondamentalmente due modalit‡:
+Per rappresentare un canale (e quindi le tre quantit√† appena indicate), si utilizzano fondamentalmente due modalit√†:
 \begin{itemize}
- \item \textbf{Matrice di canale}: E' una matrice $|X| \times |Y|$, che contiene le probabilit‡ forward.
-                          Ovvero in posizione (i,j) Ë riportata $p(y_j/x_i)$. (Esempio in figura \ref{fig:noiseless2}).
- \item \textbf{Grafo di canale}: E' un grafo bipartito: un insieme di nodi Ë formato da $X_1,X_2,..,X_n$, l'altro insieme 
+ \item \textbf{Matrice di canale}: E' una matrice $|X| \times |Y|$, che contiene le probabilit√† forward.
+                          Ovvero in posizione (i,j) √® riportata $p(y_j/x_i)$. (Esempio in figura \ref{fig:noiseless2}).
+ \item \textbf{Grafo di canale}: E' un grafo bipartito: un insieme di nodi √® formato da $X_1,X_2,..,X_n$, l'altro insieme 
                         da $Y_1,Y_2,...,Y_m$.
-                        Gli archi che connettono i nodi sono etichettati con le probabilit‡ forward. Ovvero l'arco che connette
+                        Gli archi che connettono i nodi sono etichettati con le probabilit√† forward. Ovvero l'arco che connette
                         $X_i$ con $Y_j$ riporta $p(y_j/x_i)$. Per convenzione, se per qualche i,j $p(y_j/x_i)=0$, l'arco viene omesso.
                        (Esempio in figura \ref{fig:noiseless1}).
 \end{itemize}
@@ -34,7 +34,7 @@ Per rappresentare un canale (e quindi le tre quantit‡ appena indicate), si utili
 \bigskip
 
 \begin{definizione}[Estensione di un canale]
- Dato un canale C(X,p(y/x),Y) la sua estensione n-esima Ë:
+ Dato un canale C(X,p(y/x),Y) la sua estensione n-esima √®:
 \[
  C^n=(X^n,p^n(y,x),Y^n)
 \]
@@ -42,23 +42,23 @@ Dove:
 \begin{itemize}
  \item $X^n=X \times X \times ... \times X$
  \item $Y^n=Y \times Y \times ... \times Y$
- \item $p^n(y,x)=\prod_{i=1}^n p(y_i/x_i)$ (se il canale Ë senza memoria)
+ \item $p^n(y,x)=\prod_{i=1}^n p(y_i/x_i)$ (se il canale √® senza memoria)
 \end{itemize}
 \end{definizione}
 
 \bigskip
 
-Da qui in avanti assumeremo sempre di trovarci in presenza di un canale ``senza memoria''. Ovvero in un canale dove la probabilit‡ 
+Da qui in avanti assumeremo sempre di trovarci in presenza di un canale ``senza memoria''. Ovvero in un canale dove la probabilit√† 
 di emissione di un simbolo, non dipende dai simboli emessi precedentemente ma unicamente dal simbolo inviato.
-Fatte queste premesse, siamo ora interessati a calcolare la capacit‡ informazionale di un canale. Vogliamo in sostanza determinare 
-la massima quantit‡ di informazione che puÚ viaggiare attraverso un canale. Se ci mettiamo dalla parte del destinatario, inizialmente 
-non abbiamo visto arrivare alcun simbolo dal canale. Pertanto la nostra ``incertezza'' sulla variabile X Ë l'entropia H(X). Dopo l'arrivo di un simbolo perÚ, la nostra incertezza si riduce ad H(X/Y). E' in sostanza l'incertezza che ci rimane su X, dopo aver 
-visto Y. L'informazione che ha viaggiato sul canale Ë dunque:
+Fatte queste premesse, siamo ora interessati a calcolare la capacit√† informazionale di un canale. Vogliamo in sostanza determinare 
+la massima quantit√† di informazione che pu√≤ viaggiare attraverso un canale. Se ci mettiamo dalla parte del destinatario, inizialmente 
+non abbiamo visto arrivare alcun simbolo dal canale. Pertanto la nostra ``incertezza'' sulla variabile X √® l'entropia H(X). Dopo l'arrivo di un simbolo per√≤, la nostra incertezza si riduce ad H(X/Y). E' in sostanza l'incertezza che ci rimane su X, dopo aver 
+visto Y. L'informazione che ha viaggiato sul canale √® dunque:
 \[
  H(X)-H(X/Y)=I(X;Y)
 \]
 
-La massima quantit‡ di informazione che puÚ viaggiare attraverso un canale, sar‡ dunque data dal massimo valore che puÚ 
+La massima quantit√† di informazione che pu√≤ viaggiare attraverso un canale, sar√† dunque data dal massimo valore che pu√≤ 
 assumere l'informazione mutua. Vediamo allora da cosa dipende questo valore:
 \[\begin{split}
  I(X;Y)=&H(X)-H(X/Y) \\
@@ -69,16 +69,16 @@ assumere l'informazione mutua. Vediamo allora da cosa dipende questo valore:
   \end{split}
 \]
 
-Come si nota dall'ultimo risultato, l'informazione mutua dipende dalle probabilit‡ forward (termini p(y/x)) e dalle probabilit‡ di ``ingresso'' (termini p(x)).
+Come si nota dall'ultimo risultato, l'informazione mutua dipende dalle probabilit√† forward (termini p(y/x)) e dalle probabilit√† di ``ingresso'' (termini p(x)).
 Possiamo in sostanza dire che:
 \[
  I(X;Y)=f(S,C)
 \]
-Ovvero l'informazione mutua Ë una funzione della sorgente e del canale. Visto che vogliamo calcolare la capacit‡ di uno specifico canale, non potremo variare le probabilit‡ forward. In altre parole, le probabilit‡ forward sono una caratteristica specifica del canale, sulle quali non si puÚ agire. Pertanto per calcolare il massimo dell'informazione mutua (come detto poco prima), potremo agire 
-unicamente sulle probabilit‡ di ``ingresso''. Questo ci porta direttamente alla definizione di capacit‡ di canale.
+Ovvero l'informazione mutua √® una funzione della sorgente e del canale. Visto che vogliamo calcolare la capacit√† di uno specifico canale, non potremo variare le probabilit√† forward. In altre parole, le probabilit√† forward sono una caratteristica specifica del canale, sulle quali non si pu√≤ agire. Pertanto per calcolare il massimo dell'informazione mutua (come detto poco prima), potremo agire 
+unicamente sulle probabilit√† di ``ingresso''. Questo ci porta direttamente alla definizione di capacit√† di canale.
 
 \begin{definizione}
- La capacit‡ di un canale (senza memoria) Ë:
+ La capacit√† di un canale (senza memoria) √®:
  \[
   C=\max_{p(x)} I(X;Y)
  \]
@@ -88,7 +88,7 @@ unicamente sulle probabilit‡ di ``ingresso''. Questo ci porta direttamente alla 
 \bigskip
 
 \noindent
-Vediamo ora alcune propriet‡ della capacit‡ di canale.
+Vediamo ora alcune propriet√† della capacit√† di canale.
 
 \begin{osservazione}
 \[
@@ -125,18 +125,18 @@ Vediamo ora alcune propriet‡ della capacit‡ di canale.
 \begin{osservazione}
 \mbox{}
 
- I(X;Y) Ë continua in p(x)
+ I(X;Y) √® continua in p(x)
 \end{osservazione}
 
 \begin{osservazione}
 \mbox{}
 
- I(X;Y) Ë concava in p(x)
+ I(X;Y) √® concava in p(x)
 \begin{proof}
 \mbox{}
 
  \noindent
- Osserviamo che se f Ë una funzione concava e g Ë una funzione lineare. Ovvero (in simboli):
+ Osserviamo che se f √® una funzione concava e g √® una funzione lineare. Ovvero (in simboli):
  \[
   f(\lambda x+(1-\lambda)y) \ge \lambda f(x)+ (1-\lambda) f(y) \ \ \forall \lambda \in [0,1]
  \]
@@ -145,7 +145,7 @@ Vediamo ora alcune propriet‡ della capacit‡ di canale.
  \] 
   Allora:
   \begin{itemize}
-   \item[a)] $h=f \circ g$ Ë concava. Infatti:
+   \item[a)] $h=f \circ g$ √® concava. Infatti:
               \[\begin{split}
               h(\lambda x + (1-\lambda)y)&=f(g(\lambda x + (1-\lambda)y)) \\
               &=f(\lambda g(x) + (1-\lambda)g(y)) \\
@@ -154,7 +154,7 @@ Vediamo ora alcune propriet‡ della capacit‡ di canale.
                \end{split}
              \]
 
-   \item[b)] $h=f+g$ Ë concava. Infatti:
+   \item[b)] $h=f+g$ √® concava. Infatti:
               \[\begin{split}
                 h(\lambda x + (1-\lambda)y)&=f(\lambda x + (1-\lambda)y)+g(\lambda x + (1-\lambda)y) \\
                 &\ge \lambda f(x) + (1-\lambda)f(y)+g(\lambda x + (1-\lambda)y) \\
@@ -169,25 +169,25 @@ Vediamo ora alcune propriet‡ della capacit‡ di canale.
   \[
    I(X;Y)=H(Y)-H(Y/X)
   \]
-  H(Y) Ë concava rispetto a p(y). Inoltre:
+  H(Y) √® concava rispetto a p(y). Inoltre:
   \[
    p(y)=\sum_{x \in X}p(x)p(y/x)
   \]
-   Quindi p(y) Ë lineare rispetto a p(x). Quindi per (a), H(Y) Ë concava rispetto a p(x).
+   Quindi p(y) √® lineare rispetto a p(x). Quindi per (a), H(Y) √® concava rispetto a p(x).
   Esaminiamo ora H(Y/X).
   \[
    H(Y/X)=\sum_{x \in X} p(x)H(Y/X=x)
   \]
-   Ma H(Y/X=x) non dipende da p(x), quindi H(Y/X) Ë lineare in p(x).
+   Ma H(Y/X=x) non dipende da p(x), quindi H(Y/X) √® lineare in p(x).
    Ora per (b), la somma di una funzione concava e di una lineare da una funzione concava, concludendo la dimostrazione.
 \end{proof}
 \end{osservazione}
-Nota: le ultime due propriet‡ non riguardano la capacit‡ di canale, ma l'informazione mutua. Tuttavia sono strettamente legate alla 
-capacit‡ di canale (visto che Ë appunto il massimo dell'informazione mutua).
+Nota: le ultime due propriet√† non riguardano la capacit√† di canale, ma l'informazione mutua. Tuttavia sono strettamente legate alla 
+capacit√† di canale (visto che √® appunto il massimo dell'informazione mutua).
 
 \section{Tipi di canali}
-Vediamo ora alcune famiglie di canali, unitamente alla loro capacit‡.
-Successivamente presentiamo anche 3 particolari canali (sempre studiando la loro capacit‡).
+Vediamo ora alcune famiglie di canali, unitamente alla loro capacit√†.
+Successivamente presentiamo anche 3 particolari canali (sempre studiando la loro capacit√†).
 
 \subsection{Canale noiseless}
 
@@ -200,9 +200,9 @@ Successivamente presentiamo anche 3 particolari canali (sempre studiando la loro
 \]
 \end{definizione}
 
-In questo tipo di canale quindi, il destinatario sa sempre che simbolo Ë stato inviato.
-Il mittente invece non Ë in grado di sapere cosa il destinatario abbia ricevuto.
-In figura \ref{fig:noiseless} Ë riportato un esempio di canale noiseless.
+In questo tipo di canale quindi, il destinatario sa sempre che simbolo √® stato inviato.
+Il mittente invece non √® in grado di sapere cosa il destinatario abbia ricevuto.
+In figura \ref{fig:noiseless} √® riportato un esempio di canale noiseless.
 
 \begin{figure}[htbp]
   \centering
@@ -214,15 +214,15 @@ In figura \ref{fig:noiseless} Ë riportato un esempio di canale noiseless.
 \end{figure}
 
 \begin{lemma}
- Se $\C$ Ë noisless, allora $H(X/Y)=0$
+ Se $\C$ √® noisless, allora $H(X/Y)=0$
  \begin{proof}
- Supponiamo per comodit‡
- che $\forall y \in Y p(y)>0$. Se cosÏ non fosse, sarebbe sufficiente rimuovere il simbolo (non c'Ë quindi perdita di generalit‡).
+ Supponiamo per comodit√†
+ che $\forall y \in Y p(y)>0$. Se cos√¨ non fosse, sarebbe sufficiente rimuovere il simbolo (non c'√® quindi perdita di generalit√†).
  Dalla definizione di entropia condizionata:
  \[
   H(X/Y)=\sum_{y \in Y} p(y)H(X/Y=y)
  \]
- PoichÈ abbiamo supposto $p(y)>0$, bisogna dimostrare che:
+ Poich√© abbiamo supposto $p(y)>0$, bisogna dimostrare che:
  \[
   \forall y \in Y \ : \ H(X/Y=y)=\sum_{x \in X}p(x/y) log( p(x/y)) =0
  \]
@@ -230,10 +230,10 @@ In figura \ref{fig:noiseless} Ë riportato un esempio di canale noiseless.
  \[
   \forall x \in X, \forall y \in Y \ : \ p(x/y)=0 \lor p(x/y)=1
  \]
- In maniera intuitiva perÚ ciÚ Ë vero, Ë sufficiente infatti osservare il grafo di canale. Preso un certo y, esiste un unico 
- arco che lo connette ad un certo x (il caso con probabilit‡ 1), mentre nessun arco che lo connette ad altri x (i casi con 
- probabilit‡ 0).
- In maniera pi˘ formale, chiamiamo $x(y)$ l'unico $x$ per cui $p(y/x)>0$ (ne esiste uno solo per la def. di canale noiseless).
+ In maniera intuitiva per√≤ ci√≤ √® vero, √® sufficiente infatti osservare il grafo di canale. Preso un certo y, esiste un unico 
+ arco che lo connette ad un certo x (il caso con probabilit√† 1), mentre nessun arco che lo connette ad altri x (i casi con 
+ probabilit√† 0).
+ In maniera pi√π formale, chiamiamo $x(y)$ l'unico $x$ per cui $p(y/x)>0$ (ne esiste uno solo per la def. di canale noiseless).
  Ora:
  \[
   p(x/y)=\frac{p(y/x)p(x)}{p(y)}=\frac{p(y/x)p(x)}{ \displaystyle\sum_{z \in X} p(y/z)p(z)}=
@@ -251,19 +251,19 @@ In figura \ref{fig:noiseless} Ë riportato un esempio di canale noiseless.
 \end{lemma}
 
 \noindent
-Calcoliamo ora la capacit‡ per un canale noiseless.
+Calcoliamo ora la capacit√† per un canale noiseless.
 
 \begin{lemma}
-Se $\C$ Ë noisless, allora $C=log|X|$
+Se $\C$ √® noisless, allora $C=log|X|$
 \begin{proof}
  \[
   C=\max_{p(x)} I(X;Y)=\max_{p(x)} H(X)-H(X/Y)
  \]
- Ora per il lemma precedente H(X/Y) Ë 0, da cui:
+ Ora per il lemma precedente H(X/Y) √® 0, da cui:
  \[
   C=\max_{p(x)} H(X)-H(X/Y)=\max_{p(x)} H(X)
  \]
- Ma il massimo della funzione entropia Ë il logaritmo del numero di valori, che 
+ Ma il massimo della funzione entropia √® il logaritmo del numero di valori, che 
  si ha nel caso di distribuzione uniforme (proposizione \ref{propen}), quindi:
  \[
   C=\max_{p(x)} H(X)=log|X|
@@ -286,9 +286,9 @@ Ovvero se:
 \]
 \end{definizione}
 
-In questo caso la situazione Ë quindi opposta a prima. E' il mittente che sa sempre che simbolo viene ricevuto, mentre 
-il destinatario non sa cosa Ë stato inviato.
-In figura \ref{fig:deterministico} Ë riportato un esempio di canale deterministico.
+In questo caso la situazione √® quindi opposta a prima. E' il mittente che sa sempre che simbolo viene ricevuto, mentre 
+il destinatario non sa cosa √® stato inviato.
+In figura \ref{fig:deterministico} √® riportato un esempio di canale deterministico.
 
 \begin{figure}[htbp]
   \centering
@@ -300,7 +300,7 @@ In figura \ref{fig:deterministico} Ë riportato un esempio di canale deterministi
 \end{figure}
 
 \begin{lemma}
- Se $\C$ Ë deterministico, allora $H(Y/X)=0$
+ Se $\C$ √® deterministico, allora $H(Y/X)=0$
  \begin{proof}
   \[
    H(Y/X)=\sum_{x \in X} p(x)H(Y/X=x)
@@ -313,33 +313,33 @@ In figura \ref{fig:deterministico} Ë riportato un esempio di canale deterministi
  \end{proof}
 \end{lemma}
 
-Calcoliamo ora la capacit‡ per un canale deterministico.
+Calcoliamo ora la capacit√† per un canale deterministico.
 
 \begin{lemma}
-Se $\C$ Ë deterministico, allora $C=log|Y|$
+Se $\C$ √® deterministico, allora $C=log|Y|$
 \begin{proof}
  \[
   C=\max_{p(x)} I(X;Y)=\max_{p(x)} H(Y)-H(Y/X)
  \]
- Ora per il lemma precedente H(Y/X) Ë 0, da cui:
+ Ora per il lemma precedente H(Y/X) √® 0, da cui:
  \[
   C=\max_{p(x)} H(X)-H(X/Y)=\max_{p(x)} H(Y)
  \]
- Analogamente al canale noiseless, si ha il massimo che Ë pari al logaritmo, con distribuzione uniforme:
+ Analogamente al canale noiseless, si ha il massimo che √® pari al logaritmo, con distribuzione uniforme:
  \[
   C=\max_{p(x)} H(Y)=log|Y|
  \]
  Tuttavia questa volta la distribuzione uniforme deve essere p(y)!
- L'ultima considerazione Ë dunque valida se esiste una distribuzione p(x), tale che p(y) sia uniforme.
+ L'ultima considerazione √® dunque valida se esiste una distribuzione p(x), tale che p(y) sia uniforme.
  Poniamo:
  \[
   X(y)=\{x \in X \ / \ p(y/x)=1 \}
  \]
- Allora la distribuzione p(x) che rende uniforme p(y) Ë:
+ Allora la distribuzione p(x) che rende uniforme p(y) √®:
  \[
   p(x)=\frac{1}{|Y| \ |X(y)|}
  \]
- CiÚ Ë vero in quanto:
+ Ci√≤ √® vero in quanto:
  \[\begin{split}
   p(y)&=\sum_{x \in X}p(x)p(y/x) \\
       &=\sum_{x \in X(y)}p(x) \\
@@ -358,11 +358,11 @@ Se $\C$ Ë deterministico, allora $C=log|Y|$
 \medskip
 
 \begin{definizione}
- Un canale si dice completamente deterministico (uno a uno) se Ë noiseless e deterministico.
+ Un canale si dice completamente deterministico (uno a uno) se √® noiseless e deterministico.
 \end{definizione}
 
-In questo caso quindi sia il mittente che il destinatario sanno cosa Ë stato ricevuto/inviato.
-In figura \ref{fig:cdeterministico} Ë riportato un esempio di canale completamente deterministico.
+In questo caso quindi sia il mittente che il destinatario sanno cosa √® stato ricevuto/inviato.
+In figura \ref{fig:cdeterministico} √® riportato un esempio di canale completamente deterministico.
 
 \begin{figure}[htbp]
   \centering
@@ -374,14 +374,14 @@ In figura \ref{fig:cdeterministico} Ë riportato un esempio di canale completamen
 \end{figure}
 
 \begin{lemma}
- Se $\C$ Ë completamente completamente deterministico, allora:
+ Se $\C$ √® completamente completamente deterministico, allora:
  \begin{itemize}
   \item $H(Y/X)=H(X/Y)=0$
   \item $I(X;Y)=H(X)=H(Y)$
  \end{itemize}
  \begin{proof}
   Il primo punto segue direttamente dai lemmi per il canale noiseless e deterministico.
-  Il secondo punto Ë la solita propriet‡ dell'informazione mutua:
+  Il secondo punto √® la solita propriet√† dell'informazione mutua:
   \[\begin{split}
    I(X;Y)&=H(X)-H(X/Y)=H(X) \\
    I(X;Y)&=H(Y)-H(Y/X)=H(Y)
@@ -392,10 +392,10 @@ In figura \ref{fig:cdeterministico} Ë riportato un esempio di canale completamen
 \end{lemma}
 
 \noindent
-Per quanto riguarda infine la capacit‡ di canale:
+Per quanto riguarda infine la capacit√† di canale:
 
 \begin{lemma}
-Se $\C$ Ë completamente deterministico, allora $C=log|X|=log|Y|$
+Se $\C$ √® completamente deterministico, allora $C=log|X|=log|Y|$
 \begin{proof}
 Segue direttamente dai lemmi per il canale noiseless e deterministico.
 \end{proof}
@@ -412,13 +412,13 @@ Segue direttamente dai lemmi per il canale noiseless e deterministico.
  \[
   \forall y \in Y \ \exists C(y) \in R \ : \ \forall x \in X p(y/x)=C(y)
  \]
- Dove C(y) Ë una costante che dipende da y.
+ Dove C(y) √® una costante che dipende da y.
 \end{definizione}
 
 In questo caso quindi le colonne della matrice di canale sono costanti, quindi le righe sono tutte identiche fra loro.
-In figura \ref{fig:inutile} Ë riportato un esempio di canale inutile. Osservando il grafo di canale (o la matrice) Ë facile capire
-come mai il canale Ë detto ``inutile''. Infatti il mittente ed il destinatario non potranno derivare alcuna informazione dalla 
-comunicazione...che Ë stata appunto inutile.
+In figura \ref{fig:inutile} √® riportato un esempio di canale inutile. Osservando il grafo di canale (o la matrice) √® facile capire
+come mai il canale √® detto ``inutile''. Infatti il mittente ed il destinatario non potranno derivare alcuna informazione dalla 
+comunicazione...che √® stata appunto inutile.
 
 \begin{figure}[htbp]
   \centering
@@ -430,7 +430,7 @@ comunicazione...che Ë stata appunto inutile.
 \end{figure}
 
 \begin{lemma}
- Se $\C$ Ë inutile, allora:
+ Se $\C$ √® inutile, allora:
 \[
   I(X;Y)=0
 \]
@@ -450,10 +450,10 @@ Ma se X e Y sono indipendenti, per l'osservazione \ref{mutuaindip} si ha I(X;Y)=
 \end{lemma}
 
 \noindent
-Per quanto riguarda infine la capacit‡ di canale:
+Per quanto riguarda infine la capacit√† di canale:
 
 \begin{lemma}
-Se $\C$ Ë inutile, allora $C=0$
+Se $\C$ √® inutile, allora $C=0$
 \begin{proof}
 Segue direttamente dal lemma precedente.
 \end{proof}
@@ -486,7 +486,7 @@ Segue direttamente dal lemma precedente.
 \end{table}
 
 \begin{lemma}
- Se $\C$ Ë un canale simmetrico, c una riga ed r una colonna della sua matrice di canale, allora:
+ Se $\C$ √® un canale simmetrico, c una riga ed r una colonna della sua matrice di canale, allora:
  \begin{enumerate}
   \item $H(Y/X)=H(r)$
   \item $H(X/Y)=H(c)$
@@ -499,21 +499,21 @@ Segue direttamente dal lemma precedente.
   \[
    H(Y/X)=\sum_{x \in X}p(x)H(Y/X=x)
   \]
-  Ma le righe sono tutte uguali a meno di una permutazione, quindi H(Y/X=x) Ë costante, da cui:
+  Ma le righe sono tutte uguali a meno di una permutazione, quindi H(Y/X=x) √® costante, da cui:
   \[
    H(Y/X)=H(r)\sum_{x \in X}p(x)=H(r)
   \]
-  Il secondo punto Ë del tutto analogo, visto che anche le colonne sono uguali a meno di una permutazione.
+  Il secondo punto √® del tutto analogo, visto che anche le colonne sono uguali a meno di una permutazione.
  \end{proof}
 
 \end{lemma}
 
 \noindent
-Un esempio di canale simmetrico Ë riportato in tabella \ref{tab:tsim}.
-La capacit‡ di un canale simmetrico Ë fornita dal seguente teorema
+Un esempio di canale simmetrico √® riportato in tabella \ref{tab:tsim}.
+La capacit√† di un canale simmetrico √® fornita dal seguente teorema
 
 \begin{teorema}
- Se $\C$ Ë un canale simmetrico ed r una riga della matrice di canale di $\C$, allora:
+ Se $\C$ √® un canale simmetrico ed r una riga della matrice di canale di $\C$, allora:
  \[
   C=log|Y| - H(r)
  \]
@@ -525,20 +525,20 @@ La capacit‡ di un canale simmetrico Ë fornita dal seguente teorema
  \[
   \max_{p(x)} H(Y)-H(Y/X)=\max_{p(x)} H(Y)-H(r)
  \]
- H(r) non dipende da p(x), quindi basta massimizzare H(Y) che come gi‡ visto ha massimo in $log|Y|$. Quindi:
+ H(r) non dipende da p(x), quindi basta massimizzare H(Y) che come gi√† visto ha massimo in $log|Y|$. Quindi:
  \[
   C=\max_{p(x)} H(Y)-H(r)=log |Y| - H(r)
  \]
- Il risultato si ottiene, come gi‡ visto per il canale deterministico, quando p(y) ha distribuzione uniforme.
+ Il risultato si ottiene, come gi√† visto per il canale deterministico, quando p(y) ha distribuzione uniforme.
  Tuttavia in questo caso anche p(x) deve essere uniforme. Infatti:
  \[
   p(x)=\frac{1}{|X|} \Rightarrow p(y)=\frac{1}{|Y|}
  \]
- CiÚ si ricava facilmente da:
+ Ci√≤ si ricava facilmente da:
  \[
   p(y)=\sum_{x \in X} p(x)p(y/x)=\frac{1}{|X|} \sum_{x \in X}p(y/x)
  \]
- Ma la somma degli elementi di ogni colonna Ë costante, quindi:
+ Ma la somma degli elementi di ogni colonna √® costante, quindi:
  \[
   \frac{1}{|X|} \sum_{x \in X}p(y/x)=\frac{1}{|X|} const=\frac{1}{|Y|}
  \]
@@ -554,7 +554,7 @@ La capacit‡ di un canale simmetrico Ë fornita dal seguente teorema
  Un canale si dice debolmente simmetrico se:
  \begin{enumerate}
   \item Le righe nella sua matrice di canale sono uguali a meno di una permutazione
-  \item La somma degli elementi di ciascuna colonna nella sua matrice di canale Ë costante
+  \item La somma degli elementi di ciascuna colonna nella sua matrice di canale √® costante
  \end{enumerate}
 \end{definizione}
 
@@ -571,15 +571,15 @@ La capacit‡ di un canale simmetrico Ë fornita dal seguente teorema
 \end{table}
 
 \noindent
-Un esempio di canale debolmente simmetrico Ë riportato in tabella \ref{tdsim}.
-La capacit‡ di canale Ë uguale a quella dei canali simmetrici, come descritto dal seguente teorema.
+Un esempio di canale debolmente simmetrico √® riportato in tabella \ref{tdsim}.
+La capacit√† di canale √® uguale a quella dei canali simmetrici, come descritto dal seguente teorema.
 
 \begin{teorema}
- Se $\C$ Ë un canale debolmente simmetrico ed r una riga della matrice di canale di $\C$, allora:
+ Se $\C$ √® un canale debolmente simmetrico ed r una riga della matrice di canale di $\C$, allora:
  \[
   C=log|Y| - H(r)
  \]
- Il risultato si ottiene quando p(x) Ë uniforme.
+ Il risultato si ottiene quando p(x) √® uniforme.
 \begin{proof}
  E' esattamente identica a quella del canale simmetrico.
 \end{proof}
@@ -588,7 +588,7 @@ La capacit‡ di canale Ë uguale a quella dei canali simmetrici, come descritto da
 
 \subsection{Binary Symmetric Channel}
 
-Il Binary Symmetric Channel (BSC) Ë un particolare canale simmetrico composto da due simboli in ingresso e da due simboli in uscita (ne avevamo gi‡ visto un esempio in introduzione, figura \ref{fig:bsc}).
+Il Binary Symmetric Channel (BSC) √® un particolare canale simmetrico composto da due simboli in ingresso e da due simboli in uscita (ne avevamo gi√† visto un esempio in introduzione, figura \ref{fig:bsc}).
 
 \begin{figure}[htbp]
   \centering
@@ -599,9 +599,9 @@ Il Binary Symmetric Channel (BSC) Ë un particolare canale simmetrico composto da
   \label{fig:bsc2}
 \end{figure}
 
-Il canale Ë rappresentato in figura \ref{fig:bsc2}. Con p abbiamo quindi indicato la probabilit‡ che ci sia un errore di trasmissione.
-Siamo ora interessati a calcolare la capacit‡ di questo canale.
-Innanzitutto indichiamo con $\Pi$ la probabilit‡ che la sorgente emetta il simbolo 0, ovvero:
+Il canale √® rappresentato in figura \ref{fig:bsc2}. Con p abbiamo quindi indicato la probabilit√† che ci sia un errore di trasmissione.
+Siamo ora interessati a calcolare la capacit√† di questo canale.
+Innanzitutto indichiamo con $\Pi$ la probabilit√† che la sorgente emetta il simbolo 0, ovvero:
 \[
  \Pi=P\{X=0\}
 \]
@@ -610,8 +610,8 @@ Calcoliamo ora l'informazione mutua:
  I(X;Y)=H(Y)-H(Y/X)
 \]
 Calcoliamo il primo termine. In questo caso la variabile Y ha due simboli, quindi l'entropia 
-sarebbe formata da due elementi (Y=0 e Y=1), tuttavia ne indichiamo solo uno (Y=1). L'altro infatti si puÚ ricavare 
-al solito come differenza, tenendo conto che la somma Ë 1. 
+sarebbe formata da due elementi (Y=0 e Y=1), tuttavia ne indichiamo solo uno (Y=1). L'altro infatti si pu√≤ ricavare 
+al solito come differenza, tenendo conto che la somma √® 1. 
 \[
  H(Y)=H(\Pi p + (1-\Pi)(1-p))
 \]
@@ -622,7 +622,7 @@ Per il secondo termine:
        &=H(p)
   \end{split}
 \]
-A questo punto la capacit‡ di canale Ë:
+A questo punto la capacit√† di canale √®:
 \[
  C=\max_{p(x)} I(X;Y)=\max_{0 \le \Pi \le 1} I(X;Y)=\max_{0 \le \Pi \le 1} [ H(\Pi p + (1-\Pi)(1-p)) - H(p) ]
 \]
@@ -650,20 +650,20 @@ In questo caso abbiamo due componenti, quindi deve essere:
 
 \noindent
 Dunque si ha il massimo quando $\Pi=1/2$, ovveroquando la sorgente emette in maniera equiprobabile 0 o 1.
-Infine, poiche $H(1/2,1/2)=1$, la capacit‡ di canale di un BSC Ë:
+Infine, poiche $H(1/2,1/2)=1$, la capacit√† di canale di un BSC √®:
 
 \[
  C=1-H(p)
 \]
 
-In figura \ref{fig:cbsc} Ë rappresentata la capacit‡ del canale, al variare di p.
-Come si nota quando p=0 (o p=1) la capacit‡ Ë massima, infatti sul canale circola un grande contenuto informativo, non c'Ë infatti 
-alcuna incertezza. Viceversa quando p=1/2 sul canale non viaggia alcuna informazione. Il destinatario infatti alla ricezione di un simbolo non Ë in grado di inferire nulla (in questo caso si ha un canale inutile).
+In figura \ref{fig:cbsc} √® rappresentata la capacit√† del canale, al variare di p.
+Come si nota quando p=0 (o p=1) la capacit√† √® massima, infatti sul canale circola un grande contenuto informativo, non c'√® infatti 
+alcuna incertezza. Viceversa quando p=1/2 sul canale non viaggia alcuna informazione. Il destinatario infatti alla ricezione di un simbolo non √® in grado di inferire nulla (in questo caso si ha un canale inutile).
 
 \begin{figure}[htbp]
 \begin{center}
 	\includegraphics[width=0.6\textwidth]{img/cbsc.pdf}
-\caption{Capacit‡ di canale di un BSC al variare di p}
+\caption{Capacit√† di canale di un BSC al variare di p}
 \label{fig:cbsc}
 \end{center}
 \end{figure}
@@ -671,9 +671,9 @@ alcuna incertezza. Viceversa quando p=1/2 sul canale non viaggia alcuna informaz
 \newpage
 
 \subsection{Binary Erasure Channel}
-Nel Binary Erasure Channel (BEC), il mittente puÚ inviare due diversi simboli al destinatario. Un simbolo puÚ essere ricevuto 
+Nel Binary Erasure Channel (BEC), il mittente pu√≤ inviare due diversi simboli al destinatario. Un simbolo pu√≤ essere ricevuto 
 correttamente oppure ``perso'' (in questo caso il destinatario riceve uno speciale simbolo $\sharp$). Il canale ha dunque 2 ingressi, 3 uscite 
-ed un parametro p che indica la probabilit‡ di ``perdere'' il simbolo. Il canale Ë rappresentato in figura \ref{fig:bec}.
+ed un parametro p che indica la probabilit√† di ``perdere'' il simbolo. Il canale √® rappresentato in figura \ref{fig:bec}.
 
 \begin{figure}[htbp]
   \centering
@@ -685,7 +685,7 @@ ed un parametro p che indica la probabilit‡ di ``perdere'' il simbolo. Il canale
 \end{figure}
 
 \noindent
-Procediamo al calcolo della capacit‡ di canale. Come per il BSC poniamo:
+Procediamo al calcolo della capacit√† di canale. Come per il BSC poniamo:
 \[
  \Pi=P\{X=0\}
 \]
@@ -705,15 +705,15 @@ Quindi:
 \[
  I(X;Y)=H(Y)-H(Y/X)=H(\Pi (1-p), (1-\Pi) (1-p), p) - H(p)
 \]
-La capacit‡ di canale Ë dunque:
+La capacit√† di canale √® dunque:
 \[
  C=\max_{0 \le \Pi \le 1} H(\Pi (1-p), (1-\Pi) (1-p), p) - H(p)
 \]
 In maniera analoga al BSC, H(p) non dipende da $\Pi$, quindi per massimizzare 
 l'informazione mutua bisogna massimizzare la prima entropia.
-Ma sappiamo che la funzione entropia Ë continua e concava (oss. \ref{entrconcava}).
-Quindi esiste un solo massimo, quando la derivata Ë 0. Calcoliamo allora la derivata
-(poniamo per brevit‡ q=1-p):
+Ma sappiamo che la funzione entropia √® continua e concava (oss. \ref{entrconcava}).
+Quindi esiste un solo massimo, quando la derivata √® 0. Calcoliamo allora la derivata
+(poniamo per brevit√† q=1-p):
 
 \[\begin{split}
  &\frac{d}{d \Pi}  H(\Pi (1-p), (1-\Pi) (1-p), p) \\
@@ -734,7 +734,7 @@ Ora eguagliamo la derivata a 0 e ricaviamo $\Pi$:
   \end{split}
 \]
 Quindi si ha il massimo quando $\Pi=\frac{1}{2}$.
-La capacit‡ di canale Ë dunque (si ponga sempre attenzione al fatto che come al solito H(p)=H(p,1-p) ):
+La capacit√† di canale √® dunque (si ponga sempre attenzione al fatto che come al solito H(p)=H(p,1-p) ):
 \[\begin{split}
 C=&H(\frac{1}{2} q, \frac{1}{2} q, p) - H(p) \\
 =& -\frac{q}{2} log\frac{q}{2} - \frac{q}{2} log\frac{q}{2}  - plog(p) +p log(p) +q log(q)\\
@@ -746,8 +746,8 @@ C=&H(\frac{1}{2} q, \frac{1}{2} q, p) - H(p) \\
 \]
 
 \subsection{Canale Z}
-Il canale Z Ë composto da 2 simboli. Un simbolo arriva con certezza in maniera corretta al destinatario, mentre l'altro puÚ essere 
-tramutato nel primo con probabilit‡ (quindi di errore) p. Il canale Ë rappresentato in figura \ref{fig:z}.
+Il canale Z √® composto da 2 simboli. Un simbolo arriva con certezza in maniera corretta al destinatario, mentre l'altro pu√≤ essere 
+tramutato nel primo con probabilit√† (quindi di errore) p. Il canale √® rappresentato in figura \ref{fig:z}.
 
 \begin{figure}[htbp]
   \centering
@@ -759,7 +759,7 @@ tramutato nel primo con probabilit‡ (quindi di errore) p. Il canale Ë rappresent
 \end{figure}
 
 \noindent
-Calcoliamo ora la capacit‡ del canale Z.
+Calcoliamo ora la capacit√† del canale Z.
 Poniamo (diversamente da prima!):
 \[
  \Pi=P\{X=1\}
@@ -778,14 +778,14 @@ E:
      =&\Pi H(p) 
   \end{split}
 \]
-L'informazione mutua Ë dunque:
+L'informazione mutua √® dunque:
 \[
  I(X;Y)=H(Y)-H(Y/X)=H(\Pi(1-p))-\Pi H(p)
 \]
-Al solito, per trovare la capacit‡ del canale dobbiamo trovare il massimo 
+Al solito, per trovare la capacit√† del canale dobbiamo trovare il massimo 
 dell'informazione mutua al variare di $\Pi$.
 Per le stesse considerazione del BEC, vediamo dove la derivata si annulla.
-Calcoliamo quindi la derivata dell'informazione mutua (per comodit‡ q=1-p):
+Calcoliamo quindi la derivata dell'informazione mutua (per comodit√† q=1-p):
 \[\begin{split}
  &\frac{d}{d \Pi}  H(\Pi(1-p))-\Pi H(p) \\
  =&\frac{d}{d \Pi}  H(\Pi q)-\Pi H(p) \\
@@ -808,7 +808,7 @@ Ora equagliamo la derivata a 0 e ricaviamo $\Pi$:
  \Rightarrow & \Pi=\frac{1}{q(2^{\frac{H(p)}{q}}+1)}
 \end{split}
 \]
-Ora possiamo concludere calcolando la capacit‡ del canale:
+Ora possiamo concludere calcolando la capacit√† del canale:
 \[\begin{split}
  C=& H \left ( \frac{q}{q(2^{\frac{H(p)}{q}}+1)} \right)-\frac{1}{q(2^{\frac{H(p)}{q}}+1)} H(p) \\
   =& H \left (\frac{1}{2^{\frac{H(p)}{q}}+1} \right)-\frac{1}{q(2^{\frac{H(p)}{q}}+1)} H(p) \\
@@ -819,15 +819,15 @@ Ora possiamo concludere calcolando la capacit‡ del canale:
 
 
 \section{Regole di decisione}
-Sono state descritte varie tipologie di canale e soprattutto il concetto di capacit‡ (di canale). Tuttavia, non abbiamo ancora chiarito 
+Sono state descritte varie tipologie di canale e soprattutto il concetto di capacit√† (di canale). Tuttavia, non abbiamo ancora chiarito 
 il funzionamento della comunicazione in un canale rumoroso. Vediamo dunque in dettaglio come avviene la comunicazione.
 Il mittente codifica il messaggio da inviare e manda quindi sul canale delle parole di codice (formate da simboli).
 A partire dai simboli inviati, quelli che vengono ricevuti dipendono dal canale (come specificato dalla matrice o dal grafo di canale).
 A questo punto il destinatario deve essere in grado di determinare le parole di codice inviate.
-C'Ë bisogno in sostanza di una \textbf{regola di decisione}, che consenta di passare dai simboli ricevuti a quelli inviati.
+C'√® bisogno in sostanza di una \textbf{regola di decisione}, che consenta di passare dai simboli ricevuti a quelli inviati.
 
 \begin{definizione}
- Dato un canale C=(X,p(y/x),Y), una regola di decisione Ë una funzione
+ Dato un canale C=(X,p(y/x),Y), una regola di decisione √® una funzione
  \[
   d: Y \to X
  \]
@@ -851,19 +851,19 @@ Data la seguente matrice di canale:
 \end{table}
 
 \noindent
-Una possibile regola di decisione Ë:
+Una possibile regola di decisione √®:
 $d(y_1)=x_1$, 
 $d(y_2)=x_2$, 
 $d(y_3)=x_2$
 
 \noindent
-Un'altra possibile regola Ë:
+Un'altra possibile regola √®:
 $d(y_1)=x_1$, 
 $d(y_2)=x_3$, 
 $d(y_3)=x_2$
 
 \noindent
-Ancora, una terza regola puÚ essere:
+Ancora, una terza regola pu√≤ essere:
 $d(y_1)=x_2$, 
 $d(y_2)=x_2$, 
 $d(y_3)=x_1$
@@ -871,35 +871,35 @@ $d(y_3)=x_1$
 \bigskip
 
 Chiaramente una regola di decisione, dovrebbe cercare di ridurre l'errore al minimo. In pratica, dovrebbe essere tale da identificare 
-correttamente il simbolo inviato nella maggior parte dei casi. Nell'esempio fatto poco prima, intuitivamente la 3∞ regola sembra sicuramente da scartare.
-Definiamo ora la probabilit‡ di errore, in maniera da trovare una regola che la minimizzi:
+correttamente il simbolo inviato nella maggior parte dei casi. Nell'esempio fatto poco prima, intuitivamente la 3¬∞ regola sembra sicuramente da scartare.
+Definiamo ora la probabilit√† di errore, in maniera da trovare una regola che la minimizzi:
 \begin{definizione}
- Dato un canale C=(X,p(y/x),Y) ed una regola di decisione d, la probabilit‡ di errore di d Ë:
+ Dato un canale C=(X,p(y/x),Y) ed una regola di decisione d, la probabilit√† di errore di d √®:
 \[
  P_E(d)=\sum_{y \in Y} P(E/y)p(y)
 \]
-Dove P(E/y) indica la probabilit‡ di decidere un simbolo errato quando si riceve y.
+Dove P(E/y) indica la probabilit√† di decidere un simbolo errato quando si riceve y.
 \end{definizione}
 \noindent
-Per minimizzare la probabilit‡ di errore, dobbiamo avere d in modo che:
+Per minimizzare la probabilit√† di errore, dobbiamo avere d in modo che:
 \[
  d^*=\arg \min_d P_E(d)=\arg \min_d \sum_{y \in Y} P(E/y)p(y)
 \]
-Ma la sommatoria Ë di termini positivi (ed indipendenti), quindi per minimizzarla Ë sufficiente minimizzare ogni termine.
+Ma la sommatoria √® di termini positivi (ed indipendenti), quindi per minimizzarla √® sufficiente minimizzare ogni termine.
 Inoltre p(y) non dipende da d. Quindi:
 \[
  \forall y \in Y \ : \ d(y)=\arg \min_d P(E/y)
 \]
 
 \noindent
-A questo punto si nota che $P(E/y)=1-P(d(y)/y)$. Infatti la probabilit‡ di decidere un simbolo errato, Ë complementare a quella di deciderlo in maniera corretta.
+A questo punto si nota che $P(E/y)=1-P(d(y)/y)$. Infatti la probabilit√† di decidere un simbolo errato, √® complementare a quella di deciderlo in maniera corretta.
 Risulta quindi:
 \[
  \forall y \in Y \ : \ d(y)=\arg \max_d P(d(y)/y)
 \]
 
 \noindent
-Possiamo ora formulare una regola di decisione, che minimizzi la probabilit‡ di errore.
+Possiamo ora formulare una regola di decisione, che minimizzi la probabilit√† di errore.
 
 \begin{definizione}[Regola dell'osservatore ideale (ROI)]
 \[
@@ -907,14 +907,14 @@ Possiamo ora formulare una regola di decisione, che minimizzi la probabilit‡ di 
 \]
 \end{definizione}
 
-La regola ROI Ë abbastanza intuitiva. Si sceglie sempre il simbolo che ha la probabilit‡ maggiore di essere stato inviato, 
-dato un simbolo ricevuto. Questa quantit‡ Ë proprio p(x/y).
-Sebbene la regola ROI minimizzi la probabilit‡ di errore (e sia quindi ottima in questo senso), ha un grande svantaggio.
+La regola ROI √® abbastanza intuitiva. Si sceglie sempre il simbolo che ha la probabilit√† maggiore di essere stato inviato, 
+dato un simbolo ricevuto. Questa quantit√† √® proprio p(x/y).
+Sebbene la regola ROI minimizzi la probabilit√† di errore (e sia quindi ottima in questo senso), ha un grande svantaggio.
 E' infatti necessario conoscere la matrice P(x/y) e quindi P(x). In altre parole, bisogna avere delle informazioni sulle 
-probabilit‡ di invio dei simboli da parte della sorgente. Spesso perÚ queste informazioni non sono disponibili. E' quindi necessaria 
+probabilit√† di invio dei simboli da parte della sorgente. Spesso per√≤ queste informazioni non sono disponibili. E' quindi necessaria 
 un'altra regola, che non abbia bisogno di questa informazione.
 
-Non conoscere P(x), Ë equivalente a supporre che P(x) abbia una distribuzione uniforme. In questo caso la regola ROI si modificherebbe 
+Non conoscere P(x), √® equivalente a supporre che P(x) abbia una distribuzione uniforme. In questo caso la regola ROI si modificherebbe 
 in questo modo:
 \[
  \forall y \in Y \ : \ d(y)=\arg \max_{x \in X} p(x/y)=\arg \max_{x \in X} p(x)p(y/x)=\arg \max_{x \in X} p(y/x)
@@ -927,11 +927,11 @@ Arriviamo quindi direttamente ad un'altra regola:
 \]
 \end{definizione}
 
-Questa regola non Ë ottima (non minimizza quindi la probabilit‡ di errore), perÚ come detto ha il vantaggio di poter essere utilizzata
-quando non Ë disponibile P(x).
+Questa regola non √® ottima (non minimizza quindi la probabilit√† di errore), per√≤ come detto ha il vantaggio di poter essere utilizzata
+quando non √® disponibile P(x).
 
 \noindent
-Valutiamo ora meglio la probabilit‡ di errore, in maniera da terminare da cosa dipende:
+Valutiamo ora meglio la probabilit√† di errore, in maniera da terminare da cosa dipende:
 \[\begin{split}
  P_E&=\sum_{y \in Y} P(E/y)p(y) \\
     &=1-\sum_{y \in Y} P(d(y)/y)p(y) \\
@@ -942,7 +942,7 @@ Valutiamo ora meglio la probabilit‡ di errore, in maniera da terminare da cosa d
  \end{split}
 \]
 
-Quindi la probabilit‡ di errore per una data regola di decisione dipende dal canale e dalla sorgente.
+Quindi la probabilit√† di errore per una data regola di decisione dipende dal canale e dalla sorgente.
 Se non conosco la sorgente (i.e. non conosco P(x)) e la considero con una distribuzione uniforme risulta:
 
 \begin{equation}
@@ -954,9 +954,9 @@ Se non conosco la sorgente (i.e. non conosco P(x)) e la considero con una distri
 \end{equation}
 
 \section{Codici di canale}
-Il nostro obiettivo, come ricordato pi˘ volte, Ë realizzare una trasmissione il pi˘ possibile affidabile e veloce.
-Abbiamo dato una misura per l'affidabilit‡, che Ë la probabilit‡ di errore enunciata nel paragrafo precedente. La velocit‡ invece 
-si puÚ misurare facilmente in base al numero di bit inviati. Proviamo innanzitutto a migliorare l'affidabilit‡ della trasmissione.
+Il nostro obiettivo, come ricordato pi√π volte, √® realizzare una trasmissione il pi√π possibile affidabile e veloce.
+Abbiamo dato una misura per l'affidabilit√†, che √® la probabilit√† di errore enunciata nel paragrafo precedente. La velocit√† invece 
+si pu√≤ misurare facilmente in base al numero di bit inviati. Proviamo innanzitutto a migliorare l'affidabilit√† della trasmissione.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -968,16 +968,16 @@ si puÚ misurare facilmente in base al numero di bit inviati. Proviamo innanzitut
 
 
 Consideriamo un canale BSC con p=0.01 (figura \ref{fig:bsc99}) e supponiamo di non conoscere la sorgente, ovvero P(x). La regola di decisione 
-sar‡ dunque quella della massima verosimiglianza. Ovvero:
+sar√† dunque quella della massima verosimiglianza. Ovvero:
 \[
  d(0)=0 \\ d(1)=1
 \]
-Calcoliamo quindi la probabilit‡ di errore, con la formula \eqref{perr}:
+Calcoliamo quindi la probabilit√† di errore, con la formula \eqref{perr}:
 \[
  P_E=\frac{0.01+0.01}{2}=0.01
 \]
 
-Proviamo ora a migliorare l'affidabilit‡. In maniera abbastanza banale, inseriamo un codificatore che invia 3 volte il bit (invece di una sola). In sostanza quindi stiamo considerando l'estensione terza di un BSC. La situazione Ë quella rappresentata in figura \ref{fig:bsc3}. I simboli che possono essere inviati sul canale sono solamente due (000 e 111), mentre possono essere ricevute tutte le 
+Proviamo ora a migliorare l'affidabilit√†. In maniera abbastanza banale, inseriamo un codificatore che invia 3 volte il bit (invece di una sola). In sostanza quindi stiamo considerando l'estensione terza di un BSC. La situazione √® quella rappresentata in figura \ref{fig:bsc3}. I simboli che possono essere inviati sul canale sono solamente due (000 e 111), mentre possono essere ricevute tutte le 
 combinazioni di 3 bit (a seguito degli errori di trasmissione).
 
 \begin{figure}[htbp]
@@ -988,14 +988,14 @@ combinazioni di 3 bit (a seguito degli errori di trasmissione).
 \end{center}
 \end{figure}
 
-La regola di decisione Ë abbastanza semplice. Si sceglie 0 se sono stati ricevuti pi˘ 0 che 1, mentre 1 nell'altro caso.
-PoichÈ abbiamo scelto un'estensione dispari del canale, non ci troveremo mai nel caso in cui il numero di 0 e di 1 sia lo stesso.
-Calcoliamo quindi la probabilit‡ di errore in questo caso. Si ha un errore quando ci sono 2 o 3 bit errati. Se infatti Ë sbagliato 
+La regola di decisione √® abbastanza semplice. Si sceglie 0 se sono stati ricevuti pi√π 0 che 1, mentre 1 nell'altro caso.
+Poich√© abbiamo scelto un'estensione dispari del canale, non ci troveremo mai nel caso in cui il numero di 0 e di 1 sia lo stesso.
+Calcoliamo quindi la probabilit√† di errore in questo caso. Si ha un errore quando ci sono 2 o 3 bit errati. Se infatti √® sbagliato 
 un unico bit, si riesce banalmente a determinare il simbolo corretto. Quindi:
 \[
  P_E=P(\sharp E=2)+P(\sharp E=3)
 \]
-PoichÈ la probabilit‡ che un bit venga trasmesso in maniera non corretta Ë uguale a p=0.01 per tutti i simboli, si puÚ utilizzare 
+Poich√© la probabilit√† che un bit venga trasmesso in maniera non corretta √® uguale a p=0.01 per tutti i simboli, si pu√≤ utilizzare 
 la distribuzione binomiale. Risulta quindi:
 \[\begin{split}
  P_E&=p^2(1-p)^1 \binom{3}{2} + p^3(1-p)^0 \binom{3}{3} \\
@@ -1004,8 +1004,8 @@ la distribuzione binomiale. Risulta quindi:
     &\simeq 3 \cdot 10^{-4}
   \end{split}
 \]
-L'affidabilit‡ Ë quindi aumentata rispetto al caso precedente. Tuttavia anche il numero di bit Ë aumentato, di ben 3 volte.
-Possiamo quindi dire che la velocit‡ di trasmissione (transmission rate) Ë 1/3. Si puÚ procedere con l'approccio della ripetizione, aumentando il numero n di bit (sempre dispari perÚ per quanto detto prima).
+L'affidabilit√† √® quindi aumentata rispetto al caso precedente. Tuttavia anche il numero di bit √® aumentato, di ben 3 volte.
+Possiamo quindi dire che la velocit√† di trasmissione (transmission rate) √® 1/3. Si pu√≤ procedere con l'approccio della ripetizione, aumentando il numero n di bit (sempre dispari per√≤ per quanto detto prima).
 
 \begin{table}[htbp]
   \begin{center}
@@ -1020,21 +1020,21 @@ Possiamo quindi dire che la velocit‡ di trasmissione (transmission rate) Ë 1/3. 
        11 & $5 \cdot 10^{-10}$ & 1/11 \\
     \end{tabular}
   \end{center}
-\caption{Probabilit‡ di errore e transmission rate, al crescere del numero di bit}
+\caption{Probabilit√† di errore e transmission rate, al crescere del numero di bit}
 \label{tab:bscc}
 \end{table}
 
-I risultati sono quelli riportati in tabella \ref{tab:bscc}. Come si nota pare ci sia un trade-off importante: all'aumentare dell'affidabilit‡ diminuisce notevolmente la velocit‡ di trasmissione.
-In realt‡ vedremo che non Ë cosÏ.
+I risultati sono quelli riportati in tabella \ref{tab:bscc}. Come si nota pare ci sia un trade-off importante: all'aumentare dell'affidabilit√† diminuisce notevolmente la velocit√† di trasmissione.
+In realt√† vedremo che non √® cos√¨.
 
-Proviamo ora a considerare un approccio differente. Consideriamo il caso iniziale del BSC (quindi massima velocit‡ e minima affidabilit‡). Se al posto del BSC utilizziamo un $BSC^3$ ed inviamo tutte le combinazioni di bit abbiamo esattamente la stesse caratteristiche del BSC (a parte il fatto che vengono mandati 3 bit alla volta). Se indichiamo allora con M il numero di combinazioni 
+Proviamo ora a considerare un approccio differente. Consideriamo il caso iniziale del BSC (quindi massima velocit√† e minima affidabilit√†). Se al posto del BSC utilizziamo un $BSC^3$ ed inviamo tutte le combinazioni di bit abbiamo esattamente la stesse caratteristiche del BSC (a parte il fatto che vengono mandati 3 bit alla volta). Se indichiamo allora con M il numero di combinazioni 
 inviabili (o meglio di parole di codice), in questo caso abbiamo M=8.
-La situazione Ë rappresentata in figura \ref{fig:mbsc1}.
+La situazione √® rappresentata in figura \ref{fig:mbsc1}.
 Viceversa, nel caso considerato prima avevamo M=2. Potevamo infatti inviare solamente due parole di codice (000 e 111), aumentavamo 
-l'affidabilit‡ e riducevamo la velocit‡ (anche se venivano inviati 3 bit l'informazione era un solo bit). 
-La situazione Ë rappresentata in figura \ref{fig:mbsc2}.
+l'affidabilit√† e riducevamo la velocit√† (anche se venivano inviati 3 bit l'informazione era un solo bit). 
+La situazione √® rappresentata in figura \ref{fig:mbsc2}.
 E' allora interessante considerare il caso intermedio, in cui M=4: si inviano 4 parole di codice (quindi 2 bit di informazione e 1 aggiuntivo).
-L'esempio Ë rappresentato in figura \ref{fig:mbsc3}
+L'esempio √® rappresentato in figura \ref{fig:mbsc3}
 
 
 \begin{figure}[htbp]
@@ -1063,7 +1063,7 @@ L'esempio Ë rappresentato in figura \ref{fig:mbsc3}
 
 \newpage
 \noindent
-La funzione di decodifica per quest'ultimo caso Ë la seguente:
+La funzione di decodifica per quest'ultimo caso √® la seguente:
 \[\begin{split}
  &d(000)=d(001)=00  \\
  &d(010)=d(011)=01  \\
@@ -1071,18 +1071,18 @@ La funzione di decodifica per quest'ultimo caso Ë la seguente:
  &d(110)=d(111)=11  \\
  \end{split}
 \]
-Per scegliere i simboli da inviare sul canale, si puÚ utilizzare il concetto di distanza di Hamming:
+Per scegliere i simboli da inviare sul canale, si pu√≤ utilizzare il concetto di distanza di Hamming:
 \begin{definizione}[Distanza di Hamming]
-La distanza di Hamming tra due parole di codice (di uguale lunghezza) Ë il numero di posizioni in cui i 
+La distanza di Hamming tra due parole di codice (di uguale lunghezza) √® il numero di posizioni in cui i 
 simboli delle due parole differiscono.
 \end{definizione}
 
 Per esempio 000 e 011 hanno distanza di Hamming pari a 2 (gli ultimi 2 bit differiscono). Le parole di codice da inviare sono 
 quindi state scelte al fine di massimizzare la distanza di Hamming tra le varie parole. Si nota infatti che la minima distanza in 
-questo caso tra due parole qualsiasi Ë 2. In questo modo Ë possibile ``distanziare'' il pi˘ possibile le parole di codice, in maniera che errori sui singoli bit non transformino una parola di codice in un'altra.
+questo caso tra due parole qualsiasi √® 2. In questo modo √® possibile ``distanziare'' il pi√π possibile le parole di codice, in maniera che errori sui singoli bit non transformino una parola di codice in un'altra.
 
 %
-%Confrontiamo ora la probabilit‡ di errore e il transmission rate al variare di M nei tre casi.
+%Confrontiamo ora la probabilit√† di errore e il transmission rate al variare di M nei tre casi.
 %
 %\begin{table}[htbp]
 %  \begin{center}
@@ -1094,7 +1094,7 @@ questo caso tra due parole qualsiasi Ë 2. In questo modo Ë possibile ``distanzia
 %        8 & $3 \cdot 10^{-2}$ & 1 \\
 %    \end{tabular}
 %  \end{center}
-%\caption{Probabilit‡ di errore e transmission rate, al variare di M}
+%\caption{Probabilit√† di errore e transmission rate, al variare di M}
 %\label{tab:confrm}
 %\end{table}
 
@@ -1116,24 +1116,24 @@ Si compone di:
 \end{definizione}
 
 \begin{osservazione}
- Dato un codice (M,n) il suo transmission rate Ë:
+ Dato un codice (M,n) il suo transmission rate √®:
 \[
  R=\frac{log(M)}{n}
 \]
 
 \end{osservazione}
 
-\section{2∞ Teorema di Shannon}
-Supponiamo di voler inviare un insieme n tendente ad infinito, di parole di codice in un canale. Nel codice a ripetizione che abbiamo visto nel paragrafo precedente, eravamo in grado di ridurre arbitrariamente la probabilit‡ di errore. Tuttavia avevamo visto che ciÚ 
-portava ad una riduzione del transmission rate. Nel caso limite in cui la probabilit‡ di errore tendeva a 0, anche la velocit‡ di trasmissione tendeva a 0.
-L'importante risultato del secondo teorema di Shannon dimostra invece che Ë possibile ridurre arbitrariamente la probabilit‡ di errore, 
-purchÈ il transimission rate sia inferiore alla capacit‡ di canale. In altre parole scelto un transmission rate a piacere (pi˘ piccolo della capacit‡ di canale) si potr‡ trasmettere con una probabilit‡ di errore tendente a 0.
+\section{2¬∞ Teorema di Shannon}
+Supponiamo di voler inviare un insieme n tendente ad infinito, di parole di codice in un canale. Nel codice a ripetizione che abbiamo visto nel paragrafo precedente, eravamo in grado di ridurre arbitrariamente la probabilit√† di errore. Tuttavia avevamo visto che ci√≤ 
+portava ad una riduzione del transmission rate. Nel caso limite in cui la probabilit√† di errore tendeva a 0, anche la velocit√† di trasmissione tendeva a 0.
+L'importante risultato del secondo teorema di Shannon dimostra invece che √® possibile ridurre arbitrariamente la probabilit√† di errore, 
+purch√© il transimission rate sia inferiore alla capacit√† di canale. In altre parole scelto un transmission rate a piacere (pi√π piccolo della capacit√† di canale) si potr√† trasmettere con una probabilit√† di errore tendente a 0.
 
-Per vedere in maniera intuitiva che ciÚ Ë vero, consideriamo i risultati visti nel paragrafo relativo all'AEP (vedi par. \ref{aep}).
-Supponiamo di poter inviare sul canale le parole di codice $X_1..X_M$. Per ciascuna di esse, il destinatario puÚ ricevere qualsiasi 
-sequenza di $Y^n$, tuttavia per il teorema AEP nella quasi totalit‡ dei casi saranno ricevute solamente delle sequenze tipiche.
+Per vedere in maniera intuitiva che ci√≤ √® vero, consideriamo i risultati visti nel paragrafo relativo all'AEP (vedi par. \ref{aep}).
+Supponiamo di poter inviare sul canale le parole di codice $X_1..X_M$. Per ciascuna di esse, il destinatario pu√≤ ricevere qualsiasi 
+sequenza di $Y^n$, tuttavia per il teorema AEP nella quasi totalit√† dei casi saranno ricevute solamente delle sequenze tipiche.
 Possiamo quindi pensare intuitivamente per ogni parola di codice inviata, le sequenze ricevute siano solamente quelle comprese in una 
-``sfera''. Il numero di sequenze in ogni sfera (sempre per l'AEP) Ë circa $2^{n H(Y/X)}$. Avremo quindi M sfere (una per ogni parola di codice), ciascuna con $2^{n H(Y/X)}$ sequenze. La situazione Ë quindi quella rappresentata in figura \ref{fig:sha2}.
+``sfera''. Il numero di sequenze in ogni sfera (sempre per l'AEP) √® circa $2^{n H(Y/X)}$. Avremo quindi M sfere (una per ogni parola di codice), ciascuna con $2^{n H(Y/X)}$ sequenze. La situazione √® quindi quella rappresentata in figura \ref{fig:sha2}.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -1143,9 +1143,9 @@ Possiamo quindi pensare intuitivamente per ogni parola di codice inviata, le seq
 \end{center}
 \end{figure}
 
-Si ponga ora attenzione al fatto che il numero totale di sequenze non Ë $M \times 2^{n H(Y/X)}$. Infatti non Ë detto che
-le sfere siano tutte disgiunte. Il numero totale di sequenze tipiche Ë invece circa $2^{n H(Y)}$ (sempre per l'AEP). 
-Ma sapendo quante sequenze contiene ogni sfera, possiamo ricavare il numero massimo di sfere possibili, affinchÈ esse non si intersichino:
+Si ponga ora attenzione al fatto che il numero totale di sequenze non √® $M \times 2^{n H(Y/X)}$. Infatti non √® detto che
+le sfere siano tutte disgiunte. Il numero totale di sequenze tipiche √® invece circa $2^{n H(Y)}$ (sempre per l'AEP). 
+Ma sapendo quante sequenze contiene ogni sfera, possiamo ricavare il numero massimo di sfere possibili, affinch√© esse non si intersichino:
 \[\begin{split}
  n_{max}&=\frac{2^{n H(Y)}}{2^{n H(Y/X)}} \\
     &=2^{n (H(Y)-H(Y/X))} \\
@@ -1153,7 +1153,7 @@ Ma sapendo quante sequenze contiene ogni sfera, possiamo ricavare il numero mass
   \end{split}
 \]
 
-Ma per avere una trasmissione affidabile, siamo proprio interessati al fatto che non ci sia intersezione tra le sfere. In caso contrario infatti per una sequenza che fa parte di due sfere, si avrebbero pi˘ parole di codice possibili tra cui scegliere. Il numero M di sfere, deve essere quini inferiore ad $n_{max}$, per essere in grado di determinare la parola 
+Ma per avere una trasmissione affidabile, siamo proprio interessati al fatto che non ci sia intersezione tra le sfere. In caso contrario infatti per una sequenza che fa parte di due sfere, si avrebbero pi√π parole di codice possibili tra cui scegliere. Il numero M di sfere, deve essere quini inferiore ad $n_{max}$, per essere in grado di determinare la parola 
 di codice inviata.
 Deve quindi essere:
 \[\begin{split}
@@ -1168,7 +1168,7 @@ Deve quindi essere:
 
 \bigskip
 
-Passiamo ora alla formulazione e dimostrazione vera e propria del teorema. Al solito, presentiamo prima alcuni risultati utili per la dimostrazione. Innanzitutto introduciamo il concetto di canali in cascata. Dati due canali $C_1$ e $C_2$, possiamo infatti porli appunto ``in cascata'', ovvero uno di seguito all'altro. La situazione Ë quella rappresentata in figura \ref{fig:cascata}. E' possibile indicare (riferendoci ai simboli usati in figura) che i canali sono in cascata con $X \to Y \to Z$.
+Passiamo ora alla formulazione e dimostrazione vera e propria del teorema. Al solito, presentiamo prima alcuni risultati utili per la dimostrazione. Innanzitutto introduciamo il concetto di canali in cascata. Dati due canali $C_1$ e $C_2$, possiamo infatti porli appunto ``in cascata'', ovvero uno di seguito all'altro. La situazione √® quella rappresentata in figura \ref{fig:cascata}. E' possibile indicare (riferendoci ai simboli usati in figura) che i canali sono in cascata con $X \to Y \to Z$.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -1178,7 +1178,7 @@ Passiamo ora alla formulazione e dimostrazione vera e propria del teorema. Al so
 \end{center}
 \end{figure}
 
-E' interessante determinare la matrice di canale che si ottiene ponendo in cascata due canali $C_1$ e $C_2$. In maniera abbastanza semplice, si nota come tale matrice Ë il prodotto delle matrici di canale di $C_1$ e $C_2$, ovvero $P=P_1 \times P_2$. Per fare un esempio consideriamo due canali BSC, rispettivamente con matrici di canale P1 e P2:
+E' interessante determinare la matrice di canale che si ottiene ponendo in cascata due canali $C_1$ e $C_2$. In maniera abbastanza semplice, si nota come tale matrice √® il prodotto delle matrici di canale di $C_1$ e $C_2$, ovvero $P=P_1 \times P_2$. Per fare un esempio consideriamo due canali BSC, rispettivamente con matrici di canale P1 e P2:
 
 \[ P_1 = \left[
   \begin{array}{cc}
@@ -1193,7 +1193,7 @@ E' interessante determinare la matrice di canale che si ottiene ponendo in casca
   \end{array} \right]
 \]
 
-Allora la matrice P, del canale che si ottiene ponendoli in cascata Ë:
+Allora la matrice P, del canale che si ottiene ponendoli in cascata √®:
 \[
  P = \left[
   \begin{array}{cc}
@@ -1283,15 +1283,15 @@ Ma per il lemma \ref{lem:cascata} $p(x/y)=p(x/y,z)$, quindi:
  \ge & 0
  \end{split}
 \]
-L'ultimo passaggio deriva dal fatto che $p(y,z)$ Ë una probabilit‡ (e quindi maggiore uguale a 0), mentre il 
-secondo termine Ë una distanza di Kullback-Leibler, che per il teorema \ref{leibler} Ë maggiore o uguale a 0.
+L'ultimo passaggio deriva dal fatto che $p(y,z)$ √® una probabilit√† (e quindi maggiore uguale a 0), mentre il 
+secondo termine √® una distanza di Kullback-Leibler, che per il teorema \ref{leibler} √® maggiore o uguale a 0.
 \end{proof}
 \end{teorema}
 
 \medskip
 
 La disuguaglianza dell'elaborazione dati dice in sostanza che l'informazione mutua, man mano che si attraversano dei canali, 
-non puÚ aumentare. In sostanza ad ogni ``passaggio'' si puÚ solo perdere informazione (e mai guadagnarne).
+non pu√≤ aumentare. In sostanza ad ogni ``passaggio'' si pu√≤ solo perdere informazione (e mai guadagnarne).
 
 \bigskip
 
@@ -1341,9 +1341,9 @@ Ora:
           \le& P_E log(|X|-1)
   \end{split}
 \]
-L'ultimo passaggio deriva dal fatto che il massimo valore che puÚ raggiungere l'entropia Ë il logaritmo del 
-numero di simboli. Ma se E=1 allora $\widehat{X}\neq X$, quindi ho qualche informazione in pi˘ sul simbolo inviato. 
-Ovvero so che non sar‡ $\widehat{X}$. Rimane dunque da ``scegliere'' tra $|X|-1$ simboli, la cui massima entropia Ë proprio 
+L'ultimo passaggio deriva dal fatto che il massimo valore che pu√≤ raggiungere l'entropia √® il logaritmo del 
+numero di simboli. Ma se E=1 allora $\widehat{X}\neq X$, quindi ho qualche informazione in pi√π sul simbolo inviato. 
+Ovvero so che non sar√† $\widehat{X}$. Rimane dunque da ``scegliere'' tra $|X|-1$ simboli, la cui massima entropia √® proprio 
 $log(|X|-1)$.
 Riassumendo:
 \[
@@ -1377,7 +1377,7 @@ $C^n=(X^n,p^n(x,y),Y^n)$ la sua estensione n-esima. Allora:
 \]
 \begin{proof}
  \mbox{}
-Ricordando che se C Ë senza memoria:
+Ricordando che se C √® senza memoria:
 \[
 p(y^n/x^n)=\prod_{i=1}^n p(y_i,x_i) 
 \]
@@ -1396,8 +1396,8 @@ Si ha:
 \end{proof}
 Il secondo e il quarto passaggio seguono dalla regola della catena (generalizzata).
 Il terzo passaggio segue invece dal fatto che il condizionamento riduce l'entropia (oss. \ref{condizionamento}).
-Il quinto passaggio deriva dal fatto che il canale Ë senza memoria.
-L'ultimo passaggio, infine, deriva dal fatto che la capacit‡ di canale Ë il massimo dell'informazione mutua.
+Il quinto passaggio deriva dal fatto che il canale √® senza memoria.
+L'ultimo passaggio, infine, deriva dal fatto che la capacit√† di canale √® il massimo dell'informazione mutua.
 \label{lsh}
 \end{lemma}
 
@@ -1405,13 +1405,13 @@ L'ultimo passaggio, infine, deriva dal fatto che la capacit‡ di canale Ë il mass
 \bigskip
 
 \noindent
-Possiamo ora enunciare e dimostrare una parte del 2∞ teorema di Shannon.
+Possiamo ora enunciare e dimostrare una parte del 2¬∞ teorema di Shannon.
 
-\begin{teorema}[2∞ teorema di Shannon (o della codifica di canale)]
+\begin{teorema}[2¬∞ teorema di Shannon (o della codifica di canale)]
  \mbox{}
 
  \begin{enumerate}
-  \item Sia $A=(X,p(y/x),Y)$ un canale con capacit‡ C e sia $R \le C$.
+  \item Sia $A=(X,p(y/x),Y)$ un canale con capacit√† C e sia $R \le C$.
 
         \noindent
         Allora esiste una sequenza di codici $(2^{nR},n)$ tali che:
@@ -1431,7 +1431,7 @@ Possiamo ora enunciare e dimostrare una parte del 2∞ teorema di Shannon.
  \begin{proof}
   \mbox{}
   \begin{description}
-   \item[1.] Omesso, la dimostrazione Ë complicata.
+   \item[1.] Omesso, la dimostrazione √® complicata.
    \item[2.] 
     
     Indichiamo con W l'insieme delle parole di codice inviabili sul canale.
@@ -1440,11 +1440,11 @@ Possiamo ora enunciare e dimostrare una parte del 2∞ teorema di Shannon.
      W \to X^n(W) \to Y^n
     \]
     \noindent
-    PoichÈ stiamo considerando dei codici $(2^{nR},n)$, si avr‡:
+    Poich√© stiamo considerando dei codici $(2^{nR},n)$, si avr√†:
     \[
      |W|=2^{nR}
     \]
-    Quindi, poichÈ consideriamo le parole di codice tutte equiprobabili, si avr‡:
+    Quindi, poich√© consideriamo le parole di codice tutte equiprobabili, si avr√†:
     \[
      H(W)=log(|W|)=log(2^{nR})=nR
     \]
