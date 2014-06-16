@@ -58,9 +58,9 @@ determinare il simbolo inviato dalla sorgente.
 	$C^{III}$ & $C^{IV}$ & $C^{V}$\\
        \hline
 	$a \to 0$ & $a \to 1101$ & $a \to 0$ \\ 
-	$b \to 0$ & $b \to 110000$ & $a \to 10$ \\ 
-	$c \to 1$ & $c \to 00100$ & $a \to 110$ \\ 
-        $d \to 1$ & $d \to 11111$ & $a \to 111$ \\ 
+	$b \to 0$ & $b \to 110000$ & $b \to 10$ \\ 
+	$c \to 1$ & $c \to 00100$ & $c \to 110$ \\ 
+        $d \to 1$ & $d \to 11111$ & $d \to 111$ \\ 
     \end{tabular}
      
      \caption{Esempio di codici}
@@ -120,7 +120,7 @@ ossia per simboli diversi, si hanno parole di codice diverse.
 
 \noindent
 \textbf{Esempio}
-Il codice \(C^{III}\) in tabella \ref{tab:codici1} è singolare. I codici $C^{IV}$ e $C^{V}$, invece, sono non singolari.
+Il codice \(C^{III}\) in tabella \ref{tab:codici2} è singolare. I codici $C^{IV}$ e $C^{V}$, invece, sono non singolari.
 
 \bigskip
 \noindent
@@ -171,7 +171,7 @@ Sia \(C: \X \longrightarrow \D^*\) un codice, C si dice \textit{univocamente dec
 \end{definizione}
 
 Se un codice è UD, allora il destinatario riuscirà sempre a segmentare i bit in arrivo.
-Riprendendo sempre l'esempio precedente, appare chiaro che il codice in figura \ref{fig:codice3}  non è UD Infatti nella sua estensione 2° (tabella \ref{tab:codice4}) compare la sequenza '010', che però è presente anche nel codice originale (figura \ref{fig:codice3}).
+Riprendendo sempre l'esempio precedente, appare chiaro che il codice in figura \ref{fig:codice3} non è UD Infatti nella sua estensione 2° (tabella \ref{tab:codice4}) compare la sequenza '010', che però è presente anche nel codice originale (figura \ref{fig:codice3}).
 
 
 I codici UD sono sicuramente non ambigui, ma alcuni di essi possono essere inefficienti, come quello rappresentato in figura \ref{fig:0024}: in questo caso il fatto che una parola sia prefisso dell'altra provoca l'introduzione di un ritardo di decodifica. Ciò è dovuto al fatto che è necessario un certo numero di simboli per riuscire a distinguere le due differenti parole. Per ovviare a questo problema introduciamo un'ulteriore classe di codici.
@@ -825,7 +825,7 @@ Dimostriamo ora che il codice di Huffman è ottimale. Prima però introduciamo a
 
  Sia:
  \[
-  C: \X \to \D*
+  C: \X \to \D^*
  \]
   un codice ottimale. Allora:
 \[
@@ -844,7 +844,7 @@ Dimostriamo ora che il codice di Huffman è ottimale. Prima però introduciamo a
  non è ottimale. Sia:
 
  \[
-  C': \X \to \D*
+  C': \X \to \D^*
  \]
 
  un codice definito nel modo seguente:
