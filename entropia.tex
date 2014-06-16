@@ -402,7 +402,7 @@ le proposizioni:
 
   \begin{proof}
   Per la diseguaglianza di Gibbs (\ref{gibbs}):
-  \[ H(\bar{p})=-\sum_{i=1}^n p_i log(p_i) \le \sum_{i=1}^n p_i log(q_i)  \]
+  \[ H(\bar{p})=-\sum_{i=1}^n p_i log(p_i) \le -\sum_{i=1}^n p_i log(q_i)  \]
 
   \[Poniamo \ \bar{q}=\left ( \frac{1}{n},\frac{1}{n},...,\frac{1}{n} \right) \]
 
@@ -411,6 +411,8 @@ le proposizioni:
 
   \[ \Rightarrow -\sum_{i=1}^{n} p_i log(p_i) \le
     \sum_{i=1}^{n} p_i log(n) = log(n) \sum_{i=1}^{n} p_i = log(n) \]
+
+  \[Ricordiamo che \sum_{i=1}^{n} p_i = 1 in quanto p_i \in \delta_n (simplesso standard) \forall i = 1, 2, ..., n \]
 
   \[ \Rightarrow H(\bar{p}) \le log(n) \]
   Resta da dimostrare che \[H(\frac{1}{n},\frac{1}{n},...,\frac{1}{n})=log(n) \]
@@ -466,7 +468,7 @@ In questo caso si ha:
  H(X/Y=y)= -\sum_{x \in X} p(x/y)log(p(x/y))
 \]
 
-A partire da questo risultato, l'entropia condizionata può essere ottenuto semplicemente 
+A partire da questo risultato, l'entropia condizionata può essere ottenuta semplicemente 
 come valore atteso al variare di tutti gli eventi $y_i \in Y$.
 
 \begin{definizione}
@@ -478,7 +480,7 @@ come valore atteso al variare di tutti gli eventi $y_i \in Y$.
          &= -\sum_{x \in X} \sum_{y \in Y} p(x,y)log( p(x/y) )
   \end{split}
   \]
- (l'ultimo passaggio deriva dirrettamente dalla definizione di probabilità condizionata)
+ (l'ultimo passaggio deriva direttamente dalla definizione di probabilità condizionata)
 \end{definizione}
 
 E' lecito domandarsi se esista un legame tra entropia, entropia congiunta ed entropia condizionata.
@@ -1016,7 +1018,7 @@ al concetto di entropia.
  I(X;Y)=&\sum_{x \in X} \sum_{y \in Y} p(x,y) log \frac{p(x,y)}{p(x)p(y)} \\
    =&\sum_{x \in X} \sum_{y \in Y} p(x,y) log \frac{p(y)p(x/y)}{p(x)p(y)} \\
    =&\sum_{x \in X} \sum_{y \in Y} p(x,y) log \frac{p(x/y)}{p(x)} \\
-   =&\sum_{x \in X} \sum_{y \in Y} p(x,y) log p(x/y)-\sum_{x \in X} \sum_{y \in Y} p(x,y) log p(x) \\
+   =&\sum_{x \in X} \sum_{y \in Y} p(x,y) log (p(x/y))-\sum_{x \in X} \sum_{y \in Y} p(x,y) log (p(x)) \\
    =&-H(X/Y)-\sum_{x \in X} log (p(x)) \sum_{y \in Y} p(x,y)\\
    =&-H(X/Y)-\sum_{x \in X} log (p(x)) p(x)\\
    =&-H(X/Y)+H(X)\\
