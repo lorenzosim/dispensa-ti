@@ -277,7 +277,7 @@ alcuni concetti e risultati.
   \label{fig:animals}
 \end{figure}
 
-Il simplesso standard di $R^n$ o spazio delle probabilità n-dimensionale, è definito come segue:
+Il simplesso standard di $\mathbb{R}^n$ o spazio delle probabilità n-dimensionale, è definito come segue:
 \begin{definizione}[Simplesso standard]
 
  \[ \triangle_n = \{ \bar{x} \in R^n \mid \sum_{i=1}^{n} x_i=1 \ ; \ \forall i=1..n: x_i \ge 0 \} \]
@@ -666,7 +666,7 @@ Prima però è necessario introdurre alcuni concetti, utili per le dimostrazioni
 
 \begin{definizione}[Insieme convesso]
  Un insieme X si dice convesso se comunque presi due punti $x,y \in X$ il segmento che li congiunge è contenuto interamente in X.
- Formalmente, $X \in R^n$ è convesso se:
+ Formalmente, $X \in \mathbb{R}^n$ è convesso se:
  \[
   \forall x,y \in X, \lambda \in [0,1] \ : \ \lambda x + (1-\lambda) y \in X
  \]
@@ -693,7 +693,7 @@ In figura \ref{convessi} sono riportati un insieme convesso ed uno non convesso.
 Il convex hull si può ottenere congiungendo con dei segmenti, i punti più ``esterni'' dell'insieme. Il convex hull di due punti sarà 
 quindi il segmento che li congiunge. In figura \ref{fig:convexhull} è riportato il convex hull di 3 punti $p_1,p_2,p_3$. In generale, con k punti:
 \begin{equation}
- CH(p_1,p_2,...,p_k)=\{ p \in R^n \mid p=\sum_{i=1}^k \lambda_i p_i \ \forall \bar{\lambda}=(\lambda_1,\lambda_2,...,\lambda_k) 
+ CH(p_1,p_2,...,p_k)=\{ p \in \mathbb{R}^n \mid p=\sum_{i=1}^k \lambda_i p_i \ \forall \bar{\lambda}=(\lambda_1,\lambda_2,...,\lambda_k) 
 \in \Delta_k\}
 \label{convex}
 \end{equation}
@@ -709,7 +709,7 @@ quindi il segmento che li congiunge. In figura \ref{fig:convexhull} è riportato
 Dalla definizione di funzione convessa e di convex hull, si può ricavare che data una funzione f convessa e comunque presi k punti $p_1,p_2,..p_k$ su y=f(x), risulta che $CH(p_1,p_2,...p_k)$ sta ``sopra`` y=f(x). L'esempio in figura \ref{fig:convexhull} mostra esattamente questo fatto con 3 punti (f è la curva).
 Questo risultato è noto come disuguaglianza di Jensen. Tuttavia per arrivare alla forma ''finale`` della disuguaglianza, è necessario effettuare qualche passaggio a partire dall'idea che è stata appena esposta.
 
-Potremo allora descrivere tutti gli infiniti punti del convex hull. Ovvero, data $f: [a,b] \to R$ convessa e comunque presi k punti 
+Potremo allora descrivere tutti gli infiniti punti del convex hull. Ovvero, data $f: [a,b] \to \mathbb{R}$ convessa e comunque presi k punti 
 $p_1,p_2,..p_k$ su y=f(x), risulta che:
 \[
 f(x) \le y, \forall P=(x,y) \in CH(p_1,p_2,...p_k)
@@ -726,7 +726,7 @@ Possiamo ora arrivare alla versione finale della disuguaglianza.
 \bigskip
 
 \begin{teorema}[Disuguaglianza di Jensen]
- Sia $f: [a,b] \to R$ una funzione convessa, $x_1..x_k \in$ [a,b], $\bar{\lambda}=(\lambda_1,\lambda_2,...,\lambda_k) \in \Delta_k$.
+ Sia $f: [a,b] \to \mathbb{R}$ una funzione convessa, $x_1..x_k \in$ [a,b], $\bar{\lambda}=(\lambda_1,\lambda_2,...,\lambda_k) \in \Delta_k$.
  Allora vale che:
  \[
  f \left( \sum_{i=1}^k \lambda_i x_i \right) \le \sum_{i=1}^k \lambda_i f(x_i)
@@ -852,7 +852,7 @@ Introduciamo ora il concetto di metrica (o distanza), al fine di descrivere una 
 \begin{definizione}[Metrica]
  Dato un insieme X, una metrica (o distanza) è una funzione
 \[
- d: X \times X \to R
+ d: X \times X \to \mathbb{R}
 \]
 Per cui valgono le seguenti proprietà, $\forall x,y,z \in X$:
 \[\begin{split}
@@ -1553,7 +1553,7 @@ due quantità siano legate tra loro, nel caso di un processo stocastico più gen
 Prima però introduciamo un lemma che ci sarà utile in seguito.
 
 \begin{lemma}[Lemma di Cesaro]
-Sia $\{a_n\} \ n \in N$ una successione tale che:
+Sia $\{a_n\} \ n \in \mathbb{N}$ una successione tale che:
 \[
  \lim_{n \to \infty} \{a_n\}=a
 \]
@@ -1584,7 +1584,7 @@ Sia $\{X_t\}_t$ un processo stocastico stazionario, allora:
  \[
   a_n=H(X_n \mid X_1,X_2,..,X_{n-1})
  \]
- Si ha che $\forall n \in N$:
+ Si ha che $\forall n \in \mathbb{N}$:
  \begin{itemize}
  \item $a_n \ge 0$. Infatti l'entropia è sempre positiva, per definizione.
  \item $a_{n+1} \le a_n$. Infatti:
