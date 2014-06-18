@@ -69,7 +69,7 @@ assumere l'informazione mutua. Vediamo allora da cosa dipende questo valore:
   \end{split}
 \]
 
-Come si nota dall'ultimo risultato, l'informazione mutua dipende dalle probabilità forward (termini $p(y/x)$) e dalle probabilità di ``ingresso'' (termini p(x)).
+Come si nota dall'ultimo risultato, l'informazione mutua dipende dalle probabilità forward (termini $p(y/x)$ e $p(y/z)$) e dalle probabilità di ``ingresso'' (termini $p(x)$ e $p(z)$).
 Possiamo in sostanza dire che:
 \[
  I(X;Y)=f(S,C)
@@ -1080,23 +1080,6 @@ simboli delle due parole differiscono.
 Per esempio 000 e 011 hanno distanza di Hamming pari a 2 (gli ultimi 2 bit differiscono). Le parole di codice da inviare sono 
 quindi state scelte al fine di massimizzare la distanza di Hamming tra le varie parole. Si nota infatti che la minima distanza in 
 questo caso tra due parole qualsiasi è 2. In questo modo è possibile ``distanziare'' il più possibile le parole di codice, in maniera che errori sui singoli bit non transformino una parola di codice in un'altra.
-
-%
-%Confrontiamo ora la probabilità di errore e il transmission rate al variare di M nei tre casi.
-%
-%\begin{table}[htbp]
-%  \begin{center}
-%   \begin{tabular}{c | r |  c}
-%        M & $P_E$ &  Tras. Rate \\
-%        \hline
-%	2 & $3 \cdot 10^{-4}$ & 0.33 \\
-%        4 & $2 \cdot 10^{-2}$ & 0.66 \\
-%        8 & $3 \cdot 10^{-2}$ & 1 \\
-%    \end{tabular}
-%  \end{center}
-%\caption{Probabilità di errore e transmission rate, al variare di M}
-%\label{tab:confrm}
-%\end{table}
 
 Variando i due parametri che abbiamo considerato finora: l'estensione n del canale e le parole di codice inviabili M possiamo ottenere moltissimi codici (detti codici (M,n)).
 
