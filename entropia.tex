@@ -1068,6 +1068,18 @@ Possiamo, sempre sulla base del teorema \ref{infmutua}, effettuare una serie di 
 \[
  I(X;X)=H(X)
 \]
+\begin{proof}
+  Per il teorema \ref{infmutua}:
+  \[
+  I(X;Y)=H(X)-H(X/Y)
+  \]
+  Poiché abbiamo $Y = X$ e ricordando che $H(X/X) = 0$ si ottiene:
+  \[\begin{split}
+  I(X;X)&=H(X) - H(X,X) \\
+        &=H(X)
+    \end{split}
+  \]
+ \end{proof}
 \end{osservazione}
 
 \begin{osservazione}
@@ -1082,7 +1094,7 @@ Possiamo, sempre sulla base del teorema \ref{infmutua}, effettuare una serie di 
 
 \begin{osservazione}
  \[
-   I(X;Y)=0 \iff X \ e \ Y \ sono \ statisticamente \ indipendenti  
+   I(X;Y)=0 \iff X \ e \ Y \ sono \ stocasticamente \ indipendenti  
  \]
  \begin{proof}
   Per il teorema \ref{leibler} una distanza KL è 0 se e solo se le due distribuzioni di probabilità coincidono.
@@ -1212,20 +1224,30 @@ si può arrivare alla seguente osservazione.
  \[
  I(X,Y/Z)=H(X/Z)-H(X/Y,Z)
 \]
+ \begin{proof}
+E' sufficiente applicare le proprietà dei logaritmi alla sommatoria ottenuta al punto precedente e riarrangiare 
+opportunamente la stessa in modo da ottenere due sommatorie distinte e riconoscere, a questo punto $H(X/Z)$ e $H(X/Y,Z)$.
+\end{proof}
 \end{osservazione}
 
 \begin{osservazione}
  \[
   I(X,Y/Z) \ge 0
  \]
+ \begin{proof}
+ Per l'\label{distinf} $I(X; Y) \ge 0$, da cui segue direttamente la tesi.
+ \end{proof}
 \end{osservazione}
 
 \begin{osservazione}
 \[
  H(X_1,X_2,..,X_n)=\sum_{i=1}^n H(X_i/X_1,X_2,..X_{i-1}) \le \sum_{i=1}^n H(X_i)
 \]
+ \begin{proof}
+ La prima uguaglianza deriva dall'applicazione della regola della catena generalizzata (per il \ref{catenag}). La 
+ disuguaglianza seguente la si ottiene invece perché (vedi \ref{condizionamento}) il condizionamento riduce l'entropia
+ \end{proof}
 \end{osservazione}
-
 
 \section{Asymptotic Equipartition Property}
 \label{aep}
@@ -1450,7 +1472,7 @@ proposizioni.
 
 \end{proposizione}
 
-Ques'ultima proposizione dimostra che la nostra intuizione era corretta e formalizza in maniera precisa all'interno 
+Quest'ultima proposizione dimostra che la nostra intuizione era corretta e formalizza in maniera precisa all'interno 
 di quali estremi si trova la cardinalità dell'insieme delle sequenze tipiche.
 
 \subsection{Generalizzazione dell'AEP}
