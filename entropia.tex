@@ -176,7 +176,6 @@ Studiamo ora il comportamento di questa funzione (figura \ref{fig:entropia}).
 \noindent
 Osserviamo che:
 \begin{enumerate}
-\item qualsiasi entropia è sempre maggiore o uguale a 0
 \item negli estremi dell'intervallo la funzione assume valori (ricordando che abbiamo posto \(0 \log 0 = 0\)):
 \[H(0) = - 0 \log{0} -(1-0) \log (1-0) = 0\] 
 \[H(1) = - 1 \log{1} -(1-1) \log (1-1) = 0\]
@@ -216,13 +215,13 @@ Data la funzione:
 \end{definizione}
 } per il teorema descritto nella nota a piè di pagina\footnote{
 \begin{teorema}
-se \(f \in \E^1\) (ossia se f è derivabile almeno 1 volta) allora:
+se \(f \in \mathcal{C}^1\) (ossia se f è derivabile almeno 1 volta) allora:
 \[\mbox{f convessa} \iff \forall x, x_0 \in [a,b] : f(x) \geq f(x_0) + f'(x_0) (x-x_0)\]
 \label{concava1}
 \end{teorema}
 
 \begin{teorema}
-se \(f \in \E^2\) (ossia se f è derivabile almeno 2 volte) allora:
+se \(f \in \mathcal{C}^2\) (ossia se f è derivabile almeno 2 volte) allora:
 \[\mbox{f convessa} \iff \forall x \in [a,b]: f''(x) \geq 0\]
 \label{concava}
 \end{teorema}
