@@ -214,7 +214,7 @@ In figura \ref{fig:noiseless} è riportato un esempio di canale noiseless.
 \end{figure}
 
 \begin{lemma}
- Se $\mathcal{C}$ è noiseless, allora $H(X/Y)=0$
+ Se $\C$ è noisless, allora $H(X/Y)=0$
  \begin{proof}
  Supponiamo per comodità
  che $\forall y \in Y p(y)>0$. Se così non fosse, sarebbe sufficiente rimuovere il simbolo (non c'è quindi perdita di generalità).
@@ -254,7 +254,7 @@ In figura \ref{fig:noiseless} è riportato un esempio di canale noiseless.
 Calcoliamo ora la capacità per un canale noiseless.
 
 \begin{lemma}
-Se \mathcal{C} è noiseless, allora $C=log|X|$
+Se $\C$ è noisless, allora $C=log|X|$
 \begin{proof}
  \[
   C=\max_{p(x)} I(X;Y)=\max_{p(x)} H(X)-H(X/Y)
@@ -300,7 +300,7 @@ In figura \ref{fig:deterministico} è riportato un esempio di canale determinist
 \end{figure}
 
 \begin{lemma}
- Se \mathcal{C} è deterministico, allora $H(Y/X)=0$
+ Se $\C$ è deterministico, allora $H(Y/X)=0$
  \begin{proof}
   \[
    H(Y/X)=\sum_{x \in X} p(x)H(Y/X=x)
@@ -316,7 +316,7 @@ In figura \ref{fig:deterministico} è riportato un esempio di canale determinist
 Calcoliamo ora la capacità per un canale deterministico.
 
 \begin{lemma}
-Se \mathcal{C} è deterministico, allora $C=log|Y|$
+Se $\C$ è deterministico, allora $C=log|Y|$
 \begin{proof}
  \[
   C=\max_{p(x)} I(X;Y)=\max_{p(x)} H(Y)-H(Y/X)
@@ -374,7 +374,7 @@ In figura \ref{fig:cdeterministico} è riportato un esempio di canale completame
 \end{figure}
 
 \begin{lemma}
- Se \mathcal{C} è completamente completamente deterministico, allora:
+ Se $\C$ è completamente completamente deterministico, allora:
  \begin{itemize}
   \item $H(Y/X)=H(X/Y)=0$
   \item $I(X;Y)=H(X)=H(Y)$
@@ -395,7 +395,7 @@ In figura \ref{fig:cdeterministico} è riportato un esempio di canale completame
 Per quanto riguarda infine la capacità di canale:
 
 \begin{lemma}
-Se \mathcal{C} è completamente deterministico, allora $C=log|X|=log|Y|$
+Se $\C$ è completamente deterministico, allora $C=log|X|=log|Y|$
 \begin{proof}
 Segue direttamente dai lemmi per il canale noiseless e deterministico.
 \end{proof}
@@ -430,7 +430,7 @@ comunicazione...che è stata appunto inutile.
 \end{figure}
 
 \begin{lemma}
- Se \mathcal{C} è inutile, allora:
+ Se $\C$ è inutile, allora:
 \[
   I(X;Y)=0
 \]
@@ -453,7 +453,7 @@ Ma se $X$ e $Y$ sono indipendenti, per l'osservazione \ref{mutuaindip} si ha $I(
 Per quanto riguarda infine la capacità di canale:
 
 \begin{lemma}
-Se \mathcal{C} è inutile, allora $C=0$
+Se $\C$ è inutile, allora $C=0$
 \begin{proof}
 Segue direttamente dal lemma precedente.
 \end{proof}
@@ -486,7 +486,7 @@ Segue direttamente dal lemma precedente.
 \end{table}
 
 \begin{lemma}
- Se \mathcal{C} è un canale simmetrico, c una riga ed r una colonna della sua matrice di canale, allora:
+ Se $\C$ è un canale simmetrico, c una riga ed r una colonna della sua matrice di canale, allora:
  \begin{enumerate}
   \item $H(Y/X)=H(r)$
   \item $H(X/Y)=H(c)$
@@ -513,7 +513,7 @@ Un esempio di canale simmetrico è riportato in tabella \ref{tab:tsim}.
 La capacità di un canale simmetrico è fornita dal seguente teorema
 
 \begin{teorema}
- Se \mathcal{C} è un canale simmetrico ed r una riga della matrice di canale di \mathcal{C}, allora:
+ Se $\C$ è un canale simmetrico ed r una riga della matrice di canale di $\C$, allora:
  \[
   C=log|Y| - H(r)
  \]
@@ -575,11 +575,7 @@ Un esempio di canale debolmente simmetrico è riportato in tabella \ref{tdsim}.
 La capacità di canale è uguale a quella dei canali simmetrici, come descritto dal seguente teorema.
 
 \begin{teorema}
-<<<<<<< HEAD
- Se \mathcal{C} è un canale debolmente simmetrico ed r una riga della matrice di canale di \mathcal{C}, allora:
-=======
  Se $\C$ è un canale debolmente simmetrico ed $r$ una riga della matrice di canale di $\C$, allora:
->>>>>>> 46d8fbaf27338c1e287817a9a9b63bfb10ff5b86
  \[
   C=log|Y| - H(r)
  \]
